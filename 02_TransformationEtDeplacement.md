@@ -22,10 +22,22 @@ Chaque objet dans Unity possède un composant Transform qui stocke les informati
 
 ## Vector 2 et Vector 3
 
-Unity utilise des structures de données appelées Vector2 et Vector3 pour représenter les positions, rotations et échelles dans l'espace 2D et 3D. Pour la session 2D, nous utiliserons principalement Vector2, mais il est important de comprendre les deux. Cela sert à représenter des points ou des directions dans l'espace.
+Unity utilise des structures de données appelées Vector2 et Vector3 pour représenter un point ou une direction dans l'espace 2D et 3D. Pour cette session, nous utiliserons principalement Vector2, mais il est important de comprendre les deux. Cela sert à représenter des points ou des directions dans l'espace.
 
 -   **Vector2** : Représente un vecteur dans un espace 2D avec des composantes X et Y.
 -   **Vector3** : Représente un vecteur dans un espace 3D avec des composantes X, Y et Z.
+
+![Vecteur 2D ](images/vecteur2d.png)
+
+Exemple de création d'un Vector2 et d'un Vector3 :
+
+```csharp
+// Créer un Vector2
+Vector2 pointA= new Vector2(7.0f, 3.0f); //Vecteur de 7 unités en X et 3 unités en Y
+Vector2 pointB = new Vector2(-1.0f, 3.0f); //Vecteur de -1 unité en X et 3 unités en Y
+
+Vector2 direction2D = Vector2.direction(pointA, pointB); //Crée un vecteur direction entre les deux points Dans ce cas, le vecteur sera (-8,0)
+```
 
 ### Vecteurs pré-définis
 
@@ -38,6 +50,16 @@ Unity fournit également des vecteurs pré-définis pour faciliter certaines op�
 -   **Vector2.left** : Représente le vecteur (-1, 0). Déplacement vers la gauche.
 -   **Vector2.right** : Représente le vecteur (1, 0). Déplacement vers la droite.
 -   **Vector3.forward** : Représente le vecteur (0, 0, 1). Déplacement vers l'avant dans l'espace 3D. Utilisé pour la rotation autour de l'axe Z en 2D.
+
+Exemple d'utilisation des vecteurs pré-définis :
+
+```csharp
+// Déplacer un objet vers le haut de 2 unités
+transform.Translate(Vector2.up * 2.0f);
+
+// Déplacer un objet vers la droite de 3 unités
+transform.Translate(Vector2.right * 3.0f);
+```
 
 ### Créer un Vector2 personnalisé
 
@@ -73,7 +95,7 @@ La position d'un objet est définie par ses coordonnées X, Y et Z dans l'espace
 
 ```csharp
 // Récupérer la position actuelle
-Vector3 currentPosition = transform.position;
+Vector2 currentPosition = transform.position;
 // Modifier la position
 transform.position = new Vector2(1.0f, 2.0f);
 ```
@@ -85,9 +107,12 @@ Pour déplacer un objet dans une direction spécifique, vous pouvez ajouter un v
 **Attention** : Translate prends les trois composantes X, Y et Z même en 2D.
 
 ```csharp
+// Modifier la position d'un objet
+transform.position = new Vector2(3.0f, 4.0f);
+
 // Déplacer un objet de (1, 0, 0) unités
 transform.position += new Vector2(1.0f, 0.0f);
-// OU utiliser Translate
+// OU utiliser Translate. Vous devez spécifier les 3 composantes X,Y et Z
 transform.Translate(1.0f, 2.0f, 0.0f);
 ```
 
@@ -107,7 +132,8 @@ Vector3 currentRotation = transform.eulerAngles;
 transform.eulerAngles = new Vector3(0.0f, 0.0f, 45.0f);
 
 // Faire pivoter un objet de 45 degrés autour de l'axe Z
-transform.Rotate(0.0f, 0.0f, 45.0f);
+float vitesseRotation = 1f; // degrés
+transform.Rotate(0.0f, 0.0f, vitesseRotation * Time.deltaTime);
 ```
 
 ### Faire pivoter un objet autour d'un point spécifique
@@ -127,6 +153,7 @@ L'échelle d'un objet détermine sa taille relative le long des axes X, Y et Z. 
 ```csharp
 // Récupérer l'échelle actuelle
 Vector3 taille = transform.localScale;
+
 // Modifier l'échelle
 transform.localScale = new Vector2(2.0f, 2.0f);
 ```
