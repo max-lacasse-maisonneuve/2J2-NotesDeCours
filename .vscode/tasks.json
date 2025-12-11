@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Exporter PDF avec Pandoc",
+            "type": "shell",
+            "command": "pandoc",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/pdf/${fileBasenameNoExtension}.pdf",
+                "--pdf-engine=xelatex",
+                "--from=markdown",
+                "--to=pdf",
+                "--metadata-file=${workspaceFolder}/custom.latex.yaml",
+                "--syntax-highlighting=zenburn",
+                "--number-sections"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+---
+# === CONFIGURATION TYPOGRAPHIQUE ===
+fontsize: 10pt
+linestretch: 1.4
+
+# Marges et géométrie
+geometry:
+    - margin=1.25cm
+    - top=2cm
+    - bottom=2cm
+
+# Liens et couleurs
+colorlinks: true
+linkcolor: OliveGreen
+filecolor: Magenta
+citecolor: OliveGreen
+urlcolor: OliveGreen
+
+# === CLASSE DE DOCUMENT ===
+documentclass: article
+
+# === PACKAGES ET CONFIGURATIONS LATEX ===
+header-includes:
+    # === PACKAGES DE BASE ===
+    - \usepackage{fontspec}
+    - \usepackage[french]{babel}
+    - \usepackage{graphicx}
+    - \usepackage{float}
+    - \usepackage{caption}
+    - \usepackage{xcolor}
+    - \usepackage[dvipsnames]{xcolor}
+    - \usepackage{fancyhdr}
+    - \usepackage{lastpage}
+    - \usepackage{titlesec}
+    - \usepackage{fvextra}
+    - \usepackage{enumitem}
+    - \usepackage{amsmath}
+    - \usepackage{hyperref}
+
+    # === DÉFINITION DES POLICES ===
+    - "\\setmainfont{AtkinsonHyperlegible-Regular}"
+    - "\\setmonofont{FiraCode-Regular}"
+    - "\\setsansfont{Calibri}"
+    - "\\newfontfamily{\\titlefont}{RussoOne-Regular}"
+
+    # === CONFIGURATION DES IMAGES ===
+    - "\\setkeys{Gin}{width=0.5\\linewidth, height=0.4\\textheight, keepaspectratio}"
+    - "\\captionsetup{format=plain, font=small, labelfont=bf}"
+    - "\\captionsetup[figure]{name=Figure}"
+    - "\\makeatletter"
+    - "\\def\\fps@figure{H}"
+    - "\\makeatother"
+
+    # === EN-TÊTE ET PIED DE PAGE ===
+    - "\\pagestyle{fancy}"
+    - "\\fancyhf{}"
+    - "\\lhead{\\textbf{582-2J2 - Création de jeux 2d}}"
+    - "\\lfoot{\\today}"
+    - "\\cfoot{\\textcopyright\\ Collège de Maisonneuve, Maxime Lacasse Germain}"
+    - "\\rfoot{Page \\thepage\\ / \\pageref{LastPage}}"
+    - "\\renewcommand{\\headrulewidth}{0.8pt}"
+    - "\\renewcommand{\\footrulewidth}{0.4pt}"
+
+    # === HIÉRARCHIE DES TITRES ===
+    - "\\titleformat{\\section}[block]{\\titlefont\\Huge\\color{OliveGreen!80!black}}{}{0pt}{}"
+    - "\\titlespacing*{\\section}{0pt}{3em}{1em}"
+    - "\\titleformat{\\subsection}{\\titlefont\\large\\color{LawnGreen!60!black}}{\\thesubsection}{0.8em}{}"
+    - "\\titlespacing*{\\subsection}{0pt}{2em}{0.8em}"
+    - "\\titleformat{\\subsubsection}{\\titlefont\\normalsize\\bfseries\\color{LawnGreen!40!black}}{\\thesubsubsection}{0.6em}{}"
+    - "\\titlespacing*{\\subsubsection}{0pt}{1.5em}{0.6em}"
+
+    # === PARAGRAPHES ET ESPACEMENT ===
+    - "\\setlength{\\parskip}{1em}"
+    - "\\setlength{\\parindent}{0pt}"
+    - "\\setlist{itemsep=0.5em, parsep=0pt, topsep=0.5em}"
+
+    # === BLOCS DE CODE ===
+    - "\\DefineVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\\footnotesize,breaklines=true,breakanywhere=true,commandchars=\\\\\\{\\},frame=single,framesep=4pt,framerule=0.4pt,rulecolor=\\color{black}}"
+    - "\\DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\\footnotesize,breaklines=true,breakanywhere=true,frame=single,framesep=4pt,framerule=0.4pt,rulecolor=\\color{black}}"
+
+    # === UTILITAIRES ===
+    - "\\newcommand{\\newpagehere}{\\newpage}"
+    - "\\newcommand{\\codecomment}[1]{\\textcolor{Emerald!60!black}{\\textit{#1}}}"
