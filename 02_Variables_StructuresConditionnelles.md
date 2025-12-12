@@ -74,7 +74,7 @@ Les opérateurs de comparaison en C# sont similaires à ceux utilisés en JavaSc
 
 ```md
 -   `==` : égal à
--   `\!=` : différent de
+-   `!=` : différent de
 -   `>` : supérieur à
 -   `<` : inférieur à
 -   `>=` : supérieur ou égal à

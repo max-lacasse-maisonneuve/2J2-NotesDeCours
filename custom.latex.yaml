@@ -36,10 +36,11 @@ header-includes:
     - \usepackage{enumitem}
     - \usepackage{amsmath}
     - \usepackage{hyperref}
+    - \usepackage{lmodern}
 
     # === DÉFINITION DES POLICES ===
     - "\\setmainfont{AtkinsonHyperlegible-Regular}"
-    - "\\setmonofont{FiraCode-Regular}"
+    - "\\setmonofont{AtkinsonHyperlegibleMono-Regular}"
     - "\\setsansfont{Calibri}"
     - "\\newfontfamily{\\titlefont}{RussoOne-Regular}"
 
