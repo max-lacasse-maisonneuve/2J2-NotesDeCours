@@ -1,106 +1,120 @@
-# Détection des touches du clavier
+# Détection des touches du clavier et des clics de souris avec le nouveau système d'Input Unity
 
-Dans Unity, vous pouvez détecter les touches du clavier en utilisant la classe `Input`. Cette classe fournit plusieurs méthodes pour vérifier si une touche spécifique est enfoncée, relâchée ou maintenue enfoncée. Voici quelques exemples pour vous aider à comprendre comment détecter les touches du clavier.
+Unity a introduit un nouveau système d'Input qui offre une manière plus flexible et puissante de gérer les entrées utilisateur, y compris la détection des touches du clavier et des clics de souris. Voici comment vous pouvez utiliser ce nouveau système pour détecter ces entrées dans votre projet Unity.
 
-## Détecter si une touche est enfoncée
+Lorsque vous créez un projet avec le gabarit "Universal 2d", le nouveau système d'Input est déjà configuré par défaut. Si vous travaillez sur un projet existant, vous devrez peut-être installer et configurer le package "Input System" via le gestionnaire de packages Unity.
 
-Pour détecter si une touche spécifique est enfoncée pendant la frame actuelle, vous pouvez utiliser la méthode `Input.GetKeyDown()`. Cette méthode retourne `true` uniquement lors de la frame où la touche est enfoncée.
+![Projet Universal 2d](images/projet2D.png)
 
-La méthode prend en paramètre un `KeyCode`, qui est une énumération représentant toutes les touches du clavier.
+## Installer le package Input System (si nécessaire)
 
-Des exemples courants de `KeyCode` incluent :
+1. Dans Unity, allez dans **Window** > **Package Manager**.
+2. Recherchez "Input System" dans la liste des packages disponibles.
+3. Cliquez sur "Install" pour ajouter le package à votre projet.
 
--   `KeyCode.Space` pour la touche Espace
--   `KeyCode.Return` pour la touche
--   `KeyCode.A` pour la touche A
--   `KeyCode.LeftArrow` pour la flèche gauche
--   `KeyCode.RightArrow` pour la flèche droite
--   `KeyCode.UpArrow` pour la flèche haut
--   `KeyCode.DownArrow` pour la flèche bas
--   `KeyCode.Escape` pour la touche Échappe
+## Importer l'espace de noms Input System
 
-Voici un exemple de code qui détecte si la touche Espace est enfoncée :
+Au début de chaque script C# où vous souhaitez utiliser le nouveau système d'Input, ajoutez la ligne suivante pour importer l'espace de noms nécessaire :
 
 ```csharp
-void Update()
+using UnityEngine.InputSystem;
+```
+
+## Détection des touches du clavier
+
+Pour détecter les touches du clavier, vous pouvez utiliser la classe `Keyboard` fournie par le nouveau système d'Input.
+Vous commencez par obtenir une référence au clavier actuel, puis vous accédez aux touches spécifiques que vous souhaitez surveiller, finalement, vous vérifiez si une touche a été pressée ou relâchée.
+
+Ex: Keyboard.current.ArrowUpKey, Keyboard.current.spaceKey, etc.
+
+### Touches courantes
+
+-   `Keyboard.current.spaceKey` : Touche Espace
+-   `Keyboard.current.enterKey` : Touche Entrée
+-   `Keyboard.current.escapeKey` : Touche Échap
+-   `Keyboard.current.arrowUpKey` : Flèche Haut
+-   `Keyboard.current.arrowDownKey` : Flèche Bas
+-   `Keyboard.current.arrowLeftKey` : Flèche Gauche
+-   `Keyboard.current.arrowRightKey` : Flèche Droite
+-   `Keyboard.current.aKey` à `Keyboard.current.zKey` : Touches alphabétiques
+-   `Keyboard.current.digit0Key` à `Keyboard.current.digit9Key` : Touches numériques
+
+### États des touches
+
+-   `wasPressedThisFrame` : Vrai si la touche a été pressée pendant la frame actuelle.
+-   `wasReleasedThisFrame` : Vrai si la touche a été relâchée pendant la frame actuelle.
+-   `isPressed` : Vrai si la touche est actuellement enfoncée.
+-   `isReleased` : Vrai si la touche est actuellement relâchée.
+-   `ReadValue()` : Retourne un float représentant l'état de la touche (1.0 pour enfoncée, 0.0 pour relâchée) ou si c'est un contrôleur analogique, une valeur entre 0.0 et 1.0.
+
+Voici un exemple de script qui détecte lorsque la touche "Espace" est pressée :
+
+```csharp
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class KeyboardInputExample : MonoBehaviour
 {
-    if (Input.GetKeyDown(KeyCode.Space)==true)
+    void Update()
     {
-        Debug.Log("La touche Espace a été enfoncée.");
+        // Vérifie si la touche Espace est pressée
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Debug.Log("La touche Espace a été pressée !");
+        }
     }
 }
 ```
 
-## Détecter si une touche est relâchée
+## Cartographier plusieurs touches à une même action
 
-Comme pour la détection de l'enfoncement d'une touche, vous pouvez utiliser la méthode `Input.GetKeyUp()` pour détecter si une touche spécifique a été relâchée pendant la frame actuelle. Cette méthode retourne `true` uniquement lors de la frame où la touche est relâchée.
+Ajouter un composant "InputAction" à un GameObject permet aussi de gérer les entrées de manière plus visuelle et basée sur des actions définies. Vous pouvez configurer des actions pour différentes touches du clavier et les lier à des fonctions spécifiques dans vos scripts. Vous pouvez utiliser la même approche que précédemment en utilisant les mêmes états des touches ( `wasPressedThisFrame`, `wasReleasedThisFrame`, `ReadValue()`,etc).
+
+Par exemple, pour déplacer un objet en utilisant les touches fléchées ou les touches "WASD", vous pouvez suivre ces étapes :
+
+1. Déclarez une variable publique de type `InputAction` dans votre script.
+2. Dans l'éditeur Unity, ajoutez un composant "Input Action" à votre GameObject.
+3. Configurez les actions et les bindings dans l'inspecteur.
+4. Activez et désactivez les actions dans les méthodes `OnEnable()` et `OnDisable()`. Cela garantit que les actions sont prêtes à être utilisées lorsque le GameObject est actif.
 
 ```csharp
-void Update()
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+
+public class DeplacementJoueur : MonoBehaviour
 {
-    if (Input.GetKeyUp(KeyCode.Space)==true)
+    public InputAction mouvementHorizontal;
+    public InputAction mouvementVertical;
+    public float vitesse = 5f;
+
+    private void OnEnable()
     {
-        Debug.Log("La touche Espace a été relâchée.");
+        mouvementHorizontal.Enable();
+        mouvementVertical.Enable();
+    }
+
+    private void OnDisable()
+    {
+        mouvementHorizontal.Disable();
+        mouvementVertical.Disable();
+    }
+
+    void Update()
+    {
+        Vector2 movement = new Vector2(mouvementHorizontal.ReadValue<float>(), mouvementVertical.ReadValue<float>());
+        transform.Translate(movement * Time.deltaTime * vitesse);
     }
 }
 ```
 
-## Détecter si une touche est maintenue enfoncée
+### Configuration des actions dans l'inspecteur
 
-Pour détecter si une touche spécifique est maintenue enfoncée, vous pouvez utiliser la méthode `Input.GetKey()`. Cette méthode retourne `true` tant que la touche est enfoncée, ce qui permet de vérifier l'état de la touche à chaque frame.
+1. Sélectionnez le GameObject avec le script `DeplacementJoueur`.
+2. Dans l'inspecteur, vous verrez les champs `Mouvement Horizontal` et `Mouvement Vertical`.
+3. Appuyez sur le + à côté de chaque champ pour lier des touches. Vous pourrez ajouter les touches fléchées et les touches "WASD" pour chaque action. Si l'action est une valeur unique, choisissez "Add Binding" et sélectionnez "1D Axis" pour les mouvements horizontaux et verticaux. Si l'action est une valeur vectorielle, choisissez "Add Positive/Negative Binding". Vous pourrez ainsi configurer plusieurs touches pour une même action comme un déplacement horizontal ou vertical.
+   ![Choisir une liaison de touches](images/bindind.png)
+4. Choisissez les touches souhaitées pour chaque action. (Un truc: Utilisez le bouton "Listen" pour détecter automatiquement la touche que vous appuyez.)
+   ![Lier une touche à une action](images/listenBinding.png)
 
-```csharp
-void Update()
-{
-    if (Input.GetKey(KeyCode.Space)==true)
-    {
-        Debug.Log("La touche Espace est maintenue enfoncée.");
-    }
-}
-```
-
-## Où placer la détection des touches
-
-La détection des touches doit être placée dans la méthode `Update()` de votre script. La méthode `Update()` est appelée une fois par frame, ce qui permet de vérifier l'état des touches à chaque frame.
-
-## Actions prédéfinies pour les touches
-
-### GetAxis
-
-Unity propose également des actions prédéfinies pour certaines touches courantes, telles que les touches fléchées pour le déplacement. Vous pouvez utiliser ces actions en utilisant les méthodes `Input.GetAxis()`. Par exemple, pour détecter le mouvement horizontal avec les touches fléchées gauche et droite ou un joystick, vous pouvez utiliser l'axe "Horizontal".
-Pour détecter un mouvement vertical avec les touches fléchées haut et bas ou un joystick, vous pouvez utiliser l'axe "Vertical".
-
-**Attention :** Assurez-vous que les axes "Horizontal" et "Vertical" s'écrivent bien avec une majuscule au début, car Unity est sensible à la casse.
-
-```csharp
-void Update()
-{
-    float deplacementHorizontal = Input.GetAxis("Horizontal");// Valeur entre -1 (gauche) et 1 (droite)
-    personnage.transform.Translate(new Vector3(deplacementHorizontal, 0, 0) * vitesse * Time.deltaTime);
-
-    float deplacementVertical = Input.GetAxis("Vertical");// Valeur entre -1 (bas) et 1 (haut)
-    personnage.transform.Translate(new Vector3(0, deplacementVertical, 0) * vitesse * Time.deltaTime);
-}
-```
-
-## GetButton
-
-Unity permet également de configurer des boutons d'action personnalisés via le gestionnaire d'Input (Edit > Project Settings > Input Manager). Vous pouvez définir des actions comme "Jump" (sauter) ou "Fire" (tirer) et les associer à différentes touches du clavier ou boutons de la manette. Pour détecter si un bouton d'action est enfoncé, vous pouvez utiliser la méthode `Input.GetButton()` et fournir le nom de l'action définie.
-
-```csharp
-void Update()
-{
-    if (Input.GetButton("Jump")) // Vérifie si le bouton "Jump" est enfoncé qui correspond souvent à la touche Espace
-    {
-        Debug.Log("Le bouton Jump est enfoncé.");
-    }
-}
-```
-
-## Configurer les touches dans l'Input Manager
-
-Il existe un nouveau système de détection des touches appelé "Input System" qui est plus flexible et puissant que l'ancien système "Input Manager". Il permet, entre autres, de gérer plus facilement les entrées provenant de différents périphériques (clavier, souris, manette, écran tactile, etc.).
-
-Cependant, cela est plus complexe à configurer. Pour débuter nous resterons sur l'ancien système "Input Manager" qui est suffisant pour des besoins basiques de détection des touches du clavier.
-
-Cependant, si vous souhaitez explorer le nouveau système "Input System", vous pouvez consulter la documentation officielle de Unity pour plus d'informations sur son installation et sa configuration : [Unity Input System Documentation](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/index.html).
+Avec cette configuration, votre personnage pourra se déplacer en utilisant à la fois les touches fléchées et les touches "WASD". Vous pouvez ajouter autant de bindings que nécessaire pour chaque action afin de personnaliser les contrôles selon vos besoins. Vous pourriez aussi utiliser cette méthode pour lier une manette de jeu ou d'autres périphériques d'entrée.

@@ -41,13 +41,13 @@ Ensuite, dans la fonction `Update()`, vous pouvez changer le sprite affiché en 
 
 ```csharp
 void Update() {
-    if (Input.GetKeyDown(KeyCode.Alpha1)) {
-        spriteRenderer.sprite = persoNormal;
-    } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-        spriteRenderer.sprite = persoBlesse;
-    } else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-        spriteRenderer.sprite = persoMort;
-    }
+   if(Keyboard.current.digit1Key.isPressed) {
+       spriteRenderer.sprite = persoNormal;
+   } else if(Keyboard.current.digit2Key.isPressed) {
+       spriteRenderer.sprite = persoBlesse;
+   } else if(Keyboard.current.digit3Key.isPressed) {
+       spriteRenderer.sprite = persoMort;
+   }
 }
 ```
 
@@ -66,12 +66,11 @@ spriteRenderer.color = Color.red; // Change la couleur du sprite en rouge
 -   **flipX** et **flipY** : Permettent de retourner le sprite horizontalement ou verticalement.
 
 ```csharp
-if (Input.GetAxis("Horizontal") < 0) {
+if(mouvementHorizontal.ReadValue<float>() < 0) {
     spriteRenderer.flipX = true; // Retourne le sprite horizontalement
-} else if (Input.GetAxis("Horizontal") > 0) {
+} else if(mouvementHorizontal.ReadValue<float>() > 0) {
     spriteRenderer.flipX = false; // Remet le sprite à l'orientation normale
 }
-
 ```
 
 -   **sortingOrder** : Permet de définir l'ordre de rendu du sprite par rapport aux autres sprites. Un nombre plus élevé signifie que le sprite sera rendu au-dessus des autres. Il est rare d'avoir à modifier cette propriété par programmation, mais cela peut être utile dans certains cas. Par exemple, lorsque vous voulez afficher un objet temporairement au-dessus des autres.

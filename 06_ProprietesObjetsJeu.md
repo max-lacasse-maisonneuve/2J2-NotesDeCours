@@ -91,13 +91,13 @@ Une fois que vous avez la référence au composant, vous pouvez l'utiliser pour 
 void Update()
 {
     // Appliquer une force vers le haut
-    if (Input.GetKeyDown(KeyCode.Space))
+    if (Keyboard.current.spaceKey.wasPressedThisFrame)
     {
         rb.AddForce(new Vector2(0, 300f));
     }
 
     // Changer la couleur du sprite en rouge
-    if (Input.GetKeyDown(KeyCode.R))
+    if (Keyboard.current.rKey.wasPressedThisFrame)
     {
         sr.color = Color.red;
     }

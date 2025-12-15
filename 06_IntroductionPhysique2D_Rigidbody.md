@@ -30,6 +30,7 @@ Pour interagir avec le Rigidbody 2D d'un objet via un script, vous devez d'abord
 
 ```csharp
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class ExampleScript : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -55,7 +56,7 @@ Vous pouvez aussi spécifier la direction et la magnitude de la force en utilisa
 
 void FixedUpdate()
 {
-    if (Input.GetKeyDown(KeyCode.Space))
+    if (Keyboard.current.spaceKey.wasPressedThisFrame)
     {
         rb.AddForce(new Vector2(0, 500)); // Applique une force vers le haut
         //ou
