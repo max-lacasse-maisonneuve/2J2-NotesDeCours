@@ -17,7 +17,7 @@ Votre concept doit comprendre:
 -   Le style visuel (pixel art, 3D réaliste, cartoon, etc.)
 -   Le ton et l'ambiance (sombre, humoristique, sérieux, etc.)
 
-Dans le dossier suivant, vous trouverez plusieurs exemples de synopsis de jeux vidéo pour vous inspirer : [Exemples de synopsis](https://github.com/max-lacasse-maisonneuve/2J2-NotesDeCours/synopsis)
+Dans le dossier suivant, vous trouverez plusieurs exemples de synopsis de jeux vidéo pour vous inspirer : [Exemples de synopsis](https://github.com/max-lacasse-maisonneuve/2J2-NotesDeCours/synopsis/readme.md).
 
 ## Idéation et brainstorming
 
