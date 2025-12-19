@@ -8,7 +8,7 @@ Les lumières peuvent ajouterz une dimension supplémentaire à vos scènes 2D e
 
 ## Ajouter une lumière 2D
 
-Dans le menu principal, allez dans **GameObject > Light > 2D** et choisissez le type de lumière que vous souhaitez ajouter (Point Light 2D, Spot Light 2D, Global Light 2D, etc.). Une nouvelle lumière sera ajoutée à votre scène.
+Dans le menu principal, allez dans **GameObject > Light > 2D** et choisissez le type de lumière que vous souhaitez ajouter (Freeform Light 2D, Spot Light 2D, Global Light 2D, etc.). Une nouvelle lumière sera ajoutée à votre scène.
 
 ![Types de lumières 2D](images/type_lights.png)
 
