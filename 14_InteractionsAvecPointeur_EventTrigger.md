@@ -41,7 +41,7 @@ public class MouseInputExample : MonoBehaviour
 
 ## Utilisation d'EventTrigger pour les interactions avec le pointeur
 
-Unity fournit également le composant `EventTrigger` qui permet de gérer les interactions avec le pointeur de manière plus visuelle et basée sur des événements. Vous pouvez utiliser `EventTrigger` pour associer des fonctions publiques aux événements de pointeur tels que les clics, les survols, etc.
+Unity fournit également le composant `EventTrigger` qui permet de gérer les interactions avec le pointeur de manière plus visuelle et basée sur des événements. Vous pouvez utiliser `EventTrigger` pour associer des fonctions publiques aux événements de pointeur tels que les clics, les survols, et à un objet en particulier.
 
 ### Ajouter un EventTrigger à un GameObject
 

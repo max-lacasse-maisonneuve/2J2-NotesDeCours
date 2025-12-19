@@ -1,1 +1,3 @@
-# Detection de proximité (Raycast, OverlapCircle, OverlapBox)
+# Detection de proximité
+
+## Exemple de détection du saut d'un personnage

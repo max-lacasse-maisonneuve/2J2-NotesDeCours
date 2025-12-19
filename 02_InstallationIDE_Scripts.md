@@ -35,6 +35,9 @@ Si vous choisissez d'utiliser Visual Studio Community, voici comment l'installer
 
 Dans VSCode, il est recommandé d'installer l'extension `C# for Visual Studio Code` pour une meilleure prise en charge de C# et de Unity. Cela inclut la complétion de code, le débogage, et d'autres fonctionnalités utiles et le package `Unity Tools` pour des fonctionnalités supplémentaires spécifiques à Unity.
 
+Vous devez également installer le SDK .NET si ce n'est pas déjà fait, car il est nécessaire pour le développement en C# avec VSCode.
+[SDK .NET](https://dotnet.microsoft.com/en-us/download)
+
 ![extension C#](images/cVSCODE.png)
 ![extension Unity Tools](images/unityExtension.png)
 
