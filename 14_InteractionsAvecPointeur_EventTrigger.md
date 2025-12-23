@@ -49,7 +49,7 @@ Pour les éléments UI, un `Graphic Raycaster` est généralement déjà présen
 
 ![Event Trigger](images/eventTrigger.png)
 
-![Composant Physic2D Raycaster doit être ajouté à la caméra ](images/2d-raycaster.png)
+![Composant Physic2D Raycaster doit être ajouté à la caméra + EventSystem](images/2d-raycaster2.png){width=100%}
 
 ### Ajouter un EventTrigger à un GameObject
 
