@@ -8,6 +8,8 @@ Dans cette section, nous allons explorer comment créer des plateformes interact
 -   Pour qu'un effector 2D fonctionne, le GameObject doit avoir un collider 2D (Box Collider 2D, Circle Collider 2D,TilemapCollider2D, etc.) avec l'option **Used by Effector** cochée dans l'inspecteur.
 -   Certains effectors nécessitent que le collider soit défini en tant que trigger (case **Is Trigger** cochée).
 
+![Composant effecteur ](images/composant_joints.png)
+
 ![Option Used by Effector](images/optionUsedByEffector.png)
 
 ## Création de plateformes avec Platform Effector 2D
@@ -35,7 +37,7 @@ Le Platform Effector 2D est un composant qui permet de créer des plateformes su
 
 ## Surface Effector 2D
 
-Le Surface Effector 2D est un composant qui applique une force continue sur les objets en contact avec une surface, ce qui est utile pour créer des tapis roulants ou des surfaces glissantes.
+Le Surface Effector 2D est un composant qui applique une force continue sur les objets en contact avec une surface, ce qui est utile pour créer des tapis roulants ou des surfaces glissantes. Plus utile dans les jeux de plateforme pour créer des zones où les personnages sont poussés dans une direction spécifique lorsqu'ils marchent dessus.
 
 ### Options du Surface Effector 2D
 
@@ -49,7 +51,7 @@ Le Surface Effector 2D est un composant qui applique une force continue sur les 
 
 ## Area Effector 2D
 
-L'Area Effector 2D applique des forces directionnelles aux objets qui entrent dans une zone définie par un collider de type trigger. Cela peut être utilisé pour simuler des courants d'eau, des zones de gravité modifiée, ou des champs de force.
+L'Area Effector 2D applique des forces directionnelles aux objets qui entrent dans une zone définie par un collider de type trigger. Cela peut être utilisé pour simuler des courants d'eau, des zones de gravité modifiée, ou des champs de force. Pratique dans les jeu de type top-down pour créer des zones où les personnages sont poussés dans une direction spécifique.
 
 ### Options de l'Area Effector 2D
 
@@ -66,7 +68,7 @@ L'Area Effector 2D applique des forces directionnelles aux objets qui entrent da
 
 ## Buoyancy Effector 2D
 
-Le Buoyancy Effector 2D simule la flottabilité des objets dans un liquide, permettant de créer des effets réalistes d'objets flottants ou coulants.
+Le Buoyancy Effector 2D simule la flottabilité des objets dans un liquide, permettant de créer des effets réalistes d'objets flottants ou coulants. Vous pourriez l'utiliser pour créer des zones aquatiques dans votre jeu où les personnages ou objets réagissent comme s'ils étaient dans l'eau ou faire des plateformes flottantes.
 
 ### Options du Buoyancy Effector 2D
 
@@ -85,8 +87,19 @@ Le Buoyancy Effector 2D simule la flottabilité des objets dans un liquide, perm
 
 Le Point Effector 2D applique une force radiale aux objets dans son rayon d'action, attirant ou repoussant les objets en fonction des paramètres définis un peu comme un aimant ou une explosion.
 
+Vous pourriez l'utiliser pour créer des zones d'attraction ou de répulsion dans votre jeu comme des trous noirs, des champs de force, ou des explosions.
+
 ### Options du Point Effector 2D
 
 -   **Force Magnitude** : Définit la force appliquée aux objets dans le rayon d'action.
 -   **Force Variation** : Ajoute une variation aléatoire à la force appliquée
 -   **Distance Scale** : Modifie la façon dont la force diminue avec la distance.
+
+### Utilisation créative du Point Effector 2D
+
+-   **Trous noirs** : Créez des zones qui attirent les objets vers un point central, simulant un trou noir.
+-   **Explosions** : Utilisez le Point Effector 2D pour repousser les objets à partir d'un point central, simulant une explosion.
+-   **Champs de force** : Créez des zones où les objets sont repoussés ou attirés.
+-   **Avec une animation**: Activez et désactivez le Point Effector 2D à l'aide d'une animation pour créer des effets temporaires comme des explosions ou des champs de force intermittents.
+-   **Attaque de Boss** : Utilisez le Point Effector 2D pour simuler une puissante attaque de boss qui attire ou repousse les joueurs à proximité, ajoutant un défi supplémentaire au combat.
+-   **Aspiration d'objets** : Créez des mécanismes où les joueurs doivent éviter des zones d'aspiration qui attirent les objets ou les personnages, augmentant la complexité des niveaux. Vous pouvez cibler spécifiquement les objets affectés en utilisant le Collider Mask.
