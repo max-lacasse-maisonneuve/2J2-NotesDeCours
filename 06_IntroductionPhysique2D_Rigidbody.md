@@ -12,15 +12,23 @@ Pour ajouter un composant Rigidbody à un objet, sélectionnez l'objet dans la h
 
 ## Propriétés principales du Rigidbody 2D
 
--   **Mass (Masse)** : La masse de l'objet, qui influence la façon dont il réagit aux forces. C'est-à-dire qu'un objet plus lourd nécessitera plus de force pour être déplacé. Imaginez pousser une voiture par rapport à une bicyclette.
--   **Gravity Scale (Échelle de gravité)** : Cette propriété détermine l'influence de la gravité sur l'objet. Une valeur de 1 signifie que l'objet est affecté par la gravité normale, tandis qu'une valeur de 0 signifie qu'il n'est pas affecté par la gravité du tout. -1 inversera la direction de la gravité.
--   **Drag (Traînée)** : La traînée est une force qui s'oppose au mouvement de l'objet à travers l'air ou un autre fluide. Une valeur plus élevée de traînée ralentira l'objet plus rapidement lorsqu'il se déplace.
--   **Angular Drag (Traînée angulaire)** : Similaire à la traînée, mais elle s'applique à la rotation de l'objet. Une valeur plus élevée ralentira la rotation de l'objet plus rapidement.
 -   **Body Type (Type de corps)** : Il existe trois types de corps :
+
     -   **Dynamic (Dynamique)** : L'objet est affecté par la physique et peut se déplacer librement.
     -   **Kinematic (Cinématique)** : L'objet n'est pas affecté par la physique, mais peut être déplacé par des scripts. Utile pour les objets qui doivent suivre un chemin spécifique.
     -   **Static (Statique)** : L'objet ne bouge pas et n'est pas affecté par la physique. Utilisé pour les objets immobiles comme le sol ou les murs.
--   **Constraints (Contraintes)** : Permet de restreindre le mouvement ou la rotation de l'objet sur certains axes. Par exemple, vous pouvez empêcher un objet de tourner ou de se déplacer verticalement.
+
+-   **Mass (Masse)** : La masse de l'objet, qui influence la façon dont il réagit aux forces. C'est-à-dire qu'un objet plus lourd nécessitera plus de force pour être déplacé. Imaginez pousser une voiture par rapport à une bicyclette.
+-   **Gravity Scale (Échelle de gravité)** : Cette propriété détermine l'influence de la gravité sur l'objet.
+    -   Une valeur de 1 signifie que l'objet est affecté par la gravité normale
+    -   Une valeur de 0 signifie qu'il n'est pas affecté par la gravité du tout.
+    -   Une valeur de -1 inversera la direction de la gravité.
+-   **Drag (Traînée)** : La traînée est une force de résistance qui s'oppose au mouvement de l'objet à travers l'air ou un autre fluide. Une valeur plus élevée de traînée ralentira l'objet plus rapidement lorsqu'il se déplace un peu comme de la friction.
+-   **Angular Drag (Traînée angulaire)** : Similaire à la traînée, mais elle s'applique à la rotation de l'objet. Une valeur plus élevée ralentira la rotation de l'objet plus rapidement. Une valeur de 0 signifie qu'il n'y a pas de résistance à la rotation donc l'objet continuera à tourner indéfiniment une fois mis en rotation.
+
+-   **Constraints (Contraintes)** : Permet de restreindre le mouvement ou la rotation de l'objet sur certains axes.
+    -   Pour empêcher un objet de tourner, cochez la case "Freeze Rotation" (Geler la rotation).
+    -   Pour empêcher un objet de se déplacer sur un axe spécifique, cochez la case correspondante sous "Freeze Position" (Geler la position).
 
 Toutes ces propriétés sont manipulables via des scripts pour créer des comportements dynamiques dans votre jeu. Par exemple, vous pouvez appliquer des forces, modifier la gravité, ou changer le type de corps en fonction des événements du jeu.
 
