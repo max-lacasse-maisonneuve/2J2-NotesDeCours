@@ -23,6 +23,7 @@ Pour instancier un Prefab via un script, vous pouvez utiliser la méthode `Insta
 Lors de l'instanciation, vous devez préciser la position et la rotation de l'objet instancié. Il est fréquent d'utiliser la position et la rotation d'un autre objet dans la scène pour cela comme point de création (Spawn Point).
 
 Vous pouvez ensuite garder en mémoire la référence de l'objet instancié dans une variable si vous souhaitez le manipuler par la suite.
+
 ![Créer un prefab](images/creerPrefab.png)
 
 ```csharp
@@ -135,8 +136,8 @@ Pour modifier un prefab, vous pouvez double-cliquer sur le prefab dans le dossie
 
 Une fois que vous avez terminé, cliquez sur le bouton "Retour à la scène" pour revenir à votre scène principale. Toutes les instances du prefab dans la scène seront mises à jour avec les modifications apportées.
 
-![Modification d'un prefab](images/modificationPrefab.png)
+![Modification d'un prefab](images/modificationPrefab.png){width="100%"}
 
 Si vous avez fait des changements individuels à une version d'un prefab dans la scène et que vous souhaitez revenir à la version originale du prefab, vous pouvez sélectionner l'objet dans la hiérarchie, puis cliquer sur le bouton "Override" et ensuite "Revert" dans l'inspecteur pour annuler les modifications locales.
 
-![Effacer les changements d'un prefab sur la scène](images/prefab_changes_cleanup.png)
+![Effacer les changements d'un prefab sur la scène](images/prefab_changes_cleanup.png){width="100%"}
