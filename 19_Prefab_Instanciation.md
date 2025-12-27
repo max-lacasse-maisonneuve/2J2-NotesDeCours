@@ -10,13 +10,20 @@ Ce prefab peut être modifié ultérieurement, et toutes les instances de ce pre
 
 Ce prefab servira de modèle pour créer des copies (instances) dans la scène.
 
-## Instanciation d'un Prefab via le script
+Vous pouvez glisser-déposer le prefab depuis le dossier "Assets" vers la hiérarchie pour créer une instance de ce prefab dans la scène et effectuer des modifications spécifiques à cette instance si nécessaire. (Exemple les variables publiques dans un script attaché à un ennemi).
+
+**Les prefabs devraient être regroupés dans un dossier "Prefabs" dans le dossier "Assets" pour une meilleure organisation du projet.**
+
+## Instanciation/clonage/duplication d'un Prefab via le script
+
+En programmation, l'instanciation signifie simplement la copie d'un nouvel objet à partir d'un modèle (comme un prefab).
 
 Pour instancier un Prefab via un script, vous pouvez utiliser la méthode `Instantiate()`. Attention, au lieu de glisser-déposer l'objet de la hiérarchie, vous devez faire glisser le prefab depuis le dossier "Assets" vers une variable publique dans votre script.
 
 Lors de l'instanciation, vous devez préciser la position et la rotation de l'objet instancié. Il est fréquent d'utiliser la position et la rotation d'un autre objet dans la scène pour cela comme point de création (Spawn Point).
 
-Vous pouvez ensuite garder en mémoire la référence de l'objet instancié si vous souhaitez le manipuler par la suite.
+Vous pouvez ensuite garder en mémoire la référence de l'objet instancié dans une variable si vous souhaitez le manipuler par la suite.
+![Créer un prefab](images/creerPrefab.png)
 
 ```csharp
 using UnityEngine;
@@ -36,7 +43,7 @@ public class PrefabInstantiator : MonoBehaviour
 }
 ```
 
-## Lancer un projectile
+## Ex: Lancer un projectile
 
 Voici un exemple plus concret d'utilisation des Prefabs pour lancer un projectile (comme une balle) depuis un point de création (spawn point) lorsque l'utilisateur appuie sur une touche.
 
@@ -121,3 +128,15 @@ public class Projectile : MonoBehaviour
     }
 }
 ```
+
+## Modifier un prefab
+
+Pour modifier un prefab, vous pouvez double-cliquer sur le prefab dans le dossier "Assets" pour l'ouvrir dans le mode d'édition de prefab. Vous pouvez ensuite apporter des modifications à l'objet, ajouter ou supprimer des composants, et ajuster les propriétés.
+
+Une fois que vous avez terminé, cliquez sur le bouton "Retour à la scène" pour revenir à votre scène principale. Toutes les instances du prefab dans la scène seront mises à jour avec les modifications apportées.
+
+![Modification d'un prefab](images/modificationPrefab.png)
+
+Si vous avez fait des changements individuels à une version d'un prefab dans la scène et que vous souhaitez revenir à la version originale du prefab, vous pouvez sélectionner l'objet dans la hiérarchie, puis cliquer sur le bouton "Override" et ensuite "Revert" dans l'inspecteur pour annuler les modifications locales.
+
+![Effacer les changements d'un prefab sur la scène](images/prefab_changes_cleanup.png)
