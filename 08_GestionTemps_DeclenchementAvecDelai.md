@@ -183,6 +183,10 @@ public class RalentirJeuExample : MonoBehaviour
 
 ## Pour aller plus loin
 
-Nous verrons la session prochaine qu'il est possible de déclencher une fonction avec délai en utilisant des coroutines, ce qui offre plus de flexibilité pour gérer des séquences d'actions dans le temps.
+Nous verrons la session prochaine qu'il est possible de déclencher une fonction avec délai en utilisant des coroutines, ce qui offre plus de flexibilité pour gérer des séquences d'actions dans le temps et déclencher des fonctions avec paramètres.
 
 Si cela vous intéresse:https://learn.unity.com/tutorial/coroutines
+
+[Documentation officielle Unity sur la classe Time](https://docs.unity3d.com/ScriptReference/Time.html)
+[Documentation officielle Unity sur Invoke](https://docs.unity3d.com/ScriptReference/MonoBehaviour.Invoke.html)
+[Documentation officielle Unity sur InvokeRepeating](https://docs.unity3d.com/ScriptReference/MonoBehaviour.InvokeRepeating.html)

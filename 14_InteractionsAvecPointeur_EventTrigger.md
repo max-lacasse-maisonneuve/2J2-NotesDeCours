@@ -218,3 +218,5 @@ public class DisableOnClick : MonoBehaviour
     }
 }
 ```
+
+[Documentation Unity - EventTrigger](https://docs.unity3d.com/Manual/script-EventTrigger.html)

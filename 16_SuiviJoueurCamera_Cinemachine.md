@@ -49,4 +49,7 @@ Cinemachine est un puissant outil de gestion de caméra dans Unity autant en 2d 
 -   Faites glisser l'objet `LimitesCamera` dans le champ `Bounding Shape 2D` de l'extension.
 
 ![Configuration de Cinemachine](images/cinemachine_configuration.png)
+
 ![Limites de la caméra](images/ajoutLimitesCamera2.png)
+
+[Documentation Unity sur Cinemachine](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/Cinemachine2D.html)

@@ -103,3 +103,5 @@ if (score > 10 && estMort == false) {
 int score = 4 // Cette ligne est incorrecte en C# et générera une erreur de compilation
 score = score + 1; // Incrémentation du score
 ```
+
+[Unity Learn - Beginner Scripting](https://learn.unity.com/course/beginner-scripting)

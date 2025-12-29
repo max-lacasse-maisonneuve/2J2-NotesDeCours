@@ -157,3 +157,5 @@ Vector3 taille = transform.localScale;
 // Modifier l'échelle
 transform.localScale = new Vector2(2.0f, 2.0f);
 ```
+
+[Documentation officielle sur le Transform](https://docs.unity3d.com/ScriptReference/Transform.html)

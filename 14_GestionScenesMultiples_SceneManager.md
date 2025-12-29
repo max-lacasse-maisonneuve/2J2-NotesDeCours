@@ -103,3 +103,5 @@ Votre jeu peut également bénéficier d'un écran d'instructions avant de comme
 ### Écran de fin
 
 Enfin, un écran de fin peut être utile pour féliciter le joueur après avoir terminé le jeu. Vous pouvez créer une scène dédiée pour cela, avec un message de félicitations et des options pour rejouer ou quitter le jeu. Vous pouvez également avoir un écran de fin différent pour les joueurs qui n'ont pas réussi à terminer le jeu, avec des encouragements à réessayer.
+
+[Documentation officielle Unity sur le SceneManager](https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.LoadScene.html)

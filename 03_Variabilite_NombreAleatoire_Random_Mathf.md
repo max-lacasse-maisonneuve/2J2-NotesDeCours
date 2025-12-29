@@ -124,3 +124,5 @@ transform.localScale = new Vector2(
 ); // Résultat : échelle à 50% entre 0 et 100, soit 50  Donne une transition douce entre deux tailles du type ease-out
 Debug.Log("Échelle interpolée : " + transform.localScale);
 ```
+
+[Documentation officielle de la classe Mathf](https://docs.unity3d.com/ScriptReference/Mathf.html)

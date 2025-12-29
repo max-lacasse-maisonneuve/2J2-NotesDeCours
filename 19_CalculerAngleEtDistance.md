@@ -137,3 +137,7 @@ void Update()
         }
     }
 ```
+
+[Documentation Unity sur Vector2](https://docs.unity3d.com/ScriptReference/Vector2.html)
+
+[Documentation Unity sur Mathf.Atan2](https://docs.unity3d.com/ScriptReference/Mathf.Atan2.html)

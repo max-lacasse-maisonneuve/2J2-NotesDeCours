@@ -28,7 +28,10 @@ Unity dispose d'un outil appelé `Sprite Editor` qui permet de découper des ima
 4. Cliquez sur `Apply` pour enregistrer les modifications.
 5. Une fois découpés, les sprites individuels apparaîtront comme des sous-éléments de l'image dans le dossier `Assets`, et vous pourrez les utiliser séparément dans votre scène.
 
+[Documentation officielle du Sprite Editor](https://docs.unity3d.com/Manual/SpriteEditor.html)
+
 ![Éditeur de sprites](images/spriteEditor.png)
+
 ![Récupération des sprites individuels](images/multiplesprites.png)
 
 ## Utilisation des sprites dans la scène et Sprite Renderer

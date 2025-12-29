@@ -103,3 +103,5 @@ Vous pourriez l'utiliser pour créer des zones d'attraction ou de répulsion dan
 -   **Avec une animation**: Activez et désactivez le Point Effector 2D à l'aide d'une animation pour créer des effets temporaires comme des explosions ou des champs de force intermittents.
 -   **Attaque de Boss** : Utilisez le Point Effector 2D pour simuler une puissante attaque de boss qui attire ou repousse les joueurs à proximité, ajoutant un défi supplémentaire au combat.
 -   **Aspiration d'objets** : Créez des mécanismes où les joueurs doivent éviter des zones d'aspiration qui attirent les objets ou les personnages, augmentant la complexité des niveaux. Vous pouvez cibler spécifiquement les objets affectés en utilisant le Collider Mask.
+
+[Documentation officielle Unity sur les effectors 2D](https://docs.unity3d.com/Manual/2d-physics/effectors/effectors-2d-landing.html)

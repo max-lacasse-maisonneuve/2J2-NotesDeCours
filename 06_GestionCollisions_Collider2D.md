@@ -96,3 +96,5 @@ void OnTriggerExit2D(Collider2D collision) {
    }
 }
 ```
+
+[Documents Unity sur les collisions 2D](https://docs.unity3d.com/ScriptReference/Collision2D.html)

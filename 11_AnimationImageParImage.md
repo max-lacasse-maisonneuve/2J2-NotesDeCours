@@ -45,3 +45,5 @@ Cependant, il est important de noter que les animations peuvent écraser les mod
 Pour éviter cela, **placez l'élément animé dans un GameObject parent et appliquez les scripts de déplacement par programmation au parent.**
 
 ![Combiner script et animation ](images/combiner_script_animation.png)
+
+[Documentation officielle Unity sur l'animation de sprites 2D](https://learn.unity.com/tutorial/introduction-to-sprite-animations)

@@ -114,3 +114,7 @@ Pour utiliser des polices personnalisées avec TextMeshPro, vous devez d'abord i
 7.  Cliquez sur le bouton `Save` pour enregistrer le nouvel asset de police dans votre projet. Vous pouvez maintenant l'utiliser dans vos éléments TextMeshPro en le sélectionnant dans le champ `Font Asset`.
 
 ![Menu Font asset Creator de TextMeshPro](images/fontAssetCreator.png)
+
+[Documentation officielle Unity sur TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@latest)
+[Documentation officielle Unity sur le système UI](https://docs.unity3d.com/Manual/UISystem.html)
+[Documentation officielle Unity sur le Canvas](https://docs.unity3d.com/Manual/class-Canvas.html)

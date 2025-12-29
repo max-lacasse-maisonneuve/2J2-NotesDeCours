@@ -254,3 +254,5 @@ void Update()
     }
 }
 ```
+
+[Documentation Unity sur Raycast2D](https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html)

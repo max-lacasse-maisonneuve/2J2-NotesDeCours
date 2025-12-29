@@ -86,3 +86,5 @@ Pour visualiser les différentes courbes d'interpolation, vous pouvez visiter le
 -   **Organisez vos animations** : Utilisez des dossiers dans le panneau Project pour organiser vos fichiers d'animation et gardez une structure claire.
 -   **Nommez vos animations de manière descriptive** : Utilisez des noms clairs et descriptifs pour vos animations afin de faciliter leur identification et commençant par le nom de l'objet animé et le type d'animation (ex : "porte_ouverture", "lumiere_clignotante").
 -   **Testez régulièrement** : Jouez l'animation dans la fenêtre Animation pour voir comment elle se déroule et apportez des ajustements si nécessaire.
+
+[Documentation officielle Unity sur la fenêtre d'animation](https://docs.unity3d.com/Manual/animeditor-UsingAnimationEditor.html)

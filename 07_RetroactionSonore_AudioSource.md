@@ -72,3 +72,5 @@ if (audioSource.isPlaying==false) {
     audioSource.PlayOneShot(sonSaut); // Joue le son si aucun son n'est en cours. Éviter de superposer les sons.
 }
 ```
+
+[Documentation officielle Unity sur l'AudioSource](https://docs.unity3d.com/ScriptReference/AudioSource.html)

@@ -174,3 +174,5 @@ public class DeplacementPerso : MonoBehaviour
     }
 }
 ```
+
+[Documentation Unity sur Rigidbody 2D](https://docs.unity3d.com/ScriptReference/Rigidbody2D.html)

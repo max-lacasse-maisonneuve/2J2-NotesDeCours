@@ -57,3 +57,5 @@ Pour gérer les collisions avec les tuiles peintes, vous pouvez ajouter un compo
 2. Cliquez sur **Add Component** dans l'Inspector.
 3. Recherchez et ajoutez le composant **Tilemap Collider 2D**.
 4. Si vous souhaitez que les tuiles aient des propriétés physiques (comme la gravité ou les rebonds), ajoutez également un composant **Rigidbody 2D** à la Tilemap et configurez-le selon vos besoins.
+
+[Documentation officielle Unity sur les Tilemaps](https://docs.unity3d.com/Manual/Tilemap.html)

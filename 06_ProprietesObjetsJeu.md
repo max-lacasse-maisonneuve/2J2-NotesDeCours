@@ -133,3 +133,9 @@ void EnableSpriteRenderer()
     sr.enabled = true;
 }
 ```
+
+[Documentation officielle de Unity sur les GameObjects et les composants](https://docs.unity3d.com/Manual/GameObjects.html)
+[Documentation officielle de Unity sur les Components](https://docs.unity3d.com/ScriptReference/Component.html)
+[Documentation officielle de Unity sur GetComponent](https://docs.unity3d.com/ScriptReference/GameObject.GetComponent.html)
+[Documentation officielle de Unity sur SetActive](https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html)
+[Documentation officielle de Unity sur les tags](https://docs.unity3d.com/Manual/Tags.html)

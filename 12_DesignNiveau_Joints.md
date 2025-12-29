@@ -43,3 +43,5 @@ Sélectionnez le joint 2D dans l'inspecteur pour afficher ses propriétés. Vous
 -   **Plateformes mobiles** : Utilisez des Slider Joints 2D pour créer des plateformes qui se déplacent horizontalement ou verticalement, ajoutant du dynamisme à vos niveaux.
 -   **Systèmes de catapultes** : Combinez des Hinge Joints 2D et des Spring Joints 2D pour créer des catapultes ou des lanceurs qui propulsent les personnages ou les objets à travers le niveau.
 -   **Plateformes qui se cassent** : Utilisez les options de Break Force et Break Torque pour créer des plateformes ou des ponts qui se cassent sous le poids du joueur ou par programmation après un certain temps, ajoutant un élément de défi à vos niveaux.
+
+[Documentation officielle Unity sur les joints 2D](https://docs.unity3d.com/Manual/2d-physics/joints/2d-joints-landing.html)

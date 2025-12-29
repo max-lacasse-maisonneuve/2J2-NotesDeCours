@@ -78,3 +78,5 @@ if(mouvementHorizontal.ReadValue<float>() < 0) {
 ```csharp
 spriteRenderer.sortingOrder = 2; // Définit l'ordre de rendu du sprite
 ```
+
+[Documentation officielle de SpriteRenderer](https://docs.unity3d.com/ScriptReference/SpriteRenderer.html)

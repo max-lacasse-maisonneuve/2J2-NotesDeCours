@@ -34,3 +34,5 @@ Sélectionnez la lumière 2D dans la hiérarchie pour afficher ses propriétés 
 -   Utilisez des lumières Global Light 2D pour éclairer toute la scène de manière uniforme en premier et diminuer l'intensité pour créer une ambiance.
 -   Combinez plusieurs types de lumières 2D pour obtenir des effets d'éclairage plus complexes.
 -   Combinez les lumières 2D avec des effets de post-traitement (bloom et screen space lens flare) pour améliorer l'apparence visuelle de votre scène.
+
+[Documents officiels Unity sur les lumières 2D](https://docs.unity3d.com/Manual/urp/LightTypes.html)

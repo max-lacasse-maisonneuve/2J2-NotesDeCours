@@ -58,3 +58,5 @@ En plus des volumes globaux, vous pouvez créer des volumes de post-traitement l
 7. Ajustez le paramètre **Weight** pour contrôler l'intensité des effets de post-traitement dans le volume local. Une valeur de 1 signifie que les effets sont appliqués à pleine intensité, tandis qu'une valeur de 0 signifie qu'ils ne sont pas appliqués du tout.
 8. Ajustez le paramètre **Priority** si vous avez plusieurs volumes qui se chevauchent. Un volume avec une priorité plus élevée prendra le dessus sur les autres. Si vous avez un volume global et un volume local qui se chevauchent, le volume local aura généralement la priorité.
 9. Assurez-vous que la case **Post-Processing** est cochée dans la caméra principale.
+
+[Documentation officielle Unity sur le post-traitement](https://docs.unity3d.com/Packages/com.unity.postprocessing@3.0/manual/index.html)

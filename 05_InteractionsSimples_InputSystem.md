@@ -113,8 +113,13 @@ public class DeplacementJoueur : MonoBehaviour
 1. Sélectionnez le GameObject avec le script `DeplacementJoueur`.
 2. Dans l'inspecteur, vous verrez les champs `Mouvement Horizontal` et `Mouvement Vertical`.
 3. Appuyez sur le + à côté de chaque champ pour lier des touches. Vous pourrez ajouter les touches fléchées et les touches "WASD" pour chaque action. Si l'action est une valeur unique, choisissez "Add Binding" et sélectionnez "1D Axis" pour les mouvements horizontaux et verticaux. Si l'action est une valeur vectorielle, choisissez "Add Positive/Negative Binding". Vous pourrez ainsi configurer plusieurs touches pour une même action comme un déplacement horizontal ou vertical.
-   ![Choisir une liaison de touches](images/bindind.png)
+
+![Choisir une liaison de touches](images/bindind.png)
+
 4. Choisissez les touches souhaitées pour chaque action. (Un truc: Utilisez le bouton "Listen" pour détecter automatiquement la touche que vous appuyez.)
-   ![Lier une touche à une action](images/listenBinding.png)
+
+![Lier une touche à une action](images/listenBinding.png)
 
 Avec cette configuration, votre personnage pourra se déplacer en utilisant à la fois les touches fléchées et les touches "WASD". Vous pouvez ajouter autant de bindings que nécessaire pour chaque action afin de personnaliser les contrôles selon vos besoins. Vous pourriez aussi utiliser cette méthode pour lier une manette de jeu ou d'autres périphériques d'entrée.
+
+[Documentation officielle du nouveau système d'Input Unity](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/index.html)

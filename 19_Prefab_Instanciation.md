@@ -24,6 +24,8 @@ Lors de l'instanciation, vous devez préciser la position et la rotation de l'ob
 
 Vous pouvez ensuite garder en mémoire la référence de l'objet instancié dans une variable si vous souhaitez le manipuler par la suite.
 
+[Documentation officielle de Instantiate](https://docs.unity3d.com/ScriptReference/Object.Instantiate.html)
+
 ![Créer un prefab](images/creerPrefab.png)
 
 ```csharp
