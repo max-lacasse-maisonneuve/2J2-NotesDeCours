@@ -132,3 +132,6 @@ public GameData LoadGame()
     return null;
 }
 ```
+
+[Documentation Unity sur JsonUtility](https://docs.unity3d.com/ScriptReference/JsonUtility.html)
+[Documentation Unity sur PlayerPrefs](https://docs.unity3d.com/ScriptReference/PlayerPrefs.html)
