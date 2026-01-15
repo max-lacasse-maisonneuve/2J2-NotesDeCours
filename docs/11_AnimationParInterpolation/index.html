@@ -54,12 +54,12 @@
 <li>Dans la fenêtre Animation, cliquez sur le bouton <strong>Create</strong> pour créer une nouvelle animation. Cela va ajouter un composant <strong>Animator</strong> au GameObject si ce n'est pas déjà fait et créer un fichier d'animation dans le dossier <code>Assets/animations</code>.</li>
 <li>Enregistrez le fichier d'animation avec un nom approprié au format suivant <code>objet_nomDeLanimation</code> (par exemple, &quot;porte_ouverture&quot;, &quot;lumiere_clignotante&quot;).</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimator.png&width=1356&format=webp&via=transform 1356w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimator.png&width=1356&format=jpeg&via=transform" alt="Créer un composant animator" width="1356" height="686"></picture>{width=&quot;100%&quot;}
-<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CnomAnimation.png&width=207&format=webp&via=transform 207w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CnomAnimation.png&width=207&format=jpeg&via=transform" alt="Enregistrement d'une animation" width="207" height="137"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/VvwDuuyECy-1356.webp 1356w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/VvwDuuyECy-1356.jpeg" alt="Créer un composant animator" width="1356" height="686"></picture>{width=&quot;100%&quot;}
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/EboYZ8gffh-207.webp 207w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/EboYZ8gffh-207.jpeg" alt="Enregistrement d'une animation" width="207" height="137"></picture></p>
 <ol start="5">
 <li>Dans la fenêtre Animation, assurez-vous que le mode d'enregistrement est activé en cliquant sur le bouton rouge <strong>Record</strong> (si ce n'est pas déjà fait).</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Crecord_button.png&width=295&format=webp&via=transform 295w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Crecord_button.png&width=295&format=jpeg&via=transform" alt="Enregistrement des propriétés animables" width="295" height="183"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/jgnBqj_06q-295.webp 295w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/jgnBqj_06q-295.jpeg" alt="Enregistrement des propriétés animables" width="295" height="183"></picture></p>
 <ol start="6">
 <li>Déplacez la tête de lecture (le curseur vertical rouge) à l'endroit où vous souhaitez définir un keyframe (par exemple, à 1 seconde).</li>
 <li>Modifiez la propriété du GameObject que vous souhaitez animer (par exemple, la position, la rotation ou l'échelle). Unity ajoutera automatiquement un keyframe pour cette propriété à la position actuelle de la tête de lecture.</li>
@@ -70,7 +70,7 @@
 <p>Si vous souhaitez déplacer un GameObject par programmation ET en utilisant aussi une animation par interpolation, vous pouvez le faire en combinant les deux approches.</p>
 <p>Cependant, il est important de noter que les animations peuvent écraser les modifications par programmation si elles affectent les mêmes propriétés.</p>
 <p>Pour éviter cela, <strong>placez l'élément animé dans un GameObject parent et appliquez les scripts de déplacement par programmation au parent.</strong></p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccombiner_script_animation.png&width=762&format=webp&via=transform 762w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccombiner_script_animation.png&width=762&format=jpeg&via=transform" alt="Combiner script et animation " width="762" height="274"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/_R8c_xaPu2-762.webp 762w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/_R8c_xaPu2-762.jpeg" alt="Combiner script et animation " width="762" height="274"></picture></p>
 <h2 id="creer-une-animation-qui-joue-en-boucle-correctement">Créer une animation qui joue en boucle correctement</h2>
 <p>Pour qu'une animation joue en boucle, assurez-vous que la dernière image-clé de l'animation correspond à la première frame.</p>
 <ol>
@@ -80,7 +80,7 @@
 </ol>
 <h2 id="types-d-interpolation">Types d'interpolation</h2>
 <p>Unity utilise les courbes de Bezier comme dans Illustrator pour interpoler entre les images-clés. Vous pouvez voir ces courbes en appuyant sur le bouton <strong>Curves</strong> dans la fenêtre Animation et en sélectionnant une propriété animée.Il faut parfois déplier une propriété animée pour voir la courbe.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimationcurves.png&width=969&format=webp&via=transform 969w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimationcurves.png&width=969&format=jpeg&via=transform" alt="Courbes d'animation" width="969" height="525"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/6tape_NOuE-969.webp 969w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/6tape_NOuE-969.jpeg" alt="Courbes d'animation" width="969" height="525"></picture></p>
 <p>Vous pouvez modifier la manière dont les poignées des courbes réagissent en cliquant avec le bouton droit sur une image-clé dans la fenêtre Animation. Vous pouvez choisir parmi plusieurs types d'interpolation, tels que :</p>
 <ul>
 <li>Clamped Auto : Les poignées sont automatiquement ajustées, mais restent dans les limites des keyframes adjacentes</li>
@@ -89,7 +89,7 @@
 <li>Flat : Les poignées sont horizontales, créant une transition douce</li>
 <li>Broken : Chaque poignée peut être ajustée indépendamment, ce qui permet des transitions plus complexes</li>
 </ul>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CtypeInterpolation.png&width=562&format=webp&via=transform 562w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CtypeInterpolation.png&width=562&format=jpeg&via=transform" alt="Types d'interpolation" width="562" height="347"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/0eMFlNN7hX-562.webp 562w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/0eMFlNN7hX-562.jpeg" alt="Types d'interpolation" width="562" height="347"></picture></p>
 <p>Vous pouvez également choisir comment la courbe se comporte entre à chaque poignée:</p>
 <ul>
 <li>Free : La courbe d'animation est librement ajustable entre les keyframes</li>
@@ -97,7 +97,7 @@
 <li>Constant : La valeur reste constante jusqu'à la prochaine keyframe. Il n'y a pas de transition entre les keyframes. Utile pour des changements brusques</li>
 <li>Stepped : La valeur change brusquement à la keyframe suivante. Utilisé pour des animations en &quot;sauts&quot; comme des animations de sprites</li>
 </ul>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimation_handle_behavior.png&width=1095&format=webp&via=transform 1095w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimation_handle_behavior.png&width=1095&format=jpeg&via=transform" alt="Comportement de chaque poignée d'animation" width="1095" height="459"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/11_AnimationParInterpolation/WERTfgNhxc-1095.webp 1095w"><img src="/2J2-NotesDeCours/11_AnimationParInterpolation/WERTfgNhxc-1095.jpeg" alt="Comportement de chaque poignée d'animation" width="1095" height="459"></picture></p>
 <p>Pour visualiser les différentes courbes d'interpolation, vous pouvez visiter les sites suivants :</p>
 <p><a href="https://www.svgator.com/blog/easing-functions/">SVGator - Easing Functions</a>
 <a href="https://docs.unity3d.com/2019.1/Documentation/Manual/animeditor-AnimationCurves.html">Documentation Unity - Animation Curves </a></p>

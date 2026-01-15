@@ -39,7 +39,7 @@
             <h1 id="detection-des-touches-du-clavier-et-des-clics-de-souris-avec-le-nouveau-systeme-d-input-unity">Détection des touches du clavier et des clics de souris avec le nouveau système d'Input Unity</h1>
 <p>Unity a introduit un nouveau système d'Input qui offre une manière plus flexible et puissante de gérer les entrées utilisateur, y compris la détection des touches du clavier et des clics de souris. Voici comment vous pouvez utiliser ce nouveau système pour détecter ces entrées dans votre projet Unity.</p>
 <p>Lorsque vous créez un projet avec le gabarit &quot;Universal 2d&quot;, le nouveau système d'Input est déjà configuré par défaut. Si vous travaillez sur un projet existant, vous devrez peut-être installer et configurer le package &quot;Input System&quot; via le gestionnaire de packages Unity.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Cprojet2D.png&width=385&format=webp&via=transform 385w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Cprojet2D.png&width=385&format=jpeg&via=transform" alt="Projet Universal 2d" width="385" height="521"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_InteractionsSimples_InputSystem/mrhjtih668-385.webp 385w"><img src="/2J2-NotesDeCours/05_InteractionsSimples_InputSystem/mrhjtih668-385.jpeg" alt="Projet Universal 2d" width="385" height="521"></picture></p>
 <h2 id="installer-le-package-input-system-si-necessaire">Installer le package Input System (si nécessaire)</h2>
 <ol>
 <li>Dans Unity, allez dans <strong>Window</strong> &gt; <strong>Package Manager</strong>.</li>
@@ -134,11 +134,11 @@ public class DeplacementJoueur : MonoBehaviour
 <li>Dans l'inspecteur, vous verrez les champs <code>Mouvement Horizontal</code> et <code>Mouvement Vertical</code>.</li>
 <li>Appuyez sur le + à côté de chaque champ pour lier des touches. Vous pourrez ajouter les touches fléchées et les touches &quot;WASD&quot; pour chaque action. Si l'action est une valeur unique, choisissez &quot;Add Binding&quot; et sélectionnez &quot;1D Axis&quot; pour les mouvements horizontaux et verticaux. Si l'action est une valeur vectorielle, choisissez &quot;Add Positive/Negative Binding&quot;. Vous pourrez ainsi configurer plusieurs touches pour une même action comme un déplacement horizontal ou vertical.</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Cbindind.png&width=645&format=webp&via=transform 645w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Cbindind.png&width=645&format=jpeg&via=transform" alt="Choisir une liaison de touches" width="645" height="269"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_InteractionsSimples_InputSystem/7V_ef3Ew1M-645.webp 645w"><img src="/2J2-NotesDeCours/05_InteractionsSimples_InputSystem/7V_ef3Ew1M-645.jpeg" alt="Choisir une liaison de touches" width="645" height="269"></picture></p>
 <ol start="4">
 <li>Choisissez les touches souhaitées pour chaque action. (Un truc: Utilisez le bouton &quot;Listen&quot; pour détecter automatiquement la touche que vous appuyez.)</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5ClistenBinding.png&width=584&format=webp&via=transform 584w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5ClistenBinding.png&width=584&format=jpeg&via=transform" alt="Lier une touche à une action" width="584" height="388"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_InteractionsSimples_InputSystem/PtmqtTjB1a-584.webp 584w"><img src="/2J2-NotesDeCours/05_InteractionsSimples_InputSystem/PtmqtTjB1a-584.jpeg" alt="Lier une touche à une action" width="584" height="388"></picture></p>
 <p>Avec cette configuration, votre personnage pourra se déplacer en utilisant à la fois les touches fléchées et les touches &quot;WASD&quot;. Vous pouvez ajouter autant de bindings que nécessaire pour chaque action afin de personnaliser les contrôles selon vos besoins. Vous pourriez aussi utiliser cette méthode pour lier une manette de jeu ou d'autres périphériques d'entrée.</p>
 <p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/index.html">Documentation officielle du nouveau système d'Input Unity</a></p>
 

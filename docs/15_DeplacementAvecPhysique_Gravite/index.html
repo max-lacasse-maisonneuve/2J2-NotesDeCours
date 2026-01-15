@@ -54,7 +54,7 @@
 <h2 id="deplacer-un-objet-dans-une-direction-avec-la-physique">Déplacer un objet dans une direction avec la physique</h2>
 <p>Le composant Rigidbody 2D permet de d.éplacer un objet en lui appliquant des forces physiques grâce à la méthode <code>AddForce()</code>. Cela permet de simuler des mouvements réalistes influencés par la gravité, les collisions et d'autres forces.</p>
 <p>On choisit une direction multipliée par la force que l'on souhaite appliquer à l'objet. Nous utilisons un vecteur 2D pour spécifier cette direction. Ex: Vector2.up pour une force vers le haut, Vector2.right pour une force vers la droite ou encore Vector2(1,1) pour une force diagonale.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CdeplacementRigidbody.png&width=456&format=webp&via=transform 456w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CdeplacementRigidbody.png&width=456&format=jpeg&via=transform" alt="Exemples de réglages du rigidbody 2D" width="456" height="603"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/15_DeplacementAvecPhysique_Gravite/_soi93YldD-456.webp 456w"><img src="/2J2-NotesDeCours/15_DeplacementAvecPhysique_Gravite/_soi93YldD-456.jpeg" alt="Exemples de réglages du rigidbody 2D" width="456" height="603"></picture></p>
 <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -143,7 +143,7 @@ void FixedUpdate()
 </code></pre>
 <h2 id="utiliser-les-forces-mais-sans-gravite-comme-dans-un-jeu-top-down">Utiliser les forces mais sans gravité comme dans un jeu top-down</h2>
 <p>Si vous souhaitez que votre objet soit affecté par des forces mais pas par la gravité, vous pouvez désactiver la gravité dans les propriétés du Rigidbody 2D en réglant le paramètre &quot;Gravity Scale&quot; (Échelle de gravité) à 0. Vous devez alors ajouter les réglages pour les déplacements verticaux.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Crigidbody_topdown.png&width=456&format=webp&via=transform 456w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Crigidbody_topdown.png&width=456&format=jpeg&via=transform" alt="Exemple de réglages pour un personnage top-down sans gravité" width="456" height="603"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/15_DeplacementAvecPhysique_Gravite/JFwj3gvprV-456.webp 456w"><img src="/2J2-NotesDeCours/15_DeplacementAvecPhysique_Gravite/JFwj3gvprV-456.jpeg" alt="Exemple de réglages pour un personnage top-down sans gravité" width="456" height="603"></picture></p>
 <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.InputSystem;
 

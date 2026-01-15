@@ -41,8 +41,8 @@
 <p>Il est possible d'ajouter plusieurs scripts à un même GameObject, permettant ainsi de combiner différents comportements. Pour l'instant, nous nous concentrerons sur la création et l'ajout d'un seul script à un GameObject.</p>
 <h2 id="integration-avec-vscode-ou-visual-studio">Intégration avec VSCode ou Visual Studio</h2>
 <p>Unity s'intègre parfaitement avec des éditeurs de code externes tels que Visual Studio Code (VSCode) (logo bleu) ou Visual Studio Community (logo violet).
-<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5ClogoVsCode.png&width=36&format=webp&via=transform 36w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5ClogoVsCode.png&width=36&format=jpeg&via=transform" alt="Logo VS Code" width="36" height="46"></picture>
-<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5ClogoVisualStudio.png&width=44&format=webp&via=transform 44w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5ClogoVisualStudio.png&width=44&format=jpeg&via=transform" alt="Logo Visual Studio" width="44" height="47"></picture></p>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/lHOcVK4cq4-36.webp 36w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/lHOcVK4cq4-36.jpeg" alt="Logo VS Code" width="36" height="46"></picture>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/h3lZ1JUQqh-44.webp 44w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/h3lZ1JUQqh-44.jpeg" alt="Logo Visual Studio" width="44" height="47"></picture></p>
 <h3 id="vscode-ou-visual-studio-community">VSCode ou Visual Studio Community ?</h3>
 <p>Visual Studio Code est un éditeur de code léger et polyvalent, tandis que Visual Studio Community est un environnement de développement intégré (IDE) plus complet. Les deux offrent d'excellentes fonctionnalités pour le développement en C# avec Unity, telles que la complétion de code, le débogage, et la gestion des projets. Le deux sont gratuits et largement utilisés dans la communauté Unity mais VSCode est plus léger et plus rapide à lancer.</p>
 <p>Voici comment configurer Unity pour utiliser l'un de ces éditeurs :</p>
@@ -68,8 +68,8 @@
 <p>Dans VSCode, il est recommandé d'installer l'extension <code>C# for Visual Studio Code</code> pour une meilleure prise en charge de C# et de Unity. Cela inclut la complétion de code, le débogage, et d'autres fonctionnalités utiles et le package <code>Unity Tools</code> pour des fonctionnalités supplémentaires spécifiques à Unity.</p>
 <p>Vous devez également installer le SDK .NET si ce n'est pas déjà fait, car il est nécessaire pour le développement en C# avec VSCode.
 <a href="https://dotnet.microsoft.com/en-us/download">SDK .NET</a></p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CcVSCODE.png&width=1901&format=webp&via=transform 1901w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CcVSCODE.png&width=1901&format=jpeg&via=transform" alt="extension C#" width="1901" height="1027"></picture>
-<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CunityExtension.png&width=1913&format=webp&via=transform 1913w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CunityExtension.png&width=1913&format=jpeg&via=transform" alt="extension Unity Tools" width="1913" height="1018"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/JhZAhEd4Yq-1901.webp 1901w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/JhZAhEd4Yq-1901.jpeg" alt="extension C#" width="1901" height="1027"></picture>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/nbxKfYLn2R-1913.webp 1913w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/nbxKfYLn2R-1913.jpeg" alt="extension Unity Tools" width="1913" height="1018"></picture></p>
 <h2 id="creation-d-un-script-c-dans-unity">Création d'un script C# dans Unity</h2>
 <p>Pour créer un script C# dans Unity, suivez ces étapes :</p>
 <ol>
@@ -79,7 +79,7 @@
 <li>Double-cliquez sur le script pour l'ouvrir dans votre éditeur de code configuré (VSCode ou Visual Studio).</li>
 <li>Glissez-déposez le script sur un GameObject dans la fenêtre <code>Hierarchy</code> pour l'ajouter en tant que composant.</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CcreerScript.png&width=1902&format=webp&via=transform 1902w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CcreerScript.png&width=1902&format=jpeg&via=transform" alt="Création d'un script" width="1902" height="979"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KD2S7K3jpj-1902.webp 1902w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KD2S7K3jpj-1902.jpeg" alt="Création d'un script" width="1902" height="979"></picture></p>
 <h2 id="structure-de-base-d-un-script-c">Structure de base d'un script C#</h2>
 <p>Les scripts C# dans Unity suivent une structure de base. Ils importent généralement l'espace de noms <code>UnityEngine</code> et contiennent une classe qui hérite de <code>MonoBehaviour</code>. C'est ce qui permet au script de fonctionner comme un composant Unity.</p>
 <p><strong>!!NE PAS modifier le nom de la classe ou le fait qu'elle hérite de <code>MonoBehaviour</code>, sinon Unity ne pourra pas reconnaître le script correctement.</strong></p>
@@ -122,10 +122,10 @@ public class DeplacementFlappy : MonoBehaviour
 <h3 id="time-deltatime">Time.deltaTime?</h3>
 <p><code>Time.deltaTime</code> représente le temps écoulé entre la dernière frame et la frame actuelle. Il est utilisé pour rendre les mouvements indépendants de la fréquence d'images (FPS). En multipliant un mouvement par <code>Time.deltaTime</code>, vous vous assurez que l'objet se déplace à une vitesse constante, quel que soit le nombre de frames par seconde.</p>
 <p>Si vous testez avec un vieil appareil ou un appareil très puissant, la vitesse de déplacement restera la même en utilisant <code>Time.deltaTime</code>.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CproprietePublique.png&width=562&format=webp&via=transform 562w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CproprietePublique.png&width=562&format=jpeg&via=transform" alt="Les propriétés publiques dans l'inspecteur Unity" width="562" height="600"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KW_tU3h1Pw-562.webp 562w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KW_tU3h1Pw-562.jpeg" alt="Les propriétés publiques dans l'inspecteur Unity" width="562" height="600"></picture></p>
 <h2 id="execution-du-script">Exécution du script</h2>
 <p>Pour voir le script en action, assurez-vous que le GameObject auquel il est attaché est actif dans la scène. Lorsque vous lancez le jeu en cliquant sur le bouton <code>Play</code>, les méthodes <code>Start()</code> et <code>Update()</code> seront appelées automatiquement par Unity.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CexecutionCode.png&width=1912&format=webp&via=transform 1912w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CexecutionCode.png&width=1912&format=jpeg&via=transform" alt="L'exécution du script dans Unity" width="1912" height="1005"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/6pi6HDbltr-1912.webp 1912w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/6pi6HDbltr-1912.jpeg" alt="L'exécution du script dans Unity" width="1912" height="1005"></picture></p>
 <h2 id="commenter-et-documenter-le-code">Commenter et documenter le code</h2>
 <p>Il est important de commenter et de documenter votre code pour le rendre plus compréhensible, surtout lorsque vous travaillez en équipe. Utilisez des commentaires pour expliquer la logique complexe ou les décisions de conception.</p>
 <p>Pour ce faire, utilisez <code>//</code> pour les commentaires sur une seule ligne et <code>/* ... */</code> pour les commentaires sur plusieurs lignes.</p>

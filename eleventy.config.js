@@ -9,6 +9,7 @@ export default async function (eleventyConfig)
     eleventyConfig.setOutputDirectory("docs");
     eleventyConfig.addGlobalData("layout", "index.liquid");
 
+    eleventyConfig.addPlugin(HtmlBasePlugin);
     eleventyConfig.addPlugin(eleventyImageTransformPlugin);
     eleventyConfig.addPlugin(IdAttributePlugin);
 
@@ -21,7 +22,6 @@ export default async function (eleventyConfig)
     
     //console.log("config test");
     //eleventyConfig.setTemplateFormats("html,liquid,njk");
-    eleventyConfig.addPlugin(HtmlBasePlugin);
 
     
     // Copy `img/` to `_site/img/`

@@ -73,8 +73,8 @@ public class MouseInputExample : MonoBehaviour
 <p>Unity fournit également le composant <code>EventTrigger</code> qui permet de gérer les interactions avec le pointeur de manière plus visuelle et basée sur des événements. Vous pouvez utiliser <code>EventTrigger</code> pour associer des fonctions publiques aux événements de pointeur tels que les clics, les survols, et à un objet en particulier.</p>
 <p>Pour utiliser <code>EventTrigger</code>, assurez-vous que votre scène contient un composant <code>EventSystem</code> (il est généralement ajouté automatiquement lorsque vous ajoutez un composant UI). Vous devrez également ajouter un composant <code>Physics Raycaster</code> ou <code>Physics 2D Raycaster</code> à votre caméra principale pour détecter les interactions avec les objets 3D ou 2D respectivement.</p>
 <p>Pour les éléments UI, un <code>Graphic Raycaster</code> est généralement déjà présent sur le Canvas.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CeventTrigger.png&width=462&format=webp&via=transform 462w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CeventTrigger.png&width=462&format=jpeg&via=transform" alt="Event Trigger" width="462" height="71"></picture></p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5C2d-raycaster2.png&width=1909&format=webp&via=transform 1909w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5C2d-raycaster2.png&width=1909&format=jpeg&via=transform" alt="Composant Physic2D Raycaster doit être ajouté à la caméra + EventSystem" width="1909" height="616"></picture>{width=100%}</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/z_3o2EcZ5P-462.webp 462w"><img src="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/z_3o2EcZ5P-462.jpeg" alt="Event Trigger" width="462" height="71"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/7EGLiZI-Rf-1909.webp 1909w"><img src="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/7EGLiZI-Rf-1909.jpeg" alt="Composant Physic2D Raycaster doit être ajouté à la caméra + EventSystem" width="1909" height="616"></picture>{width=100%}</p>
 <h3 id="ajouter-un-eventtrigger-a-un-gameobject">Ajouter un EventTrigger à un GameObject</h3>
 <ol>
 <li>Sélectionnez le GameObject auquel vous souhaitez ajouter des interactions avec le pointeur.</li>
@@ -89,8 +89,8 @@ public class MouseInputExample : MonoBehaviour
 <li>Faites glisser le GameObject contenant le script avec la fonction publique que vous souhaitez appeler dans le champ <strong>None (Object)</strong>.</li>
 <li>Dans le menu déroulant à droite, sélectionnez la fonction publique que vous souhaitez exécuter lorsque l'événement se produit.</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CeventTrigger_component.png&width=497&format=webp&via=transform 497w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CeventTrigger_component.png&width=497&format=jpeg&via=transform" alt="Composant Event Trigger" width="497" height="450"></picture></p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CclickEvent2.png&width=1920&format=webp&via=transform 1920w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CclickEvent2.png&width=1920&format=jpeg&via=transform" alt="Ajouter un clic sur un élément" width="1920" height="1016"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/L_zRMFnbsY-497.webp 497w"><img src="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/L_zRMFnbsY-497.jpeg" alt="Composant Event Trigger" width="497" height="450"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/ZXVSEGY9Gs-1920.webp 1920w"><img src="/2J2-NotesDeCours/14_InteractionsAvecPointeur_EventTrigger/ZXVSEGY9Gs-1920.jpeg" alt="Ajouter un clic sur un élément" width="1920" height="1016"></picture></p>
 <p>Exemple de code pour une fonction publique qui sera appelée lors d'un clic de pointeur :</p>
 <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.SceneManagement;

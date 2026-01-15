@@ -47,10 +47,10 @@
 <li><strong>EdgeCollider2D</strong> : Un collider en forme de ligne.</li>
 </ul>
 <p>Pour que les objets réagissent aux collisions, <strong>un des deux objets doit avoir un composant Rigidbody2D attaché</strong>. Le Rigidbody2D permet à l'objet de réagir aux forces physiques, y compris les collisions. Généralement, il s'agit du personnage ou des objets mobiles. Vous pouvez réajuster la zone de collision en appuyant sur &quot;Edit Collider&quot; dans l'inspecteur.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccomponent.png&width=565&format=webp&via=transform 565w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccomponent.png&width=565&format=jpeg&via=transform" alt="Ajouter un composant" width="565" height="717"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_GestionCollisions_Collider2D/0Y2ezZmqiv-565.webp 565w"><img src="/2J2-NotesDeCours/06_GestionCollisions_Collider2D/0Y2ezZmqiv-565.jpeg" alt="Ajouter un composant" width="565" height="717"></picture></p>
 <h2 id="modifier-un-collider">Modifier un collider</h2>
 <p>Pour modifier la forme d'un collider, sélectionnez l'objet dans la scène, puis cliquez sur l'icône d'édition du collider dans l'inspecteur (un petit carré avec des points aux coins). Vous pouvez ensuite faire glisser les points pour ajuster la forme du collider selon vos besoins.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccollider_edit_icon.png&width=734&format=webp&via=transform 734w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccollider_edit_icon.png&width=734&format=jpeg&via=transform" alt="Modifier un collider" width="734" height="314"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_GestionCollisions_Collider2D/YLFTrl4vPP-734.webp 734w"><img src="/2J2-NotesDeCours/06_GestionCollisions_Collider2D/YLFTrl4vPP-734.jpeg" alt="Modifier un collider" width="734" height="314"></picture></p>
 <h2 id="detecter-les-collisions-solides">Détecter les collisions solides</h2>
 <p>Unity possède plusieurs méthodes pour détecter les collisions entre objets 2D. Vous pouvez utiliser des fonctions prédéfinies dans vos scripts pour réagir aux événements de collision. Les fonctions OnCollision2D sont appelées automatiquement par Unity lorsque des collisions se produisent, les objets ne passent pas à travers les uns les autres.</p>
 <p><strong>Le paramètre est de type Collision2D</strong>, qui contient des informations sur la collision, comme l'objet avec lequel la collision s'est produite.</p>
@@ -61,7 +61,7 @@
 </ul>
 <h2 id="detecter-les-collisions-traversables">Détecter les collisions traversables</h2>
 <p>Pour les collisions traversables, où les objets peuvent passer à travers les uns les autres mais détecter la présence, vous pouvez utiliser des colliders configurés en tant que &quot;Trigger&quot;. Pour cela, cochez la case &quot;Is Trigger&quot; dans l'inspecteur du collider. Par exemple, pour un objet collectible comme une pièce ou un power-up.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Ctrigger.png&width=554&format=webp&via=transform 554w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Ctrigger.png&width=554&format=jpeg&via=transform" alt="Option Is Trigger permet de rendre l'objet un déclencheur traversable" width="554" height="260"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_GestionCollisions_Collider2D/Nun3ji10ib-554.webp 554w"><img src="/2J2-NotesDeCours/06_GestionCollisions_Collider2D/Nun3ji10ib-554.jpeg" alt="Option Is Trigger permet de rendre l'objet un déclencheur traversable" width="554" height="260"></picture></p>
 <p><strong>Le paramètre est de type Collider2D</strong>, qui représente le collider de l'autre objet impliqué dans le déclencheur.</p>
 <ul>
 <li><strong>OnTriggerEnter2D(Collider2D collision)</strong> : Appelé lorsqu'un objet entre dans le collider déclencheur.</li>

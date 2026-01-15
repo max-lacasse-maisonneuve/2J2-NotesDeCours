@@ -40,7 +40,7 @@
 <p>Il est possible de combiner plusieurs transformations géométriques pour obtenir des effets plus complexes. Par exemple, on peut effectuer une rotation suivie d'une translation, ou une homothétie suivie d'une rotation. Depuis la barre d'outils d'Unity, on peut facilement appliquer ces transformations aux objets dans la scène. Il est également possible de modifier les valeurs des transformations directement dans l'inspecteur pour un contrôle plus précis ou par programmation via des scripts C#.</p>
 <h2 id="deplacer-faire-pivoter-et-redimensionner-des-objets-dans-la-scene">Déplacer, faire pivoter et redimensionner des objets dans la scène</h2>
 <p>Pour déplacer, faire pivoter et redimensionner des objets dans la scène Unity, vous pouvez utiliser les outils de transformation situés dans la barre d'outils en haut de l'éditeur Unity.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CbarreOutils.png&width=997&format=webp&via=transform 997w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CbarreOutils.png&width=997&format=jpeg&via=transform" alt="Barre d'outils" width="997" height="572"></picture>;</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/03_Transformation_Deplacement/npQY3Un-4R-997.webp 997w"><img src="/2J2-NotesDeCours/03_Transformation_Deplacement/npQY3Un-4R-997.jpeg" alt="Barre d'outils" width="997" height="572"></picture>;</p>
 <ul>
 <li><strong>Outil de déplacement (W)</strong> : Permet de déplacer un objet le long des axes X, Y et Z.</li>
 <li><strong>Outil de rotation (E)</strong> : Permet de faire pivoter un objet autour des axes X, Y et Z.</li>
@@ -50,14 +50,14 @@ Vous pouvez sélectionner un objet dans la hiérarchie ou dans la scène, puis c
 </ul>
 <h2 id="composant-transform">Composant Transform</h2>
 <p>Chaque objet dans Unity possède un composant Transform qui stocke les informations de position, rotation et échelle de l'objet. Vous pouvez modifier ces valeurs directement dans l'inspecteur lorsque l'objet est sélectionné.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Ctransform.png&width=559&format=webp&via=transform 559w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Ctransform.png&width=559&format=jpeg&via=transform" alt="Composant Transform" width="559" height="174"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/03_Transformation_Deplacement/IixbfKgWrR-559.webp 559w"><img src="/2J2-NotesDeCours/03_Transformation_Deplacement/IixbfKgWrR-559.jpeg" alt="Composant Transform" width="559" height="174"></picture></p>
 <h2 id="vector-2-et-vector-3">Vector 2 et Vector 3</h2>
 <p>Unity utilise des structures de données appelées Vector2 et Vector3 pour représenter un point ou une direction dans l'espace 2D et 3D. Pour cette session, nous utiliserons principalement Vector2, mais il est important de comprendre les deux. Cela sert à représenter des points ou des directions dans l'espace.</p>
 <ul>
 <li><strong>Vector2</strong> : Représente un vecteur dans un espace 2D avec des composantes X et Y.</li>
 <li><strong>Vector3</strong> : Représente un vecteur dans un espace 3D avec des composantes X, Y et Z.</li>
 </ul>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Cvecteur2d.png&width=450&format=webp&via=transform 450w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Cvecteur2d.png&width=450&format=jpeg&via=transform" alt="Vecteur 2D " width="450" height="450"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/03_Transformation_Deplacement/CcpSKA2_Kw-450.webp 450w"><img src="/2J2-NotesDeCours/03_Transformation_Deplacement/CcpSKA2_Kw-450.jpeg" alt="Vecteur 2D " width="450" height="450"></picture></p>
 <p>Exemple de création d'un Vector2 et d'un Vector3 :</p>
 <pre><code class="language-csharp">// Créer un Vector2
 Vector2 pointA= new Vector2(7.0f, 3.0f); //Vecteur de 7 unités en X et 3 unités en Y
