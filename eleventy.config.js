@@ -1,5 +1,6 @@
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { IdAttributePlugin } from "@11ty/eleventy";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default async function (eleventyConfig)
 {
@@ -20,6 +21,7 @@ export default async function (eleventyConfig)
     
     //console.log("config test");
     //eleventyConfig.setTemplateFormats("html,liquid,njk");
+    eleventyConfig.addPlugin(HtmlBasePlugin);
 
     
     // Copy `img/` to `_site/img/`
@@ -30,3 +32,7 @@ export default async function (eleventyConfig)
 	eleventyConfig.addPassthroughCopy("fonts");
 	eleventyConfig.addPassthroughCopy("styles");
 };
+
+export const config = {
+	pathPrefix: "/2J2-NotesDeCours/",
+}

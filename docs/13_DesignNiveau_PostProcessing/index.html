@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#121212">
     <title>582-2J2 : 13_DesignNiveau_PostProcessing</title>
     <!-- CSS  -->
-    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
     
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
@@ -28,8 +28,8 @@
           <div class="row">
           <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">13_DesignNiveau_PostProcessing</span></p>
 <br>
-        <a class="button" href="/index.html">🏠 Liste de notes</a>
-          <a class="button" href="/pdf/13_DesignNiveau_PostProcessing.pdf" download="">💾 Télécharger note en PDF</a>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/13_DesignNiveau_PostProcessing.pdf" download="">💾 Télécharger note en PDF</a>
           </div>
       </div>
     </div>
@@ -39,8 +39,8 @@
             <h1 id="design-de-niveau-post-processing">Design de niveau : Post-Processing</h1>
 <p>Le post-traitement (Post-Processing) est une technique utilisée pour améliorer l'apparence visuelle d'un jeu en appliquant divers effets graphiques après le rendu de la scène. Unity propose un système de post-traitement puissant et flexible qui permet aux développeurs de créer des effets visuels impressionnants pour leurs jeux. Il peut être utilisé pour ajuster les couleurs, la luminosité, le contraste, ajouter des effets de flou, de vignettage, et bien plus encore.</p>
 <p>À noter que le post-traitement peut avoir un impact significatif sur les performances, en particulier sur les appareils mobiles ou les configurations matérielles plus anciennes. Il est donc important de tester et d'optimiser les effets utilisés pour garantir une expérience fluide pour les joueurs.</p>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CbeforeVolume.png&width=1007&format=webp&via=transform 1007w"><img src="/.11ty/image/?src=images%5CbeforeVolume.png&width=1007&format=jpeg&via=transform" alt="Avant post-traitement" width="1007" height="477"></picture>{width=&quot;75%&quot;}</p>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CafterVolume.png&width=1006&format=webp&via=transform 1006w"><img src="/.11ty/image/?src=images%5CafterVolume.png&width=1006&format=jpeg&via=transform" alt="Après post-traitement" width="1006" height="472"></picture>{width=&quot;75%&quot;}</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CbeforeVolume.png&width=1007&format=webp&via=transform 1007w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CbeforeVolume.png&width=1007&format=jpeg&via=transform" alt="Avant post-traitement" width="1007" height="477"></picture>{width=&quot;75%&quot;}</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CafterVolume.png&width=1006&format=webp&via=transform 1006w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CafterVolume.png&width=1006&format=jpeg&via=transform" alt="Après post-traitement" width="1006" height="472"></picture>{width=&quot;75%&quot;}</p>
 <h2 id="configuration-du-post-processing-dans-unity">Configuration du Post-Processing dans Unity</h2>
 <p>Lorsque vous créez un nouveau projet Unity avec le gabarit &quot;Universal 2D&quot;, le <strong>POST-TRAITEMENT EST DÉJÀ CONFIGURÉ PAR DÉFAUT</strong>.</p>
 <p>Si vous utilisez un autre projet plus ancien, vous devrez peut-être configurer le post-traitement manuellement. Allez dans le menu <strong>Window &gt; Package Manager</strong>, recherchez &quot;Post Processing&quot; et installez-le si ce n'est pas déjà fait.</p>
@@ -50,11 +50,11 @@
 <li><strong>Ajouter un Volume de Post-Processing</strong> : Créez un GameObject vide dans votre scène et ajoutez-lui un composant <strong>Volume</strong> via le menu <strong>Component &gt; Rendering &gt; Volume</strong>. Sélectionnez le type <strong>Global</strong> pour que les effets s'appliquent à toute la scène.</li>
 <li><strong>Créer un Profil de Post-Processing</strong> : Dans le composant Volume, cliquez sur <strong>New</strong> à côté de <strong>Profile</strong> pour créer un nouveau profil de post-traitement.</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CVolume.png&width=475&format=webp&via=transform 475w"><img src="/.11ty/image/?src=images%5CVolume.png&width=475&format=jpeg&via=transform" alt="Volume" width="475" height="493"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CVolume.png&width=475&format=webp&via=transform 475w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CVolume.png&width=475&format=jpeg&via=transform" alt="Volume" width="475" height="493"></picture></p>
 <ol start="3">
 <li><strong>Ajouter des effets de Post-Processing</strong> : Cliquez sur le bouton <strong>Add Override</strong> dans le profil de post-traitement pour ajouter des effets tels que <strong>Bloom</strong>, <strong>Color Grading</strong>, <strong>Vignette</strong>, <strong>Depth of Field</strong>, etc.</li>
 <li>Sur la caméra principale de la scène, assurez-vous <em>Post Processing</em> est activé dans le composant <strong>Rendering</strong>.
-<picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CoptionCamera.png&width=447&format=webp&via=transform 447w"><img src="/.11ty/image/?src=images%5CoptionCamera.png&width=447&format=jpeg&via=transform" alt="Option de camera" width="447" height="128"></picture></li>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CoptionCamera.png&width=447&format=webp&via=transform 447w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CoptionCamera.png&width=447&format=jpeg&via=transform" alt="Option de camera" width="447" height="128"></picture></li>
 </ol>
 <h2 id="effets-courants-de-post-processing">Effets courants de Post-Processing</h2>
 <ul>
@@ -68,7 +68,7 @@
 <li><strong>White Balance</strong> : Ajuste la température des couleurs de la scène pour corriger les dominantes de couleur indésirables ou pour créer une ambiance spécifique.</li>
 </ul>
 <p>Il y a d'autres effets disponibles dans le post-traitement de Unity, et vous pouvez les combiner pour créer des looks uniques adaptés à votre jeu.</p>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CoptionVolume.png&width=263&format=webp&via=transform 263w"><img src="/.11ty/image/?src=images%5CoptionVolume.png&width=263&format=jpeg&via=transform" alt="Options" width="263" height="288"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CoptionVolume.png&width=263&format=webp&via=transform 263w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CoptionVolume.png&width=263&format=jpeg&via=transform" alt="Options" width="263" height="288"></picture></p>
 <h2 id="ajouter-un-volume-local-creer-une-zone-avec-des-effets-de-post-traitement-specifiques">Ajouter un volume local (créer une zone avec des effets de post-traitement spécifiques)</h2>
 <p>En plus des volumes globaux, vous pouvez créer des volumes de post-traitement locaux qui n'affectent qu'une partie spécifique de la scène. Cela est utile pour créer des effets visuels distincts dans différentes zones du jeu. Cette zone se déclenche lorsque la caméra entre dans le collider du volume local. La caméra doit pouvoir entrer dans le volume, donc ajustez la position en Z du collider si nécessaire et parentez la caméra au personnage joueur si ce n'est pas déjà fait.</p>
 <ol>
@@ -76,7 +76,7 @@
 <li>Positionnez et redimensionnez le volume pour couvrir la zone souhaitée dans votre scène</li>
 <li>Ajustez le collider en Z pour que la caméra puisse entrer dans le volume. (Vous pouvez désactiver temporairement l'icône &quot;2d&quot; pour visualiser la caméra dans l'espace 3d au besoin).</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CcameraColliderVolume.png&width=1440&format=webp&via=transform 1440w"><img src="/.11ty/image/?src=images%5CcameraColliderVolume.png&width=1440&format=jpeg&via=transform" alt="Ajustez la taille du collider en Z pour que la caméra puisse entrer dans le volume" width="1440" height="439"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CcameraColliderVolume.png&width=1440&format=webp&via=transform 1440w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CcameraColliderVolume.png&width=1440&format=jpeg&via=transform" alt="Ajustez la taille du collider en Z pour que la caméra puisse entrer dans le volume" width="1440" height="439"></picture></p>
 <ol start="4">
 <li>Dans le composant Volume, créez un nouveau profil de post-traitement ou utilisez-en un existant.</li>
 <li>Ajoutez et configurez les effets de post-traitement spécifiques pour ce volume local.</li>

@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#121212">
     <title>582-2J2 : 15_DetectionProximite_Raycast</title>
     <!-- CSS  -->
-    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
     
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
@@ -28,8 +28,8 @@
           <div class="row">
           <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">15_DetectionProximite_Raycast</span></p>
 <br>
-        <a class="button" href="/index.html">🏠 Liste de notes</a>
-          <a class="button" href="/pdf/15_DetectionProximite_Raycast.pdf" download="">💾 Télécharger note en PDF</a>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/15_DetectionProximite_Raycast.pdf" download="">💾 Télécharger note en PDF</a>
           </div>
       </div>
     </div>
@@ -56,7 +56,7 @@ if (hit.collider != null &amp;&amp; hit.collider.tag == &quot;sol&quot;)
 </code></pre>
 <h3 id="visualisation-du-rayon">Visualisation du rayon</h3>
 <p>Pour visualiser le rayon dans l'éditeur Unity, vous pouvez utiliser la fonction <code>Debug.DrawRay()</code>. Cela vous permet de voir où le rayon est projeté dans la scène.
-<picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Cray_visualization.png&width=349&format=webp&via=transform 349w"><img src="/.11ty/image/?src=images%5Cray_visualization.png&width=349&format=jpeg&via=transform" alt="Visualiser le rayon" width="349" height="292"></picture></p>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Cray_visualization.png&width=349&format=webp&via=transform 349w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Cray_visualization.png&width=349&format=jpeg&via=transform" alt="Visualiser le rayon" width="349" height="292"></picture></p>
 <pre><code class="language-csharp">Vector2 depart = transform.position;
 Vector2 direction = Vector2.down;
 float distance = 1f; // Ajuster la distance selon vos besoins
@@ -219,7 +219,7 @@ void Update()
 <p>Pour améliorer l'expérience utilisateur, vous pouvez afficher une ligne indiquant la direction dans laquelle le joueur va interagir ou attaquer. Cela peut être fait en utilisant un <code>LineRenderer</code>. Cela permet au joueur de visualiser clairement la portée et la direction de son interaction ou attaque.</p>
 <p>On commence par ajouter un composant <code>LineRenderer</code> à l'objet joueur dans l'éditeur Unity. Ensuite, on met à jour les positions du <code>LineRenderer</code> dans la méthode <code>Update()</code> pour qu'il suive le rayon lancé en mettant à jour ses points de départ et d'arrivée.</p>
 <p>Assurez-vous de configurer correctement le <code>LineRenderer</code> dans l'éditeur Unity, en ajustant les matériaux (Vous pouvez choisir Default-Line), les couleurs et les largeurs selon vos préférences.</p>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CcomposantLineRenderer.png&width=453&format=webp&via=transform 453w"><img src="/.11ty/image/?src=images%5CcomposantLineRenderer.png&width=453&format=jpeg&via=transform" alt="Composant Line Renderer" width="453" height="749"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CcomposantLineRenderer.png&width=453&format=webp&via=transform 453w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CcomposantLineRenderer.png&width=453&format=jpeg&via=transform" alt="Composant Line Renderer" width="453" height="749"></picture></p>
 <pre><code class="language-csharp">LineRenderer lineRenderer;
 
 void Start()

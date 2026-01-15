@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#121212">
     <title>582-2J2 : 19_CalculerAngleEtDistance</title>
     <!-- CSS  -->
-    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
     
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
@@ -28,8 +28,8 @@
           <div class="row">
           <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">19_CalculerAngleEtDistance</span></p>
 <br>
-        <a class="button" href="/index.html">🏠 Liste de notes</a>
-          <a class="button" href="/pdf/19_CalculerAngleEtDistance.pdf" download="">💾 Télécharger note en PDF</a>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/19_CalculerAngleEtDistance.pdf" download="">💾 Télécharger note en PDF</a>
           </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ float CalculerDistance()
 </code></pre>
 <h2 id="calculer-l-angle-entre-deux-objets">Calculer l'angle entre deux objets</h2>
 <p>On peut calculer l'angle entre deux objets en utilisant la méthode Atan2 et Rad2Deg de la classe Mathf pour obtenir l'angle en radians, puis le convertir en degrés. Cela calculera l'angle entre la ligne reliant les deux objets et l'axe horizontal (tangente inverse).</p>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Catan2.png&width=700&format=webp&via=transform 700w"><img src="/.11ty/image/?src=images%5Catan2.png&width=700&format=jpeg&via=transform" alt="La fonction Atan2" width="700" height="600"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Catan2.png&width=700&format=webp&via=transform 700w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Catan2.png&width=700&format=jpeg&via=transform" alt="La fonction Atan2" width="700" height="600"></picture></p>
 <pre><code class="language-csharp">public GameObject cible; // Référence à l'objet cible Ex: un ennemi, une cible à atteindre, etc.
 
 float CalculerAngle(Vector2 pointA, Vector2 pointB)

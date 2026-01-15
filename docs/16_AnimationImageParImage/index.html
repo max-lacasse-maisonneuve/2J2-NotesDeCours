@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#121212">
     <title>582-2J2 : 16_AnimationImageParImage</title>
     <!-- CSS  -->
-    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
     
-    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
@@ -28,8 +28,8 @@
           <div class="row">
           <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">16_AnimationImageParImage</span></p>
 <br>
-        <a class="button" href="/index.html">🏠 Liste de notes</a>
-          <a class="button" href="/pdf/16_AnimationImageParImage.pdf" download="">💾 Télécharger note en PDF</a>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/16_AnimationImageParImage.pdf" download="">💾 Télécharger note en PDF</a>
           </div>
       </div>
     </div>
@@ -55,17 +55,17 @@
 <li>Dans la fenêtre Animation, cliquez sur le bouton <strong>Create</strong> pour créer une nouvelle animation. Cela va ajouter un composant <strong>Animator</strong> au GameObject si ce n'est pas déjà fait et créer un fichier d'animation dans le dossier <code>Assets/animations</code>.</li>
 <li>Enregistrez le fichier d'animation avec un nom approprié au format suivant <code>objet_nomDeLanimation</code> (par exemple, &quot;perso_repos&quot;, &quot;ennemi_marche&quot;).</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Canimator.png&width=1356&format=webp&via=transform 1356w"><img src="/.11ty/image/?src=images%5Canimator.png&width=1356&format=jpeg&via=transform" alt="Créer un composant animator" width="1356" height="686"></picture>
-<picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CnomAnimation.png&width=207&format=webp&via=transform 207w"><img src="/.11ty/image/?src=images%5CnomAnimation.png&width=207&format=jpeg&via=transform" alt="Enregistrement d'une animation" width="207" height="137"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimator.png&width=1356&format=webp&via=transform 1356w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Canimator.png&width=1356&format=jpeg&via=transform" alt="Créer un composant animator" width="1356" height="686"></picture>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CnomAnimation.png&width=207&format=webp&via=transform 207w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CnomAnimation.png&width=207&format=jpeg&via=transform" alt="Enregistrement d'une animation" width="207" height="137"></picture></p>
 <ol start="5">
 <li>Faites glisser les images (sprites) de l'animation depuis le dossier <code>Assets</code> vers la fenêtre Animation. Placez-les dans l'ordre souhaité pour l'animation.</li>
 <li>Ajustez le framerate (images par seconde) de l'animation en modifiant la valeur <strong>Samples</strong> dans la fenêtre Animation. Une valeur courante est 12 ou 24 images par seconde, selon la fluidité souhaitée. (si vous ne vous voyez pas cette option, cliquez sur les 3 petits points en haut à droite de la fenêtre Animation et sélectionnez <strong>Show Samples</strong>).</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CslideAnimationFrameImages.png&width=1360&format=webp&via=transform 1360w"><img src="/.11ty/image/?src=images%5CslideAnimationFrameImages.png&width=1360&format=jpeg&via=transform" alt="Glissez les images dans la fenêtre Animation" width="1360" height="684"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5CslideAnimationFrameImages.png&width=1360&format=webp&via=transform 1360w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5CslideAnimationFrameImages.png&width=1360&format=jpeg&via=transform" alt="Glissez les images dans la fenêtre Animation" width="1360" height="684"></picture></p>
 <ol start="7">
 <li>Si vous voulez que l'animation se répète en boucle, assurez-vous que l'option <strong>Loop Time</strong> est cochée dans l'Inspector lorsque vous sélectionnez le fichier d'animation.</li>
 </ol>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Cloop_time.png&width=1360&format=webp&via=transform 1360w"><img src="/.11ty/image/?src=images%5Cloop_time.png&width=1360&format=jpeg&via=transform" alt="Animation en boucle" width="1360" height="659"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Cloop_time.png&width=1360&format=webp&via=transform 1360w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Cloop_time.png&width=1360&format=jpeg&via=transform" alt="Animation en boucle" width="1360" height="659"></picture></p>
 <ol start="8">
 <li>Testez l'animation en appuyant sur le bouton <strong>Play</strong> dans la fenêtre Animation.</li>
 </ol>
@@ -73,7 +73,7 @@
 <p>Si vous souhaitez déplacer un GameObject par programmation ET en utilisant aussi une animation par interpolation, vous pouvez le faire en combinant les deux approches.</p>
 <p>Cependant, il est important de noter que les animations peuvent écraser les modifications par programmation si elles affectent les mêmes propriétés. Il n'y a pas de problème avec les animations images par image, car elles ne modifient généralement pas les propriétés de position, rotation ou échelle du GameObject mais si vous animez aussi ces propriétés par interpolation en plus des images par image, cela peut poser problème.</p>
 <p>Pour éviter cela, <strong>placez l'élément animé dans un GameObject parent et appliquez les scripts de déplacement par programmation au parent.</strong></p>
-<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Ccombiner_script_animation.png&width=762&format=webp&via=transform 762w"><img src="/.11ty/image/?src=images%5Ccombiner_script_animation.png&width=762&format=jpeg&via=transform" alt="Combiner script et animation " width="762" height="274"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccombiner_script_animation.png&width=762&format=webp&via=transform 762w"><img src="/2J2-NotesDeCours/.11ty/image/?src=images%5Ccombiner_script_animation.png&width=762&format=jpeg&via=transform" alt="Combiner script et animation " width="762" height="274"></picture></p>
 <p><a href="https://learn.unity.com/tutorial/introduction-to-sprite-animations">Documentation officielle Unity sur l'animation de sprites 2D</a></p>
 
           </div>
