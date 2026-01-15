@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 22_GestionEnnemisAvances_StateMachineBehavior</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">22_GestionEnnemisAvances_StateMachineBehavior</span></p>
+<br>
+        <a class="button" href="/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/pdf/22_GestionEnnemisAvances_StateMachineBehavior.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="gestion-avancee-des-ennemis-avec-statemachinebehaviour">Gestion avancée des ennemis avec StateMachineBehaviour</h1>
+<p>Nous avons vu comment connecter des animations simples à des actions de personnage. Il est possible d'aller plus loin en utilisant les StateMachineBehaviour de Unity pour gérer des comportements plus complexes, notamment pour des ennemis avancés comme des boss ayant des phases d'attaque variées.</p>
+<h2 id="etats-de-l-animator">États de l'Animator</h2>
+<p>L'Animator de Unity permet de créer d'ajouter des logiques de programmation en utilisant des StateMachineBehaviour. Ces comportements peuvent être déclenchés lorsqu'une animation débute, se met à jour ou se termine.</p>
+<p>Par exemple, pour un ennemi avec plusieurs phases d'attaque, vous pouvez déplacer l'ennemi vers le joueur lorsqu'une animation d'attaque commence, changer de phase lorsque l'animation se termine, ou choisir une nouvelle attaque aléatoire pendant l'animation.</p>
+<h2 id="creation-d-un-statemachinebehaviour">Création d'un StateMachineBehaviour</h2>
+<p>Pour ajouter des comportements aux états de l'Animator, suivez ces étapes :</p>
+<ol>
+<li>Ouvrez la fenêtre Animator en sélectionnant le GameObject du boss et en cliquant sur &quot;Window&quot; &gt; &quot;Animation&quot; &gt; &quot;Animator&quot;.</li>
+<li>Ajoutez des animations pour chaque animation du boss (par exemple, &quot;Idle&quot;, &quot;Attack&quot;, &quot;Defend&quot;).</li>
+<li>Cliquez avec le bouton droit sur un état et sélectionnez &quot;Add Behaviour&quot; pour attacher un script personnalisé à cet état.</li>
+<li>Dans le script, vous pouvez utiliser les méthodes <code>OnStateEnter</code>, <code>OnStateUpdate</code>, et <code>OnStateExit</code> pour définir le comportement du boss lors de l'entrée, de la mise à jour et de la sortie de l'état.</li>
+</ol>
+<h3 id="etats-disponibles-dans-statemachinebehaviour">États disponibles dans StateMachineBehaviour</h3>
+<ul>
+<li><code>OnStateEnter</code>: Appelé lorsque l'animation entre dans cet état.</li>
+<li><code>OnStateUpdate</code>: Appelé à chaque frame pendant que l'animation est dans cet état. C'est un peu comme la méthode <code>Update()</code> dans un MonoBehaviour.</li>
+<li><code>OnStateExit</code>: Appelé lorsque l'animation quitte cet état. On peut l'utiliser pour nettoyer ou réinitialiser des variables ou choisir la prochaine action de manière aléatoire.</li>
+</ul>
+<h2 id="exemple-de-script-statemachinebehaviour">Exemple de script StateMachineBehaviour</h2>
+<p>Voici un exemple de script attaché à un état d'attaque :</p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.Animations;
+
+public class BossAttackBehaviour : StateMachineBehaviour
+{
+    public GameObject projectilePrefab;
+    public GameObject joueur;
+    public float vitesseDeplacement = 2f;
+    public float dureeMaxAttaque = 5f;
+    public float timer=0f;
+    // Appelé lorsque l'état est entré
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        timer = 0f;
+        InvokeRepeating(&quot;lancerProjectile&quot;, 0f, 1f); // Lancer un projectile toutes les secondes
+
+    }
+
+    // Appelé à chaque frame pendant que l'état est actif
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        timer += Time.deltaTime;
+        if(timer &gt;= dureeMaxAttaque)
+        {
+            animator.SetTrigger(&quot;PhaseRecuperation&quot;);
+            return;
+        }
+        // Tant qu'on est dans l'état d'attaque, se déplacer vers le joueur
+        transform.position = Vector2.MoveTowards(transform.position, joueur.transform.position, vitesseDeplacement * Time.deltaTime);
+
+        // Si on est proche du joueur, déclencher une attaque de corps à corps
+        if(Vector2.Distance(transform.position, joueur.transform.position) &lt; 1f)
+        {
+            animator.SetTrigger(&quot;PhaseAttaqueCorpsACorps&quot;);
+        }
+    }
+
+    // Appelé lorsque l'état est quitté
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        // Désactiver l'attaque du boss
+        cancelInvoke(&quot;lancerProjectile&quot;);
+    }
+
+    void lancerProjectile()
+    {
+
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Vector2 direction = (joueur.transform.position - transform.position).normalized;
+        projectile.GetComponent&lt;Rigidbody2D&gt;().linearVelocity = direction * 10f; // Vitesse du projectile
+    }
+}
+</code></pre>
+<h2 id="declencher-une-action-specifique-avec-des-evenements-d-animation">Déclencher une action spécifique avec des événements d'animation</h2>
+<p>Dans la ligne de temps de la fenêtre Animation, vous pouvez ajouter des événements d'animation pour déclencher des changements de phase ou d'autres actions spécifiques. Par exemple, vous pourriez synchroniser le déclenchement d'un son d'attaque avec un moment précis de l'animation ou lancer un sort.</p>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Canimation_event.png&width=799&format=webp&via=transform 799w"><img src="/.11ty/image/?src=images%5Canimation_event.png&width=799&format=jpeg&via=transform" alt="Déclencher une fonction à un moment précis de l'animation" width="799" height="346"></picture></p>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CfonctionPublique.png&width=432&format=webp&via=transform 432w"><img src="/.11ty/image/?src=images%5CfonctionPublique.png&width=432&format=jpeg&via=transform" alt="Ajouter une fonction publique à déclencher" width="432" height="176"></picture></p>
+<p><a href="https://docs.unity3d.com/Manual/script-AnimationWindowEvent.html">Animation Events dans Unity</a></p>
+<p><a href="https://docs.unity3d.com/ScriptReference/StateMachineBehaviour.html">Documentation officielle de Unity sur StateMachineBehaviour</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

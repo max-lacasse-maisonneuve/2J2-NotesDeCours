@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212" />
+    <title>582-2J2 : {{page.fileSlug}}</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    {% comment %} <link rel="stylesheet" href="/styles/skeleton.css"> {% endcomment %}
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    {% comment %} <script src="/styles/prism.js"></script> {% endcomment %}
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br/></p>
+<br/>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            {{ content }}
+
+            <ul>
+            {%- for note in collections.notes -%}
+            <li style=""><a href="{{ note.url }}" class="liste">{{note.fileSlug}}</a> <a href="/pdf/{{ note.fileSlug}}.pdf" download class="liste_pdf" >📄PDF</a></li>
+            {%- endfor -%}
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top"">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </body>
+</html>

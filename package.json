@@ -1,0 +1,29 @@
+{
+  "name": "2j2-notesdecours",
+  "version": "1.0.0",
+  "description": "Ce dossier contient toutes les notes de cours pour l'apprentissage d'Unity 2D.",
+  "main": "eleventy.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max-lacasse-maisonneuve/2J2-NotesDeCours.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/max-lacasse-maisonneuve/2J2-NotesDeCours/issues"
+  },
+  "homepage": "https://github.com/max-lacasse-maisonneuve/2J2-NotesDeCours#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-img": "^6.0.4",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "eleventy-plugin-toc": "^1.1.5"
+  }
+}

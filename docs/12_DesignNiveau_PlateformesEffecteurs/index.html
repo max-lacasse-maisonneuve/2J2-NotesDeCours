@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 12_DesignNiveau_PlateformesEffecteurs</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">12_DesignNiveau_PlateformesEffecteurs</span></p>
+<br>
+        <a class="button" href="/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/pdf/12_DesignNiveau_PlateformesEffecteurs.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="design-de-niveau-plateformes-effectors">Design de niveau : Plateformes, Effectors</h1>
+<p>Dans cette section, nous allons explorer comment créer des plateformes interactives dans Unity en utilisant les effector 2D. Ces outils exploitent les capacités physiques de Unity pour offrir des interactions dynamiques dans vos jeux 2D. En plus, nous verrons dans un autre document les joints 2D qui permettent de connecter des objets entre eux pour créer des mécanismes complexes.</p>
+<h2 id="ajout-d-un-effector-2d-a-un-gameobject">Ajout d'un Effector 2D à un GameObject</h2>
+<ul>
+<li>Les effectors 2D sont situés dans le menu <strong>Component &gt; Physics 2D</strong>, tout en bas de la liste.</li>
+<li>Pour qu'un effector 2D fonctionne, le GameObject doit avoir un collider 2D (Box Collider 2D, Circle Collider 2D,TilemapCollider2D, etc.) avec l'option <strong>Used by Effector</strong> cochée dans l'inspecteur.</li>
+<li>Certains effectors nécessitent que le collider soit défini en tant que trigger (case <strong>Is Trigger</strong> cochée).</li>
+</ul>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Ccomposant_joints.png&width=703&format=webp&via=transform 703w"><img src="/.11ty/image/?src=images%5Ccomposant_joints.png&width=703&format=jpeg&via=transform" alt="Composant effecteur " width="703" height="789"></picture></p>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CoptionUsedByEffector.png&width=459&format=webp&via=transform 459w"><img src="/.11ty/image/?src=images%5CoptionUsedByEffector.png&width=459&format=jpeg&via=transform" alt="Option Used by Effector" width="459" height="277"></picture></p>
+<h2 id="creation-de-plateformes-avec-platform-effector-2d">Création de plateformes avec Platform Effector 2D</h2>
+<p>Le Platform Effector 2D est un composant qui permet de créer des plateformes sur lesquelles les personnages peuvent sauter à travers et atterrir dessus.</p>
+<h3 id="options-du-platform-effector-2d">Options du Platform Effector 2D</h3>
+<ul>
+<li><strong>Rotation Offset</strong> : Permet de faire pivoter la plateforme.</li>
+<li><strong>Surface Arc</strong> : Définit l'angle de la surface de la plateforme.</li>
+<li><strong>Use One Way</strong> : Permet aux objets de passer à travers la plateforme dans une seule direction.</li>
+<li><strong>Use One Way Grouping</strong> : Permet de regrouper plusieurs plateformes pour qu'elles partagent le même comportement de passage.</li>
+<li><strong>Use Side Friction</strong> : Applique de la friction sur les côtés de la plateforme. Ex: si un personnage glisse contre le côté de la plateforme.</li>
+<li><strong>Use Side Bounce</strong> : Applique un effet de rebond sur les côtés de la plateforme. Ex: si un personnage heurte le côté de la plateforme.</li>
+<li><strong>Collider Mask</strong> : Permet de définir quels layers peuvent interagir avec la plateforme.La plateforme n'affectera que les objets appartenant aux layers sélectionnés. Ex: la plateforme pourrait affecter uniquement le joueur et les ennemis, mais pas les projectiles.</li>
+</ul>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Ceffecteur_plateformes.png&width=1587&format=webp&via=transform 1587w"><img src="/.11ty/image/?src=images%5Ceffecteur_plateformes.png&width=1587&format=jpeg&via=transform" alt="Effecteur de plateformes" width="1587" height="823"></picture>{width=&quot;100%&quot;}</p>
+<h3 id="utilisation-creative-des-plateformes-effectors">Utilisation créative des plateformes effectors</h3>
+<ul>
+<li><strong>Plateformes mobiles</strong> : Combinez les plateformes effectors avec des scripts de mouvement pour créer des plateformes qui se déplacent horizontalement ou verticalement.</li>
+<li><strong>Jeu Top-down</strong> : Utilisez la propriété &quot;Use One Way&quot; avec &quot;Rotation Offset&quot; pour créer des portes où les personnages peuvent entrer mais ne pas sortir.</li>
+<li><strong>Zones restrictives</strong> : Créez des plateformes qui n'autorisent le passage que pour certains types d'objets en utilisant le Collider Mask.</li>
+<li><strong>Plateformes à rebond</strong> : Utilisez les options de friction et de rebond pour créer des plateformes qui modifient la vitesse ou la direction des personnages lorsqu'ils interagissent avec elles. Ajoutez un matériel physique 2D avec des propriétés de rebond pour renforcer cet effet. (voir plus bas dans la section sur les matériaux physiques 2D).</li>
+</ul>
+<h2 id="surface-effector-2d">Surface Effector 2D</h2>
+<p>Le Surface Effector 2D est un composant qui applique une force continue sur les objets en contact avec une surface, ce qui est utile pour créer des tapis roulants ou des surfaces glissantes. Plus utile dans les jeux de plateforme pour créer des zones où les personnages sont poussés dans une direction spécifique lorsqu'ils marchent dessus.</p>
+<h3 id="options-du-surface-effector-2d">Options du Surface Effector 2D</h3>
+<ul>
+<li><strong>Speed</strong> : Définit la vitesse à laquelle les objets sont déplacés le long de la surface.</li>
+<li><strong>Force Scale</strong> : Multiplie la force appliquée aux objets.</li>
+</ul>
+<h3 id="utilisation-creative-du-surface-effector-2d">Utilisation créative du Surface Effector 2D</h3>
+<ul>
+<li><strong>Tapis roulants</strong> : Créez des plateformes qui déplacent automatiquement les personnages lorsqu'ils marchent dessus.</li>
+<li><strong>Zones de vent</strong> : Utilisez le Surface Effector 2D pour sim</li>
+</ul>
+<h2 id="area-effector-2d">Area Effector 2D</h2>
+<p>L'Area Effector 2D applique des forces directionnelles aux objets qui entrent dans une zone définie par un collider de type trigger. Cela peut être utilisé pour simuler des courants d'eau, des zones de gravité modifiée, ou des champs de force. Pratique dans les jeu de type top-down pour créer des zones où les personnages sont poussés dans une direction spécifique.</p>
+<h3 id="options-de-l-area-effector-2d">Options de l'Area Effector 2D</h3>
+<ul>
+<li><strong>Force Magnitude</strong> : Définit la force appliquée aux objets dans la zone.</li>
+<li><strong>Force Angle</strong> : Définit la direction de la force appliquée.</li>
+<li><strong>Global Angle</strong> : Si activé, la force est appliquée dans une direction globale plutôt que relative à l'orientation de l'Area Effector.</li>
+</ul>
+<h3 id="utilisation-creative-de-l-area-effector-2d">Utilisation créative de l'Area Effector 2D</h3>
+<ul>
+<li><strong>Courants d'eau</strong> : Créez des zones dans lesquelles les personnages sont poussés dans une direction spécifique, simulant un courant.</li>
+<li><strong>Champs de gravité</strong> : Utilisez l'Area Effector pour créer des zones où la gravité est modifiée, attirant ou repoussant les objets.</li>
+<li><strong>Zones de vent</strong> : Simulez des rafales de vent qui affectent le mouvement des personnages ou des objets volants.</li>
+<li><strong>Avec une animation</strong>: Activez et désactivez l'Area Effector 2D à l'aide d'une animation pour créer des zones de force temporaires comme des rafales de vent ou des champs de force intermittents.</li>
+</ul>
+<h2 id="buoyancy-effector-2d">Buoyancy Effector 2D</h2>
+<p>Le Buoyancy Effector 2D simule la flottabilité des objets dans un liquide, permettant de créer des effets réalistes d'objets flottants ou coulants. Vous pourriez l'utiliser pour créer des zones aquatiques dans votre jeu où les personnages ou objets réagissent comme s'ils étaient dans l'eau ou faire des plateformes flottantes.</p>
+<h3 id="options-du-buoyancy-effector-2d">Options du Buoyancy Effector 2D</h3>
+<ul>
+<li><strong>Density</strong> : Définit la densité du liquide, affectant la flottabilité des objets. Plus la densité est élevée, plus les objets auront tendance à flotter.</li>
+<li><strong>Surface Level</strong> : Définit le niveau de la surface du liquide.</li>
+<li><strong>Flow Angle</strong> : Définit la direction du flux du liquide.</li>
+<li><strong>Flow Magnitude</strong> : Définit la vitesse du flux du liquide pour créer des courants.</li>
+</ul>
+<h3 id="utilisation-creative-du-buoyancy-effector-2d">Utilisation créative du Buoyancy Effector 2D</h3>
+<ul>
+<li><strong>Zones aquatiques</strong> : Créez des zones dans lesquelles les personnages ou objets flottent ou coulent, simulant des environnements aquatiques.</li>
+<li><strong>Courants sous-marins</strong> : Utilisez les options de flux pour créer des courants sous-marins qui affectent le mouvement des objets flottants.</li>
+<li><strong>Plateformes flottantes</strong> : Concevez des objets interactifs qui réagissent à la flottabilité, comme des bateaux ou des bouées.</li>
+</ul>
+<h2 id="pointeffector-2d">PointEffector 2D</h2>
+<p>Le Point Effector 2D applique une force radiale aux objets dans son rayon d'action, attirant ou repoussant les objets en fonction des paramètres définis un peu comme un aimant ou une explosion.</p>
+<p>Vous pourriez l'utiliser pour créer des zones d'attraction ou de répulsion dans votre jeu comme des trous noirs, des champs de force, ou des explosions.</p>
+<h3 id="options-du-point-effector-2d">Options du Point Effector 2D</h3>
+<ul>
+<li><strong>Force Magnitude</strong> : Définit la force appliquée aux objets dans le rayon d'action.</li>
+<li><strong>Force Variation</strong> : Ajoute une variation aléatoire à la force appliquée</li>
+<li><strong>Distance Scale</strong> : Modifie la façon dont la force diminue avec la distance.</li>
+</ul>
+<h3 id="utilisation-creative-du-point-effector-2d">Utilisation créative du Point Effector 2D</h3>
+<ul>
+<li><strong>Trous noirs</strong> : Créez des zones qui attirent les objets vers un point central, simulant un trou noir.</li>
+<li><strong>Explosions</strong> : Utilisez le Point Effector 2D pour repousser les objets à partir d'un point central, simulant une explosion.</li>
+<li><strong>Champs de force</strong> : Créez des zones où les objets sont repoussés ou attirés.</li>
+<li><strong>Avec une animation</strong>: Activez et désactivez le Point Effector 2D à l'aide d'une animation pour créer des effets temporaires comme des explosions ou des champs de force intermittents.</li>
+<li><strong>Attaque de Boss</strong> : Utilisez le Point Effector 2D pour simuler une puissante attaque de boss qui attire ou repousse les joueurs à proximité, ajoutant un défi supplémentaire au combat.</li>
+<li><strong>Aspiration d'objets</strong> : Créez des mécanismes où les joueurs doivent éviter des zones d'aspiration qui attirent les objets ou les personnages, augmentant la complexité des niveaux. Vous pouvez cibler spécifiquement les objets affectés en utilisant le Collider Mask.</li>
+</ul>
+<p><a href="https://docs.unity3d.com/Manual/2d-physics/effectors/effectors-2d-landing.html">Documentation officielle Unity sur les effectors 2D</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 16_SuiviJoueurCamera_Cinemachine</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">16_SuiviJoueurCamera_Cinemachine</span></p>
+<br>
+        <a class="button" href="/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/pdf/16_SuiviJoueurCamera_Cinemachine.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="ajustement-de-la-camera-du-joueur-avec-cinemachine">Ajustement de la caméra du joueur avec Cinemachine</h1>
+<p>La manière la plus simple de suivre un joueur avec une caméra est de parenter la caméra au joueur. Cependant, cela peut sembler rigide et peu naturel. Une meilleure approche consiste programmer les comportements de la caméra pour qu'elle suive le joueur de manière fluide et dynamique, s'arrête aux limites du jeu et permette au joueur de se déplacer dans une zone sans que la caméra ne le suive pas immédiatement.</p>
+<p>Heureusement, Unity propose un outil appelé Cinemachine qui facilite grandement cette tâche.</p>
+<h2 id="qu-est-ce-que-cinemachine">Qu'est-ce que Cinemachine ?</h2>
+<p>Cinemachine est un puissant outil de gestion de caméra dans Unity autant en 2d qu'en 3d qui permet de créer des comportements de caméra dynamiques et fluides. C'est simple à mettre en place et offre une grande flexibilité pour suivre le joueur dans un jeu.</p>
+<h2 id="etapes-pour-configurer-cinemachine-pour-suivre-le-joueur">Étapes pour configurer Cinemachine pour suivre le joueur</h2>
+<ol>
+<li>
+<p><strong>Installer Cinemachine</strong> :</p>
+<ul>
+<li>Ouvrez Unity et allez dans le menu <code>Window</code> &gt; <code>Package Manager</code>.</li>
+<li>Recherchez <code>Cinemachine</code> dans la liste des packages disponibles.</li>
+<li>Cliquez sur <code>Install</code> pour ajouter Cinemachine à votre projet.</li>
+</ul>
+</li>
+</ol>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CcinemachineInstall.png&width=831&format=webp&via=transform 831w"><img src="/.11ty/image/?src=images%5CcinemachineInstall.png&width=831&format=jpeg&via=transform" alt="Installer Cinemachine" width="831" height="697"></picture></p>
+<ol start="2">
+<li>
+<p><strong>Ajouter une Virtual Camera</strong> :</p>
+<ul>
+<li>Dans la hiérarchie, faites un clic droit et sélectionnez <code>Cinemachine</code> &gt; <code>Cinemachine Camera</code>.</li>
+<li>Une nouvelle caméra virtuelle sera ajoutée à votre scène.</li>
+</ul>
+</li>
+</ol>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Ccinemachine_ajout.png&width=710&format=webp&via=transform 710w"><img src="/.11ty/image/?src=images%5Ccinemachine_ajout.png&width=710&format=jpeg&via=transform" alt="Ajouter une Camera Cinemachine" width="710" height="1032"></picture></p>
+<ol start="3">
+<li>
+<p><strong>Configurer la Virtual Camera</strong> :</p>
+<ul>
+<li>Sélectionnez la caméra virtuelle dans la hiérarchie.</li>
+<li>Dans l'inspecteur, trouvez le composant <code>CinemachineCamera</code>.</li>
+<li>Dans le champ <code>Lens</code>, vous pouvez ajuster les paramètres de la caméra selon vos besoins.</li>
+<li>Dans le champ <code>Tracking Target</code>, faites glisser et déposez l'objet joueur ( ou le GameObject que vous souhaitez suivre).</li>
+<li>Dans le champ <code>Position Control</code>, choisissez <code>follow</code> pour que la caméra suive le joueur.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ajuster les paramètres de la caméra</strong> :</p>
+<ul>
+<li>Après avoir choisi <code>follow</code>, vous pouvez ajuster les paramètres de suivi tels que la <code>Damping</code> pour rendre le mouvement de la caméra plus fluide. Cela créé un delai entre le mouvement du joueur et celui de la caméra.</li>
+<li>Vous pouvez également ajuster le décalage de la caméra pour qu'elle ne soit pas centrée exactement sur le joueur, mais légèrement en avant ou en hauteur selon vos préférences. <strong>Laissez -10 sur l'axe Z pour une vue 2D classique.</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Limiter le mouvement de la caméra dans une zone</strong> :</p>
+</li>
+</ol>
+<ul>
+<li>Dans le champ <code>Add Extension</code>, vous pouvez ajouter des extensions comme <code>Cinemachine Confiner 2D</code> pour que la caméra reste dans des limites définies du niveau. (voir plus bas)</li>
+<li>Ajouter un objet vide dans la scène et nommez-le <code>LimitesCamera</code>.</li>
+<li>Ajoutez un composant <code>Box Collider 2D</code> ou <code>Polygon Collider 2D</code> selon la forme de votre niveau.</li>
+<li>Cochez la case <code>Is Trigger</code> pour que le collider ne bloque pas les objets.(important!!)</li>
+<li>Ajustez la taille et la position du collider pour qu'il englobe toute la zone</li>
+<li>Dans la caméra virtuelle, ajoutez l'extension <code>Cinemachine Confiner 2D</code>.</li>
+<li>Faites glisser l'objet <code>LimitesCamera</code> dans le champ <code>Bounding Shape 2D</code> de l'extension.</li>
+</ul>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5Ccinemachine_configuration.png&width=461&format=webp&via=transform 461w"><img src="/.11ty/image/?src=images%5Ccinemachine_configuration.png&width=461&format=jpeg&via=transform" alt="Configuration de Cinemachine" width="461" height="662"></picture></p>
+<p><picture><source type="image/webp" srcset="/.11ty/image/?src=images%5CajoutLimitesCamera2.png&width=1919&format=webp&via=transform 1919w"><img src="/.11ty/image/?src=images%5CajoutLimitesCamera2.png&width=1919&format=jpeg&via=transform" alt="Limites de la caméra" width="1919" height="476"></picture></p>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/Cinemachine2D.html">Documentation Unity sur Cinemachine</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>
