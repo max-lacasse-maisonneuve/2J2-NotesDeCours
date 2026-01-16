@@ -13,6 +13,16 @@
   font-weight: 100 900;
   src: url(/2J2-NotesDeCours/fonts/PublicSans-Italic-VariableFont_wght.ttf) format('truetype');
 }
+
+
+@font-face {
+  font-family: "Fira Code";
+  font-stretch: 10% 100%; /* Note that font-stretch is a % of normal width */
+  font-style: NORMAL; /* See note below */
+  font-weight: 100 900;
+  src: url(/2J2-NotesDeCours/fonts/FiraCode-Regular.ttf) format('truetype');
+}
+
 /* Variables */
 
 body {
@@ -216,6 +226,7 @@ blockquote {
   margin-bottom: 0px;
   color: var(--base-text-color);
   font-size: calc(var(--base-font-size) * 1.25);
+  overflow-wrap: break-word;
 }
 
 a {
@@ -260,11 +271,12 @@ hr {
 }
 
 code {
-    font-family: "Fira Code", 'Courier New', Courier, monospace;
+    font-family: "Fira Code", Menlo, Monaco, 'Courier New', Courier, monospace;
 }
 
 pre code {
     border-radius: 4px;
+    font-size: calc(var(--base-font-size) * 0.85);
 }
 
 p code,
@@ -278,6 +290,8 @@ a code {
     border: 1px var(--accent-color) solid;
     padding: 8px;
     border-radius: 8px;
+    display: inline-block;
+    text-wrap: nowrap;
 }
 
 a.button:hover {
@@ -286,6 +300,7 @@ a.button:hover {
 
 .liste {
     text-decoration: none;
+    overflow-wrap: break-word;
 }
 
 .liste_pdf {
