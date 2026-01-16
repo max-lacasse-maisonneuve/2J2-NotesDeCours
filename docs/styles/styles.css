@@ -133,6 +133,11 @@ body {
   max-width: 640px;
 }
 
+img {
+    max-width: 960px;
+    max-height: fit-content;
+}
+
 h1,
 h2,
 h3,

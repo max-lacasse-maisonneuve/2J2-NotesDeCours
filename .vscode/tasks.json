@@ -27,6 +27,25 @@
                 "focus": false,
                 "panel": "shared"
             }
+        },
+        {
+            "label": "Exporter HTML avec Eleventy",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "html_build.sh",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
         }
     ]
 }
