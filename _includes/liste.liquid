@@ -38,7 +38,7 @@
 
             <ul>
             {%- for note in collections.notes -%}
-            <li style=""><a href="{{ note.url }}" class="liste">{{note.fileSlug}}</a> <a href="/pdf/{{ note.fileSlug}}.pdf" download class="liste_pdf" >📄PDF</a></li>
+            <li><a href="{{ note.url }}" class="liste">{{note.fileSlug}}</a> <a href="/pdf/{{ note.fileSlug}}.pdf" download class="liste_pdf" >📄PDF</a></li>
             {%- endfor -%}
             </ul>
           </div>

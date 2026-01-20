@@ -116,4 +116,21 @@ Pour générer les fichiers PDF à partir des fichiers Markdown, utilisez la tâ
 -   Sélectionnez "Tasks: Run Task"
 -   Choisissez "Exporter PDF avec Pandoc"
 
+
 Ou utilisez le raccourci de build par défaut : `Ctrl+Shift+B`
+
+## Génération de HTML
+
+### Installation
+
+Pour préparer le système d' exportation la première fois : `npm i`.
+
+### Test local
+
+Pour vérifier l' exportation avec un serveur local : `npx @11ty/eleventy --serve` ou `npx @11ty/eleventy --serve -- watch` pour le redémarrage automatique.
+
+### Exportation
+
+-   Appuyez sur `Ctrl+Shift+P`
+-   Sélectionnez "Tasks: Run Task"
+-   Choisissez "Exporter HTML avec Eleventy"
