@@ -16,11 +16,11 @@
 
 
 @font-face {
-  font-family: "Fira Code";
+  font-family: "Atkinson Code";
   font-stretch: 10% 100%; /* Note that font-stretch is a % of normal width */
   font-style: NORMAL; /* See note below */
   font-weight: 100 900;
-  src: url(/2J2-NotesDeCours/fonts/FiraCode-Regular.ttf) format('truetype');
+  src: url(/2J2-NotesDeCours/fonts/AtkinsonHyperlegibleMono-Regular.ttf) format('truetype');
 }
 
 /* Variables */
@@ -276,7 +276,7 @@ hr {
 }
 
 code {
-    font-family: "Fira Code", Menlo, Monaco, 'Courier New', Courier, monospace;
+    font-family: "Atkinson Code", Menlo, Monaco, 'Courier New', Courier, monospace;
 }
 
 pre code {

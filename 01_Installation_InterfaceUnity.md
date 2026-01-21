@@ -163,7 +163,6 @@ Unity dispose d'une documentation officielle très complète qui couvre tous les
 ## Ressources supplémentaires
 
 -   Liste vidéos du cours : [Vidéos officielles du cours](https://www.youtube.com/watch?v=fiDW-0GYLsg&list=PL0_-lSQN5AZQC3Wd3HTILptbWASZ4AY-z)
-
 -   Tutoriels Unity Learn : [https://learn.unity.com/](https://learn.unity.com/)
 -   Chaîne YouTube Unity : [https://www.youtube.com/user/Unity3D](https://www.youtube.com/user/Unity3D)
 -   Brackeys Unity Tutorials : [https://www.youtube.com/c/Brackeys](https://www.youtube.com/c/Brackeys)
