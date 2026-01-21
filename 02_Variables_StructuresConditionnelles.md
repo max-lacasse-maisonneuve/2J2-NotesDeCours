@@ -1,8 +1,6 @@
-# Algorithmiques avec C# et Unity
+# Algorithmiques avec C# : Variables et structures conditionnelles
 
-## Variables, structures conditionnelles et boucles
-
-Dans cette section, nous allons explorer les concepts fondamentaux de la programmation en C#, notamment les variables, les structures conditionnelles et les boucles. Ces éléments sont essentiels pour écrire des programmes efficaces et fonctionnels. Vous avez déjà une certaine expérience en programmation, le langage JavaScript étant similaire à C# dans plusieurs aspects. Nous allons donc nous concentrer sur les particularités de C# tout en renforçant vos compétences en programmation.
+Dans cette section, nous allons explorer les concepts fondamentaux de la programmation en C#, notamment les variables et les structures conditionnelles. Ces éléments sont essentiels pour écrire des programmes efficaces et fonctionnels. Vous avez déjà une certaine expérience en programmation, le langage JavaScript étant similaire à C# dans plusieurs aspects. Nous allons donc nous concentrer sur les particularités de C# tout en renforçant vos compétences en programmation.
 
 ## Types de données
 
@@ -12,14 +10,13 @@ C# est un langage fortement typé, ce qui signifie que chaque variable doit êtr
 -   `int` : pour les nombres entiers.
 -   `float` : pour les nombres à virgule flottante.
 -   `bool` : pour les valeurs booléennes (vrai ou faux).
-
 -   `GameObject` : pour représenter des objets dans un environnement de jeu (utilisé dans des moteurs de jeu comme Unity).
 -   `Vector2` : pour représenter des vecteurs en 2D (utilisé dans des contextes graphiques ou de jeu).
 -   `Vector3` : pour représenter des vecteurs en 3D (utilisé dans des contextes graphiques ou de jeu).
 
 Nous verrons d'autres types de données au fur et à mesure de notre progression.
 
-### Variables
+## Variables
 
 Les variables sont des conteneurs utilisés pour stocker des données. En C#, chaque variable doit être déclarée avec un type spécifique, ce qui permet au compilateur de vérifier la validité des opérations effectuées sur ces variables. Les nombres entiers sont déclarés avec le type `int`, les nombres à virgule flottante avec le type `float`, les chaînes de caractères avec le type `string` et les valeurs booléennes avec le type `bool`.
 
@@ -32,18 +29,18 @@ float taille = 1.75f; // Déclaration d'une variable flottante
 bool estMort = true; // Déclaration d'une variable booléenne
 ```
 
-## Concaténation de chaînes
+### Concaténation de chaînes
 
 La concaténation de chaînes en C# peut être réalisée de plusieurs façons. Voici les méthodes les plus courantes :
 
-### Utilisation de l'opérateur `+`
+#### Utilisation de l'opérateur `+`
 
 ```csharp
 string message = "Joueur: " + nom + ", Score: " + score;
 Debug.Log(message);
 ```
 
-### Utilisation d'interpolation de chaînes
+#### Utilisation d'interpolation de chaînes
 
 Similairement à JavaScript, C# permet l'interpolation de chaînes en utilisant le symbole `$` avant la chaîne. Cela facilite l'insertion de variables directement dans la chaîne. Ensuite, les variables sont placées entre accolades `{}`.
 
@@ -52,7 +49,7 @@ string message = $"Joueur: {nom}, Score: {score}, Vie: {vie}%";
 Debug.Log(message);
 ```
 
-### Structures conditionnelles
+## Structures conditionnelles
 
 Comme en JavaScript, les structures conditionnelles en C# permettent d'exécuter du code en fonction de certaines conditions. Les principales structures conditionnelles sont `if`, `else if` et `else`.
 
@@ -68,7 +65,7 @@ if (score > 10) {
 }
 ```
 
-## Opérateurs logiques et de comparaison
+### Opérateurs logiques et de comparaison
 
 Les opérateurs de comparaison en C# sont similaires à ceux utilisés en JavaScript. Ils permettent de comparer des valeurs et de retourner un résultat booléen (`true` ou `false`). Voici les principaux opérateurs de comparaison :
 

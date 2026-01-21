@@ -36,36 +36,21 @@
     <div class="section content">
       <div class="container">
           <div class="row">
-            <h1 id="algorithmiques-avec-c-et-unity">Algorithmiques avec C# et Unity</h1>
-<h2 id="variables-structures-conditionnelles-et-boucles">Variables, structures conditionnelles et boucles</h2>
-<p>Dans cette section, nous allons explorer les concepts fondamentaux de la programmation en C#, notamment les variables, les structures conditionnelles et les boucles. Ces éléments sont essentiels pour écrire des programmes efficaces et fonctionnels. Vous avez déjà une certaine expérience en programmation, le langage JavaScript étant similaire à C# dans plusieurs aspects. Nous allons donc nous concentrer sur les particularités de C# tout en renforçant vos compétences en programmation.</p>
+            <h1 id="algorithmiques-avec-c-variables-et-structures-conditionnelles">Algorithmiques avec C# : Variables et structures conditionnelles</h1>
+<p>Dans cette section, nous allons explorer les concepts fondamentaux de la programmation en C#, notamment les variables et les structures conditionnelles. Ces éléments sont essentiels pour écrire des programmes efficaces et fonctionnels. Vous avez déjà une certaine expérience en programmation, le langage JavaScript étant similaire à C# dans plusieurs aspects. Nous allons donc nous concentrer sur les particularités de C# tout en renforçant vos compétences en programmation.</p>
 <h2 id="types-de-donnees">Types de données</h2>
 <p>C# est un langage fortement typé, ce qui signifie que chaque variable doit être déclarée avec un type de données spécifique. Voici quelques types de données couramment utilisés en C# :</p>
 <ul>
-<li>
-<p><code>string</code> : pour les chaînes de caractères.</p>
-</li>
-<li>
-<p><code>int</code> : pour les nombres entiers.</p>
-</li>
-<li>
-<p><code>float</code> : pour les nombres à virgule flottante.</p>
-</li>
-<li>
-<p><code>bool</code> : pour les valeurs booléennes (vrai ou faux).</p>
-</li>
-<li>
-<p><code>GameObject</code> : pour représenter des objets dans un environnement de jeu (utilisé dans des moteurs de jeu comme Unity).</p>
-</li>
-<li>
-<p><code>Vector2</code> : pour représenter des vecteurs en 2D (utilisé dans des contextes graphiques ou de jeu).</p>
-</li>
-<li>
-<p><code>Vector3</code> : pour représenter des vecteurs en 3D (utilisé dans des contextes graphiques ou de jeu).</p>
-</li>
+<li><code>string</code> : pour les chaînes de caractères.</li>
+<li><code>int</code> : pour les nombres entiers.</li>
+<li><code>float</code> : pour les nombres à virgule flottante.</li>
+<li><code>bool</code> : pour les valeurs booléennes (vrai ou faux).</li>
+<li><code>GameObject</code> : pour représenter des objets dans un environnement de jeu (utilisé dans des moteurs de jeu comme Unity).</li>
+<li><code>Vector2</code> : pour représenter des vecteurs en 2D (utilisé dans des contextes graphiques ou de jeu).</li>
+<li><code>Vector3</code> : pour représenter des vecteurs en 3D (utilisé dans des contextes graphiques ou de jeu).</li>
 </ul>
 <p>Nous verrons d'autres types de données au fur et à mesure de notre progression.</p>
-<h3 id="variables">Variables</h3>
+<h2 id="variables">Variables</h2>
 <p>Les variables sont des conteneurs utilisés pour stocker des données. En C#, chaque variable doit être déclarée avec un type spécifique, ce qui permet au compilateur de vérifier la validité des opérations effectuées sur ces variables. Les nombres entiers sont déclarés avec le type <code>int</code>, les nombres à virgule flottante avec le type <code>float</code>, les chaînes de caractères avec le type <code>string</code> et les valeurs booléennes avec le type <code>bool</code>.</p>
 <p><strong>À noter</strong> : En C#, les variables de type <code>float</code> doivent être suivies de la lettre <code>f</code> pour indiquer qu'il s'agit d'un nombre à virgule flottante.</p>
 <pre><code class="language-csharp">string nom = &quot;Alice&quot;; // Déclaration d'une variable chaîne de caractères
@@ -73,18 +58,18 @@ int score = 4; // Déclaration d'une variable entière
 float taille = 1.75f; // Déclaration d'une variable flottante
 bool estMort = true; // Déclaration d'une variable booléenne
 </code></pre>
-<h2 id="concatenation-de-chaines">Concaténation de chaînes</h2>
+<h3 id="concatenation-de-chaines">Concaténation de chaînes</h3>
 <p>La concaténation de chaînes en C# peut être réalisée de plusieurs façons. Voici les méthodes les plus courantes :</p>
-<h3 id="utilisation-de-l-operateur">Utilisation de l'opérateur <code>+</code></h3>
+<h4 id="utilisation-de-l-operateur">Utilisation de l'opérateur <code>+</code></h4>
 <pre><code class="language-csharp">string message = &quot;Joueur: &quot; + nom + &quot;, Score: &quot; + score;
 Debug.Log(message);
 </code></pre>
-<h3 id="utilisation-d-interpolation-de-chaines">Utilisation d'interpolation de chaînes</h3>
+<h4 id="utilisation-d-interpolation-de-chaines">Utilisation d'interpolation de chaînes</h4>
 <p>Similairement à JavaScript, C# permet l'interpolation de chaînes en utilisant le symbole <code>$</code> avant la chaîne. Cela facilite l'insertion de variables directement dans la chaîne. Ensuite, les variables sont placées entre accolades <code>{}</code>.</p>
 <pre><code class="language-csharp">string message = $&quot;Joueur: {nom}, Score: {score}, Vie: {vie}%&quot;;
 Debug.Log(message);
 </code></pre>
-<h3 id="structures-conditionnelles">Structures conditionnelles</h3>
+<h2 id="structures-conditionnelles">Structures conditionnelles</h2>
 <p>Comme en JavaScript, les structures conditionnelles en C# permettent d'exécuter du code en fonction de certaines conditions. Les principales structures conditionnelles sont <code>if</code>, <code>else if</code> et <code>else</code>.</p>
 <p>On place la condition entre parenthèses <code>()</code> et le bloc de code à exécuter entre accolades <code>{}</code>.</p>
 <pre><code class="language-csharp">if (score &gt; 10) {
@@ -95,7 +80,7 @@ Debug.Log(message);
     // Code à exécuter si le score est inférieur à 10
 }
 </code></pre>
-<h2 id="operateurs-logiques-et-de-comparaison">Opérateurs logiques et de comparaison</h2>
+<h3 id="operateurs-logiques-et-de-comparaison">Opérateurs logiques et de comparaison</h3>
 <p>Les opérateurs de comparaison en C# sont similaires à ceux utilisés en JavaScript. Ils permettent de comparer des valeurs et de retourner un résultat booléen (<code>true</code> ou <code>false</code>). Voici les principaux opérateurs de comparaison :</p>
 <pre><code class="language-md">-   `==` : égal à
 -   `!=` : différent de

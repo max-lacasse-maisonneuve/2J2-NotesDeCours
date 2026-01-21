@@ -42,23 +42,24 @@ Pour utiliser Unity, assurez-vous que votre ordinateur répond aux exigences min
 ## Installation de Unity
 
 1. Aller sur le site officiel de Unity : [https://unity.com/](https://unity.com/)
-2. Télécharger et installer Unity Hub, un gestionnaire de versions et de projets Unity.
-3. Ouvrir Unity Hub et créer un compte Unity si vous n'en avez pas déjà un.
-4. Dans Unity Hub, aller à l'onglet "Installs" et cliquer sur "Add" pour installer la version de Unity souhaitée (recommandé : la dernière version stable). Nous utiliserons la version Unity 6 LTS.
-5. Sélectionner les modules supplémentaires nécessaires, tels que le support pour les plateformes spécifiques (Windows, macOS, Android, iOS, etc.). Assurez-vous d'inclure le module `Visual Studio Community` pour le développement de scripts C#, `WebGL build support`. Au besoin, vous pouvez ajouter d'autres modules plus tard.
+2. Télécharger et installer **Unity Hub**, un gestionnaire de versions et de projets Unity.
+3. Ouvrir Unity Hub et créer **un compte Unity** si vous n'en avez pas déjà un.
+4. Dans Unity Hub, aller à l'onglet **Installs > Install Editor**.
+5. Dans le panneau, sélectionner l'onglet **Official Releases**. Choisir la version **6.3 LTS (6000.3.5f1)** et cliquer sur **Install**.
+6. Sélectionner les modules supplémentaires nécessaires, tels que le support pour les plateformes spécifiques (Windows, macOS, Android, iOS, etc.). Assurez-vous d'inclure le module **Visual Studio Community** pour le développement de scripts C# et le module **WebGL build support** pour la compilation web. Au besoin, vous pouvez ajouter d'autres modules plus tard.
+
+![Installation Unity Hub](images/installationversion63.png)
 
 ![Ajouter un module](images/buildAdd.png)
-
-![Installation Unity Hub](images/installationversion.png)
 
 ## Création d'un nouveau projet
 
 Pour créer un nouveau projet Unity
 
-1. Ouvrir Unity Hub
-2. Aller à l'onglet "Projects"
-3. Cliquer sur "New Project"
-4. Sélectionner le template "Universel 2D Core" pour nos projets 2D
+1. Ouvrir **Unity Hub**
+2. Aller à l'onglet **Projects**
+3. Cliquer sur **New Project**
+4. Sélectionner le template **Universel 2D Core** pour nos projets 2D
 5. Nommer le projet de manière appropriée (exemple : "VotreNom_ExFlappyBird")
 6. Choisir un emplacement pour sauvegarder le projet. **NE PAS utiliser OneDrive ou un dossier synchronisé en ligne.**
 
@@ -68,11 +69,11 @@ Pour créer un nouveau projet Unity
 
 Pour ouvrir un projet Unity existant:
 
-1. Ouvrir Unity Hub
-2. Aller à l'onglet "Projects"
-3. Cliquer sur "Add"
+1. Ouvrir **Unity Hub**
+2. Aller à l'onglet **Projects**
+3. Cliquer sur **Add**
 4. Naviguer jusqu'au dossier du projet Unity existant
-5. Sélectionner le dossier et cliquer sur "Select Folder"
+5. Sélectionner le dossier et cliquer sur **Select Folder**
 6. Le projet apparaîtra maintenant dans la liste des projets disponibles dans Unity Hub. Cliquer dessus pour l'ouvrir.
 
 Si votre projet utilise une version différente de Unity que celle installée, Unity Hub vous proposera de télécharger et d'installer la version appropriée. **TRAVAILLEZ TOUJOURS AVEC LA MÊME VERSION DE UNITY entre chez vous et le laboratoire du Collège.**

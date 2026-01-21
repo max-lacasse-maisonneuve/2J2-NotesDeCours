@@ -36,9 +36,8 @@
     <div class="section content">
       <div class="container">
           <div class="row">
-            <h1 id="programmation-de-scripts-dans-unity">Programmation de scripts dans Unity</h1>
-<p>Les scripts dans Unity sont principalement écrits en C#. Ils permettent de contrôler le comportement des objets dans une scène, de gérer les interactions utilisateur, de manipuler les données du jeu, et bien plus encore. Voici un guide pour commencer à programmer des scripts dans Unity. On ajoute un script à un GameObject pour définir son comportement. Il est considéré comme un composant du GameObject.</p>
-<p>Il est possible d'ajouter plusieurs scripts à un même GameObject, permettant ainsi de combiner différents comportements. Pour l'instant, nous nous concentrerons sur la création et l'ajout d'un seul script à un GameObject.</p>
+            <h1 id="outils-de-programmation-de-scripts-avec-unity">Outils de programmation de scripts avec Unity</h1>
+<p>Les scripts dans Unity sont principalement écrits en C#. Pour les éditer, on utilise des éditeurs externels. Les deux options gratuites les plus utilisées sont <strong>Visual Studio</strong> et <strong>VS Code</strong> parce qu'elles ont une bonne intégration avec Unity pour la gestion de code et le débogage.</p>
 <h2 id="integration-avec-vscode-ou-visual-studio">Intégration avec VSCode ou Visual Studio</h2>
 <p>Unity s'intègre parfaitement avec des éditeurs de code externes tels que Visual Studio Code (VSCode) (logo bleu) ou Visual Studio Community (logo violet).
 <picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/lHOcVK4cq4-36.webp 36w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/lHOcVK4cq4-36.jpeg" alt="Logo VS Code" width="36" height="46"></picture>
@@ -70,96 +69,6 @@
 <a href="https://dotnet.microsoft.com/en-us/download">SDK .NET</a></p>
 <p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/JhZAhEd4Yq-1901.webp 1901w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/JhZAhEd4Yq-1901.jpeg" alt="extension C#" width="1901" height="1027"></picture>
 <picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/nbxKfYLn2R-1913.webp 1913w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/nbxKfYLn2R-1913.jpeg" alt="extension Unity Tools" width="1913" height="1018"></picture></p>
-<h2 id="creation-d-un-script-c-dans-unity">Création d'un script C# dans Unity</h2>
-<p>Pour créer un script C# dans Unity, suivez ces étapes :</p>
-<ol>
-<li>Dans la fenêtre <code>Project</code>, faites un clic droit dans le dossier où vous souhaitez créer le script.</li>
-<li>Sélectionnez <code>Create</code> &gt; <code>C# Script</code>.</li>
-<li>Nommez le script (par exemple, <code>DeplacementFlappy</code>). Indiquez un nom pertinent qui reflète la fonctionnalité du script.</li>
-<li>Double-cliquez sur le script pour l'ouvrir dans votre éditeur de code configuré (VSCode ou Visual Studio).</li>
-<li>Glissez-déposez le script sur un GameObject dans la fenêtre <code>Hierarchy</code> pour l'ajouter en tant que composant.</li>
-</ol>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KD2S7K3jpj-1902.webp 1902w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KD2S7K3jpj-1902.jpeg" alt="Création d'un script" width="1902" height="979"></picture></p>
-<h2 id="structure-de-base-d-un-script-c">Structure de base d'un script C#</h2>
-<p>Les scripts C# dans Unity suivent une structure de base. Ils importent généralement l'espace de noms <code>UnityEngine</code> et contiennent une classe qui hérite de <code>MonoBehaviour</code>. C'est ce qui permet au script de fonctionner comme un composant Unity.</p>
-<p><strong>!!NE PAS modifier le nom de la classe ou le fait qu'elle hérite de <code>MonoBehaviour</code>, sinon Unity ne pourra pas reconnaître le script correctement.</strong></p>
-<p>Les scripts ont deux méthodes principales lors de la création que vous utiliserez fréquemment:</p>
-<ul>
-<li>Start() : appelée une fois au début, lorsque le script est initialisé.</li>
-<li>Update() : appelée à chaque frame, utilisée pour les mises à jour continues. C'est la boucle de jeu principale du script. Chaque script peut contenir plusieurs autres méthodes pour gérer des événements spécifiques, comme les collisions, les entrées utilisateur, etc.</li>
-</ul>
-<pre><code class="language-cs">using UnityEngine;
-public class DeplacementFlappy : MonoBehaviour
-{
-    // Méthode appelée une fois au début
-    void Start()
-    {
-        Debug.Log(&quot;Le script a démarré !&quot;);
-    }
-
-    // Méthode appelée à chaque frame
-    void Update()
-    {
-        // Code à exécuter à chaque frame
-    }
-}
-
-</code></pre>
-<h2 id="proprietes-et-champs">Propriétés et champs</h2>
-<p>Les scripts peuvent contenir des propriétés et des champs pour stocker des données. Les champs publics sont visibles et modifiables dans l'inspecteur Unity, ce qui permet de configurer les valeurs directement depuis l'éditeur. La valeur dans l'inspecteur peut être différente de celle définie dans le code et c'est cette valeur qui sera utilisée lors de l'exécution.</p>
-<pre><code class="language-cs">public class DeplacementFlappy : MonoBehaviour
-{
-    // Champ public visible dans l'inspecteur Unity
-    public float vitesse = 5.0f;
-
-    void Update()
-    {
-        // Utilisation du champ vitesse pour déplacer l'objet
-        transform.Translate(Vector3.right * vitesse * Time.deltaTime);
-    }
-}
-</code></pre>
-<h3 id="time-deltatime">Time.deltaTime?</h3>
-<p><code>Time.deltaTime</code> représente le temps écoulé entre la dernière frame et la frame actuelle. Il est utilisé pour rendre les mouvements indépendants de la fréquence d'images (FPS). En multipliant un mouvement par <code>Time.deltaTime</code>, vous vous assurez que l'objet se déplace à une vitesse constante, quel que soit le nombre de frames par seconde.</p>
-<p>Si vous testez avec un vieil appareil ou un appareil très puissant, la vitesse de déplacement restera la même en utilisant <code>Time.deltaTime</code>.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KW_tU3h1Pw-562.webp 562w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/KW_tU3h1Pw-562.jpeg" alt="Les propriétés publiques dans l'inspecteur Unity" width="562" height="600"></picture></p>
-<h2 id="execution-du-script">Exécution du script</h2>
-<p>Pour voir le script en action, assurez-vous que le GameObject auquel il est attaché est actif dans la scène. Lorsque vous lancez le jeu en cliquant sur le bouton <code>Play</code>, les méthodes <code>Start()</code> et <code>Update()</code> seront appelées automatiquement par Unity.</p>
-<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_InstallationIDE_Scripts/6pi6HDbltr-1912.webp 1912w"><img src="/2J2-NotesDeCours/02_InstallationIDE_Scripts/6pi6HDbltr-1912.jpeg" alt="L'exécution du script dans Unity" width="1912" height="1005"></picture></p>
-<h2 id="commenter-et-documenter-le-code">Commenter et documenter le code</h2>
-<p>Il est important de commenter et de documenter votre code pour le rendre plus compréhensible, surtout lorsque vous travaillez en équipe. Utilisez des commentaires pour expliquer la logique complexe ou les décisions de conception.</p>
-<p>Pour ce faire, utilisez <code>//</code> pour les commentaires sur une seule ligne et <code>/* ... */</code> pour les commentaires sur plusieurs lignes.</p>
-<pre><code class="language-cs">/**
-* Script pour déplacer un objet vers la droite à une vitesse constante.
-* @author VotreNom
-*/
-public class DeplacementFlappy : MonoBehaviour
-{
-    // Vitesse de déplacement de l'objet
-    public float vitesse = 5.0f;
-
-    void Update()
-    {
-        // Déplace l'objet vers la droite en fonction de la vitesse
-        transform.Translate(Vector3.right * vitesse * Time.deltaTime);
-    }
-}
-</code></pre>
-<h2 id="debogage">Débogage</h2>
-<p>Le débogage est une étape cruciale dans le développement de scripts. Unity offre plusieurs outils pour vous aider à identifier et corriger les erreurs dans votre code.</p>
-<ol>
-<li><strong>Console Unity</strong> : La fenêtre Console affiche les messages de débogage, les avertissements et les erreurs. Vous pouvez utiliser <code>Debug.Log()</code> pour envoyer des messages à la console.</li>
-</ol>
-<pre><code class="language-cs">Debug.Log(&quot;Ceci est un message de débogage.&quot;);
-
-</code></pre>
-<h3 id="je-ne-vois-pas-la-console">Je ne vois pas la console?</h3>
-<p>Si la fenêtre Console n'est pas visible, vous pouvez l'ouvrir en allant dans le menu <code>Window</code> &gt; <code>General</code> &gt; <code>Console</code>.</p>
-<h2 id="ressources-supplementaires">Ressources supplémentaires</h2>
-<p>Pour aller plus loin dans la programmation de scripts dans Unity, voici quelques ressources utiles :</p>
-<ul>
-<li><a href="https://learn.unity.com/course/beginner-scripting">Utilisation de scripts pour débutants sur Unity Learn</a></li>
-</ul>
 
           </div>
       </div>
