@@ -19,7 +19,17 @@ export default async function (eleventyConfig)
     // Filtrer les sources utilisées
     eleventyConfig.addCollection("notes", async (collectionsApi) => {
         // get unsorted items
-        let notes = collectionsApi.getFilteredByGlob(["[0-9]*_*.md"]);
+        let notes = collectionsApi.getFilteredByGlob(["[0-9]*_*.md"]).sort(function (a, b)
+        {
+            if (a.fileSlug < b.fileSlug)
+            {
+                return -1
+            }
+            else
+            {
+                return 1
+            }
+        });
         //console.log(notes);
 		return notes;
 	});
