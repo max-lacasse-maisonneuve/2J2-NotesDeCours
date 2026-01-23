@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 14_DesignNiveau_Joints</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">14_DesignNiveau_Joints</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/14_DesignNiveau_Joints.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="design-de-niveau-joints-2d">Design de niveau : Joints 2D</h1>
+<p>Dans cette section, nous allons explorer comment ajouter de la variété dans le design de vos niveaux en utilisant les joints 2D dans Unity. Les joints 2D permettent de connecter des objets entre eux pour créer des mécanismes complexes et interactifs dans vos jeux 2D. Les joints permettent de simuler des chaines, des ressorts, des charnières, et bien plus encore.</p>
+<h2 id="ajout-d-un-joint-2d-a-un-gameobject">Ajout d'un Joint 2D à un GameObject</h2>
+<ul>
+<li>Les joints 2D sont situés dans le menu <strong>Component &gt; Physics 2D</strong>, tout en bas de la liste.</li>
+<li>Pour qu'un joint 2D fonctionne, le GameObject doit avoir un collider 2D (Box Collider 2D, Circle Collider 2D,TilemapCollider2D, etc.) et un Rigidbody 2D attaché.</li>
+</ul>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/14_DesignNiveau_Joints/RCsyydj3DD-703.webp 703w"><img src="/2J2-NotesDeCours/14_DesignNiveau_Joints/RCsyydj3DD-703.jpeg" alt="Composant Joints" width="703" height="789"></picture></p>
+<h2 id="types-de-joints-2d">Types de Joints 2D</h2>
+<p>Voici quelques types courants de joints 2D que vous pouvez utiliser dans Unity :</p>
+<ul>
+<li><strong>Hinge Joint 2D</strong> : Permet de faire pivoter un objet autour d'un point fixe, comme une porte ou une roue. Vous pouvez définir des limites de rotation et ajouter un moteur pour contrôler la vitesse de rotation.</li>
+<li><strong>Spring Joint 2D</strong> : Connecte deux objets avec une force de ressort, permettant des mouvements élastiques entre eux. Utile pour simuler des cordes ou des ressorts.</li>
+<li><strong>Distance Joint 2D</strong> : Maintient une distance fixe entre deux objets, utile pour créer des effets de corde ou de barre rigide.</li>
+<li><strong>Slider Joint 2D</strong> : Permet à un objet de se déplacer le long d'un axe défini, comme un tiroir ou une plateforme coulissante.</li>
+<li><strong>Fixed Joint 2D</strong> : Connecte deux objets de manière rigide, les empêchant de se déplacer l'un par rapport à l'autre.</li>
+</ul>
+<h2 id="configurer-un-joint-2d">Configurer un Joint 2D</h2>
+<p>Sélectionnez le joint 2D dans l'inspecteur pour afficher ses propriétés. Vous pouvez ajuster les paramètres suivants en fonction du type de joint que vous utilisez :</p>
+<ul>
+<li><strong>Connected Body</strong> : Spécifie l'autre Rigidbody 2D auquel le joint est attaché.</li>
+<li><strong>Anchor</strong> : Définit le point d'attache du joint sur l'objet.</li>
+<li><strong>Auto Configure Connected Anchor</strong> : Si activé, Unity configure automatiquement le point d'attache sur l'objet connecté.</li>
+<li><strong>Limits</strong> : Pour les joints comme le Hinge Joint 2D, vous pouvez définir des limites de rotation.</li>
+<li><strong>Motor</strong> : Pour les joints comme le Hinge Joint 2D, vous pouvez ajouter un moteur pour contrôler la vitesse de rotation.Une vitesse de rotation positive fait tourner dans le sens horaire, tandis qu'une vitesse négative fait tourner dans le sens antihoraire. Vous pouvez accéder à ces options en cochant la case &quot;Use Motor&quot;.</li>
+<li><strong>Damping Ratio et Frequency</strong> : Pour les joints comme le Spring Joint 2D, vous pouvez ajuster la rigidité et l'amortissement du ressort.</li>
+<li><strong>Distance</strong> : Pour les joints comme le Distance Joint 2D, vous pouvez définir la distance fixe entre les deux objets.</li>
+<li><strong>Break Force et Break Torque</strong> : Vous pouvez définir une force ou un couple maximum que le joint peut supporter avant de se casser, ajoutant ainsi une dynamique supplémentaire à vos mécanismes.</li>
+</ul>
+<h2 id="utilisation-creative-des-joints-2d">Utilisation créative des Joints 2D</h2>
+<ul>
+<li><strong>Ponts suspendus</strong> : Utilisez des Spring Joints 2D pour créer des ponts suspendus qui se balancent lorsque les personnages marchent dessus.</li>
+<li><strong>Mécanismes de levier</strong> : Combinez des Hinge Joints 2D pour créer des leviers et des bascules interactives dans vos niveaux.</li>
+<li><strong>Portes et trappes</strong> : Utilisez des Hinge Joints 2D pour créer des portes ou des trappes qui s'ouvrent et se ferment Lorsque le joueur passe d'un côté et se referment derrière lui et bloquent l'accès depuis l'autre côté.</li>
+<li><strong>Objets pendants</strong> : Attachez des objets à des points fixes avec des Spring Joints 2D pour simuler des objets pendants qui réagissent au mouvement.</li>
+<li><strong>Machines complexes</strong> : Combinez plusieurs types de joints 2D pour créer des machines complexes et interactives, comme des grues, des ascenseurs, ou des puzzles mécaniques.</li>
+<li><strong>Personnages articulés</strong> : Utilisez des Hinge Joints 2D pour créer des personnages ou des ennemis avec des membres articulés qui bougent de manière réaliste.</li>
+<li><strong>Plateformes mobiles</strong> : Utilisez des Slider Joints 2D pour créer des plateformes qui se déplacent horizontalement ou verticalement, ajoutant du dynamisme à vos niveaux.</li>
+<li><strong>Systèmes de catapultes</strong> : Combinez des Hinge Joints 2D et des Spring Joints 2D pour créer des catapultes ou des lanceurs qui propulsent les personnages ou les objets à travers le niveau.</li>
+<li><strong>Plateformes qui se cassent</strong> : Utilisez les options de Break Force et Break Torque pour créer des plateformes ou des ponts qui se cassent sous le poids du joueur ou par programmation après un certain temps, ajoutant un élément de défi à vos niveaux.</li>
+</ul>
+<p><a href="https://docs.unity3d.com/Manual/2d-physics/joints/2d-joints-landing.html">Documentation officielle Unity sur les joints 2D</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

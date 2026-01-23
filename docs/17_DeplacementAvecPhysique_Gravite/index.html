@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 17_DeplacementAvecPhysique_Gravite</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">17_DeplacementAvecPhysique_Gravite</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/17_DeplacementAvecPhysique_Gravite.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="deplacer-un-objet-grace-a-la-physique-et-la-gravite">Déplacer un objet grâce à la physique et la gravité</h1>
+<p>Nous avons utilisé le rigidbody 2D pour permettre à nos objets d'entrer en collision les uns avec les autres. Cependant, le rigidbody 2D permet aussi de simuler la gravité et d'autres forces physiques sur nos objets.</p>
+<h2 id="optimisations-des-performances">Optimisations des performances</h2>
+<p>Lorsqu'on utilise des forces pour gérer le mouvement d'élément:</p>
+<ol>
+<li>La <strong>détection des touches ou de la souris</strong> est effectuée dans la méthode <code>Update()</code></li>
+<li><strong>L'application des forces physiques</strong> est placée dans la méthode <code>FixedUpdate()</code>. Cela garantit que les calculs de physique sont effectués à des intervalles réguliers, assurant une simulation stable et cohérente.</li>
+</ol>
+<p><strong>Si vous ne respectez pas cette règle, vous risquez d'obtenir des comportements imprévisibles dans votre jeu ou des mouvements saccadés des objets.</strong></p>
+<h2 id="types-de-forces">Types de forces</h2>
+<p>Vous pouvez appliquer plusieurs types de forces à un Rigidbody 2D en utilisant la méthode <code>AddForce()</code>. Vous spécifiez le type de force en utilisant le deuxième paramètre de la méthode <code>AddForce()</code> en utilisant l'énumération <code>ForceMode2D</code> :</p>
+<ul>
+<li><strong>ForceMode2D.Force</strong> : Applique une force continue sur l'objet, affectant sa vitesse au fil du temps. Comme du vent qui pousse un objet. C'est le mode par défaut, vous n'avez pas besoin de le spécifier.</li>
+<li><strong>ForceMode2D.Impulse</strong> : Applique une force instantanée, modifiant immédiatement la vitesse de l'objet. Comme une fusée qui décolle.</li>
+</ul>
+<h2 id="deplacer-un-objet-dans-une-direction-avec-la-physique">Déplacer un objet dans une direction avec la physique</h2>
+<p>Le composant Rigidbody 2D permet de d.éplacer un objet en lui appliquant des forces physiques grâce à la méthode <code>AddForce()</code>. Cela permet de simuler des mouvements réalistes influencés par la gravité, les collisions et d'autres forces.</p>
+<p>On choisit une direction multipliée par la force que l'on souhaite appliquer à l'objet. Nous utilisons un vecteur 2D pour spécifier cette direction. Ex: Vector2.up pour une force vers le haut, Vector2.right pour une force vers la droite ou encore Vector2(1,1) pour une force diagonale.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/17_DeplacementAvecPhysique_Gravite/_soi93YldD-456.webp 456w"><img src="/2J2-NotesDeCours/17_DeplacementAvecPhysique_Gravite/_soi93YldD-456.jpeg" alt="Exemples de réglages du rigidbody 2D" width="456" height="603"></picture></p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class DeplacementPersonnage : MonoBehaviour
+{
+
+    private Rigidbody2D rb;
+    public InputAction mouvementHorizontalJoueur;
+    public InputAction mouvementSautJoueur;
+
+    public float forceDeplacement = 500f;
+    public float forceSaut = 1000f;
+
+    Vector2 deplacementEnCours;
+    bool sautEnCours = false;
+
+    void Start()
+    {
+        rb = GetComponent&lt;Rigidbody2D&gt;();
+    }
+
+    // Active les actions d'entrée
+    void OnEnable()
+    {
+        mouvementHorizontalJoueur.Enable();
+        mouvementSautJoueur.Enable();
+    }
+
+    // Désactive les actions d'entrée
+    void OnDisable()
+    {
+        mouvementHorizontalJoueur.Disable();
+        mouvementSautJoueur.Disable();
+    }
+
+    void Update()
+    {
+        // On détecte le mouvement du joueur avec les touches directionnelles ou une manette
+        float deplacementHorizontal = mouvementHorizontalJoueur.ReadValue&lt;float&gt;();
+
+        deplacementEnCours = new Vector2(deplacementHorizontal, 0f);
+        if (mouvementSautJoueur.WasPressedThisFrame())
+        {
+            sautEnCours = true;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // Applique la force de déplacement seulement si le joueur appuie sur une touche (magnitude veut dire que le mouvement en plus grand que 0)
+        if (deplacementEnCours.magnitude &gt; 0)
+        {
+            //Applique une force dans la direction du déplacement
+            rb.AddForce(deplacementEnCours * forceDeplacement * Time.fixedDeltaTime);
+        }
+
+        // Applique la force de saut si le joueur a appuyé sur la touche de saut
+        if (sautEnCours == true)
+        {
+            //On applique une force avec impulsion vers le haut pour simuler un saut
+            rb.AddForce(Vector2.up * forceSaut * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            sautEnCours = false;
+        }
+    }
+}
+</code></pre>
+<h2 id="appliquer-une-vitesse-constante">Appliquer une vitesse constante</h2>
+<p>Les objets avec un Rigidbody 2D ont une propriété appelée <code>linearVelocity</code> (vélocité) qui représente la vitesse actuelle de l'objet en unités par seconde. La vélocité est la vitesse dans une direction donnée donc une fois les forces appliquées, l'objet continuera de se déplacer à cette vitesse jusqu'à ce qu'une autre force soit appliquée (comme la friction ou une collision).</p>
+<p>Si vous modifiez cette propriété dans la fonction <code>FixedUpdate()</code>, vous pouvez appliquer une vitesse constante à l'objet ou forcer un arrêt immédiat.</p>
+<pre><code class="language-csharp">float vitesseDeplacement = 2000f;
+
+void FixedUpdate()
+{
+    if(estMort == true)
+    {
+        // Arrêter l'objet immédiatement si le personnage est mort
+        //Vector2.zero signifie une vitesse nulle
+        rb.linearVelocity = Vector2.zero;
+    }else{
+        // Définir une vitesse constante précise
+        rb.linearVelocity = new Vector2(1f, 0f) * vitesseDeplacement * Time.fixedDeltaTime; // Vitesse de 1 unités par seconde vers la droite multipliée par une vitesse
+    }
+
+
+}
+</code></pre>
+<h2 id="utiliser-les-forces-mais-sans-gravite-comme-dans-un-jeu-top-down">Utiliser les forces mais sans gravité comme dans un jeu top-down</h2>
+<p>Si vous souhaitez que votre objet soit affecté par des forces mais pas par la gravité, vous pouvez désactiver la gravité dans les propriétés du Rigidbody 2D en réglant le paramètre &quot;Gravity Scale&quot; (Échelle de gravité) à 0. Vous devez alors ajouter les réglages pour les déplacements verticaux.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/17_DeplacementAvecPhysique_Gravite/JFwj3gvprV-456.webp 456w"><img src="/2J2-NotesDeCours/17_DeplacementAvecPhysique_Gravite/JFwj3gvprV-456.jpeg" alt="Exemple de réglages pour un personnage top-down sans gravité" width="456" height="603"></picture></p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class DeplacementPerso : MonoBehaviour
+{
+    private Rigidbody2D rb;
+    public float force = 10f;
+    public Vector2 deplacementEnCours;
+    public InputAction mouvementHorizontalJoueur;
+    public InputAction mouvementVerticalJoueur;
+
+    void Start()
+    {
+        rb = GetComponent&lt;Rigidbody2D&gt;();
+    }
+
+    // Active les actions d'entrée
+    void OnEnable()
+    {
+        mouvementHorizontalJoueur.Enable();
+        mouvementVerticalJoueur.Enable();
+    }
+
+    // Désactive les actions d'entrée
+    void OnDisable()
+    {
+        mouvementHorizontalJoueur.Disable();
+        mouvementVerticalJoueur.Disable();
+    }
+
+    void Update()
+    {
+        // On détecte le mouvement du joueur avec les touches directionnelles ou une manette
+        float deplacementHorizontal = mouvementHorizontalJoueur.ReadValue&lt;float&gt;();
+        float deplacementVertical = mouvementVerticalJoueur.ReadValue&lt;float&gt;();
+
+        deplacementEnCours = new Vector2(deplacementHorizontal, deplacementVertical);
+    }
+
+    void FixedUpdate()
+    {
+        if (deplacementEnCours.magnitude &gt; 0)
+        {
+            rb.AddForce(deplacementEnCours * force * Time.fixedDeltaTime);
+        }
+    }
+}
+</code></pre>
+<p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody2D.html">Documentation Unity sur Rigidbody 2D</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

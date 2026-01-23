@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 20_DetectionProximite_Raycast</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">20_DetectionProximite_Raycast</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/20_DetectionProximite_Raycast.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="detection-de-proximite">Detection de proximité</h1>
+<p>La détection de proximité est une technique couramment utilisée dans le développement de jeux vidéo pour déterminer si un objet ou un personnage est proche d'un autre objet ou personnage. Cela est utile pour éviter le double saut ou pour déclencher des événements lorsque le joueur s'approche d'un objet interactif.</p>
+<p>La méthode la plus simple pour détecter la proximité est d'utiliser des raycasts. Un raycast est une ligne invisible projetée dans une direction spécifique à partir d'un point donné. Vous pouvez savoir si cette ligne entre en collision avec un autre objet dans la scène.</p>
+<h2 id="lancer-un-rayon-2d-raycast2d">Lancer un rayon 2d (Raycast2D)</h2>
+<p>Pour lancer un rayon 2D dans Unity, vous pouvez utiliser la fonction <code>Physics2D.Raycast()</code>.</p>
+<h3 id="fonctionnement-de-base">Fonctionnement de base</h3>
+<p>Vous devez spécifier le point de départ du rayon, la direction dans laquelle il est lancé, et la distance maximale qu'il peut parcourir.
+Le résultat de la fonction est un objet <code>RaycastHit2D</code> qui contient des informations sur la collision, si une collision a eu lieu.</p>
+<pre><code class="language-csharp">Vector2 depart = transform.position; // Point de départ du rayon, généralement la position de l'objet
+Vector2 direction = Vector2.down; // Direction du rayon (vers le bas)
+float distance = 10f; // Distance maximale du rayon
+RaycastHit2D hit = Physics2D.Raycast(depart, direction, distance);
+
+if (hit.collider != null &amp;&amp; hit.collider.tag == &quot;sol&quot;)
+{
+    Debug.Log(&quot;Collision détectée avec : le sol&quot;);
+}
+</code></pre>
+<h3 id="visualisation-du-rayon">Visualisation du rayon</h3>
+<p>Pour visualiser le rayon dans l'éditeur Unity, vous pouvez utiliser la fonction <code>Debug.DrawRay()</code>. Cela vous permet de voir où le rayon est projeté dans la scène.
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/20_DetectionProximite_Raycast/w2oRBwxfdk-349.webp 349w"><img src="/2J2-NotesDeCours/20_DetectionProximite_Raycast/w2oRBwxfdk-349.jpeg" alt="Visualiser le rayon" width="349" height="292"></picture></p>
+<pre><code class="language-csharp">Vector2 depart = transform.position;
+Vector2 direction = Vector2.down;
+float distance = 1f; // Ajuster la distance selon vos besoins
+
+Debug.DrawRay(depart, direction * distance, Color.green);
+</code></pre>
+<h3 id="cibler-des-couches-specifiques">Cibler des couches spécifiques</h3>
+<p>Vous pouvez également spécifier des couches spécifiques à cibler lors du lancement du rayon en utilisant un masque de couche (LayerMask) si vous voulez ignorer certains objets.</p>
+<pre><code class="language-csharp">Vector2 depart = transform.position; // Point de départ du rayon, généralement la position de l'objet
+Vector2 direction = Vector2.down; // Direction du rayon (vers le bas)
+float distance = 10f; // Distance maximale du rayon
+public LayerMask masque; // Cible uniquement la couche &quot;sol&quot;
+RaycastHit2D hit = Physics2D.Raycast(depart, direction, distance, masque);
+</code></pre>
+<h2 id="bloquer-le-double-saut">Bloquer le double saut</h2>
+<p>Pour empêcher le double saut, vous pouvez utiliser un raycast pour vérifier si le personnage est au sol avant de lui permettre de sauter à nouveau.</p>
+<pre><code class="language-csharp">using UnityEngine;
+using UnityEngine.InputSystem;
+public class DeplacementJoueur : MonoBehaviour
+{
+    public InputAction sautJoueur;
+    public float forceSaut = 10f;
+    public LayerMask masqueSol;
+    public bool estAuSol = false;
+    public bool sautEnCours = false;
+
+    private Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent&lt;Rigidbody2D&gt;();
+    }
+
+    void OnEnable()
+    {
+        sautJoueur.Enable();
+    }
+
+    void OnDisable()
+    {
+        sautJoueur.Disable();
+    }
+
+    void Update()
+    {
+        estAuSol = VerifierSol();
+
+        if (estAuSol &amp;&amp; sautJoueur.WasPressedThisFrame())
+        {
+            sautEnCours = true;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (sautEnCours)
+        {
+            rb.AddForce(Vector2.up * forceSaut * Time.fixedDeltaTime, ForceMode2D.Impulse);
+            sautEnCours = false;
+        }
+    }
+
+    bool VerifierSol()
+    {
+        Vector2 depart = transform.position;
+        Vector2 direction = Vector2.down;
+        float distance = 0.6f; // Distance pour vérifier le sol
+
+        RaycastHit2D hit = Physics2D.Raycast(depart, direction, distance, masqueSol);
+        Debug.DrawRay(depart, direction * distance, Color.green);
+
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+}
+</code></pre>
+<h3 id="coyote-time-delai-de-saut">Coyote Time (délai de saut)</h3>
+<p>Pour améliorer la jouabilité du saut, vous pouvez implémenter le &quot;Coyote Time&quot;, inspiré du Coyote et du Road runner dans le dessin animé Bugs Bunny, qui permet au joueur de sauter pendant une courte période après avoir quitté le sol. Cela peut être fait en ajoutant un délai après que le joueur n'est plus au sol au bout d'une plateforme.</p>
+<pre><code class="language-csharp">public float delaiSaut = 0.2f; // Durée du coyote time en secondes
+private float compteurDelaiSaut;
+
+void Update()
+{
+    estAuSol = VerifierSol();
+
+    if (estAuSol)
+    {
+        compteurDelaiSaut = delaiSaut; // Réinitialiser le compteur tant que le joueur est au sol
+    }
+    else
+    {
+        compteurDelaiSaut -= Time.deltaTime; // Décrémenter le compteur lorsqu'il n'est pas au sol
+    }
+
+    if (compteurDelaiSaut &gt; 0f &amp;&amp; sautJoueur.WasPressedThisFrame())
+    {
+        sautEnCours = true;
+    }
+}
+</code></pre>
+<h2 id="detecter-des-objets-interactifs-devant-le-joueur">Détecter des objets interactifs devant le joueur</h2>
+<p>Vous pouvez également utiliser des raycasts pour détecter des objets interactifs lorsque le joueur s'en approche. Par exemple, vous pouvez lancer un rayon devant le joueur pour vérifier s'il y a un objet interactif à proximité. Utilisez la même logique que précédemment pour la détection des touches. Il s'agit d'une alternative à l'utilisation de colliders de type trigger qui serait utile par exemple pour interagir avec des objets à distance.</p>
+<p>Assurez-vous de définir un layer sur les objets interactifs afin de ne détecter que ceux-ci.</p>
+<pre><code class="language-csharp">public LayerMask masqueInteractif;
+public InputAction interactionJoueur;
+
+void Update()
+{
+    if (interactionJoueur.WasPressedThisFrame())
+    {
+        Vector2 depart = transform.position;
+        Vector2 direction = transform.right; // Direction vers l'avant du joueur
+        float distance = 10f; // Distance pour vérifier les objets interactifs
+
+        RaycastHit2D hit = Physics2D.Raycast(depart, direction, distance, masqueInteractif);
+        Debug.DrawRay(depart, direction * distance, Color.blue);
+
+        if (hit.collider != null)
+        {
+           GameObject objetInteractif = hit.collider.gameObject;
+           //Reste du code pour interagir avec l'objet
+        }
+    }
+}
+</code></pre>
+<h2 id="attaque-ennemi">Attaque ennemi</h2>
+<p>Un autre cas d'utilisation des raycasts est pour les attaques à distance des ennemis vers le joueur. Par exemple, un ennemi peut avancer et lancer un rayon pour vérifier si le joueur est dans sa ligne de mire avant d'attaquer.</p>
+<pre><code class="language-csharp">public LayerMask masqueJoueur;
+public GameObject projetilePrefab;
+float forceProjectile = 5f;
+
+void Update()
+{
+        Vector2 depart = transform.position;
+        Vector2 direction = transform.left; // Direction vers l'avant du joueur
+        float distance = 5f; // Distance pour vérifier les ennemis
+
+        RaycastHit2D hit = Physics2D.Raycast(depart, direction, distance, masqueJoueur);
+        Debug.DrawRay(depart, direction * distance, Color.red);
+
+        if (hit.collider != null)
+        {
+            Vector2 directionProjectile = hit.collider.gameObject.transform.position - transform.position;
+            GameObject projectile = Instantiate(projetilePrefab, transform.position, Quaternion.identity);
+            projectile.GetComponent&lt;Rigidbody2D&gt;().AddForce(directionProjectile.normalized * forceProjectile, ForceMode2D.Impulse);
+
+        }
+
+}
+</code></pre>
+<h2 id="afficher-une-ligne-au-joueur">Afficher une ligne au joueur</h2>
+<p>Pour améliorer l'expérience utilisateur, vous pouvez afficher une ligne indiquant la direction dans laquelle le joueur va interagir ou attaquer. Cela peut être fait en utilisant un <code>LineRenderer</code>. Cela permet au joueur de visualiser clairement la portée et la direction de son interaction ou attaque.</p>
+<p>On commence par ajouter un composant <code>LineRenderer</code> à l'objet joueur dans l'éditeur Unity. Ensuite, on met à jour les positions du <code>LineRenderer</code> dans la méthode <code>Update()</code> pour qu'il suive le rayon lancé en mettant à jour ses points de départ et d'arrivée.</p>
+<p>Assurez-vous de configurer correctement le <code>LineRenderer</code> dans l'éditeur Unity, en ajustant les matériaux (Vous pouvez choisir Default-Line), les couleurs et les largeurs selon vos préférences.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/20_DetectionProximite_Raycast/PCINzrresC-453.webp 453w"><img src="/2J2-NotesDeCours/20_DetectionProximite_Raycast/PCINzrresC-453.jpeg" alt="Composant Line Renderer" width="453" height="749"></picture></p>
+<pre><code class="language-csharp">LineRenderer lineRenderer;
+
+void Start()
+{
+    lineRenderer = GetComponent&lt;LineRenderer&gt;();
+    lineRenderer.positionCount = 2; // Indique que la ligne a deux points
+}
+
+void Update()
+{
+    Vector2 depart = transform.position;
+    Vector2 direction = transform.right; // Direction vers l'avant du joueur
+    float distance = 10f; // Distance pour vérifier les objets interactifs
+
+    RaycastHit2D hit = Physics2D.Raycast(depart, direction, distance, masqueInteractif);
+    Debug.DrawRay(depart, direction * distance, Color.blue);
+
+    // Au point 0, on place le départ du rayon
+    lineRenderer.SetPosition(0, depart);
+
+    // Au point 1, on place le point d'impact ou la fin du rayon
+    // Le reste de la ligne est dessiné jusqu'au point d'impact s'il y en a un, sinon jusqu'à la distance maximale
+    if (hit.collider != null)
+    {
+        lineRenderer.SetPosition(1, hit.point);
+    }
+    else
+    {
+        lineRenderer.SetPosition(1, depart + direction * distance);
+    }
+}
+</code></pre>
+<p><a href="https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html">Documentation Unity sur Raycast2D</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

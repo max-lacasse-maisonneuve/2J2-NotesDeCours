@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 27_Sauvegarde</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">27_Sauvegarde</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/27_Sauvegarde.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="sauvegarde-des-donnees-de-jeu-dans-unity">Sauvegarde des données de jeu dans Unity</h1>
+<p>La sauvegarde des données de jeu est une fonctionnalité essentielle pour de nombreux jeux vidéo, permettant aux joueurs de conserver leur progression et leurs paramètres. Dans ce chapitre, nous allons explorer différentes méthodes pour sauvegarder et charger des données dans Unity. Nous aborderons les PlayerPrefs, la sérialisation JSON, et l'utilisation de fichiers binaires.</p>
+<p>L'utilisation d'une base de données externe serait possible mais ne fait pas partie de ce cours.</p>
+<h2 id="playerprefs">PlayerPrefs</h2>
+<p>Unity fournit une classe intégrée appelée PlayerPrefs qui permet de sauvegarder des données simples telles que des entiers, des flottants et des chaînes de caractères. Il est possible d'enregistrer des données en utilisant une clé unique pour chaque valeur. Si vous avez besoin de sauvegarder des données plus complexes, vous devrez envisager d'autres méthodes comme la sérialisation JSON ou les fichiers binaires.</p>
+<p>À noter que PlayerPrefs est principalement destiné à stocker des données de petite taille, comme les paramètres du jeu ou les scores élevés. Pour des données plus volumineuses, il est recommandé d'utiliser des méthodes de sauvegarde plus robustes et que ces données peuvent être facilement modifiées par l'utilisateur en fouillant dans les fichiers de l'application.</p>
+<pre><code class="language-csharp">PlayerPrefs.SetInt(&quot;HighScore&quot;, 100);
+PlayerPrefs.SetFloat(&quot;Volume&quot;, 0.8f);
+PlayerPrefs.SetString(&quot;PlayerName&quot;, &quot;Maxime&quot;);
+</code></pre>
+<p>Pour récupérer les données sauvegardées, vous pouvez utiliser les méthodes correspondantes :</p>
+<pre><code class="language-csharp">int highScore = PlayerPrefs.GetInt(&quot;HighScore&quot;, 0);
+float volume = PlayerPrefs.GetFloat(&quot;Volume&quot;, 1.0f);
+string playerName = PlayerPrefs.GetString(&quot;PlayerName&quot;, &quot;Unknown&quot;);
+</code></pre>
+<h2 id="serialisation-json">Sérialisation JSON</h2>
+<p>Pour sauvegarder des données plus complexes, vous pouvez utiliser la sérialisation JSON. Unity fournit la classe <code>JsonUtility</code> qui facilite la conversion d'objets en chaînes JSON et vice versa. Les données sérialisées peuvent ensuite être sauvegardées dans des fichiers sur le disque. Comme playerPrefs, cette méthode est simple à utiliser et les fichiers JSON sont lisibles, ce qui facilite le débogage mais aussi la modification par l'utilisateur.
+Vous pourriez avoir plusieur fichiers de sauvegarde pour différencier les profils de joueurs.</p>
+<p>Voici un exemple de comment sauvegarder et charger des données de jeu en utilisant JSON :</p>
+<pre><code class="language-csharp">[System.Serializable]
+public class GameData
+{
+    public int level;
+    public float health;
+    public string playerName;
+}
+
+public void SaveGame(GameData data, int saveSlot)
+{
+    string json = JsonUtility.ToJson(data);
+    System.IO.File.WriteAllText($&quot;{Application.persistentDataPath}/monJeu_save{saveSlot}.json&quot;, json);
+}
+
+public GameData LoadGame(int saveSlot)
+{
+    string path = $&quot;{Application.persistentDataPath}/monJeu_save{saveSlot}.json&quot;;
+    if (System.IO.File.Exists(path))
+    {
+        string json = System.IO.File.ReadAllText(path);
+        return JsonUtility.FromJson&lt;GameData&gt;(json);
+    }
+    return null;
+}
+</code></pre>
+<p>Dans un script dédié, vous pouvez appeler les fonctions <code>SaveGame</code> et <code>LoadGame</code> pour gérer la sauvegarde et le chargement des données de jeu.</p>
+<pre><code class="language-cs">Start(){
+    GameData data = new GameData();
+    int currentLevel = 1;
+    float playerHealth = 100f;
+    string playerName = &quot;Hero&quot;;
+
+    GameData loadedData = LoadGame();
+    if (loadedData != null)
+    {
+        data = loadedData;
+
+        currentLevel = data.level;
+        playerHealth = data.health;
+        playerName = data.playerName;
+    }
+}
+
+EnregisterPartie(){
+
+    data.level = currentLevel;
+    data.health = playerHealth;
+    data.playerName = playerName;
+
+    SaveGame(data);
+}
+</code></pre>
+<h3 id="application-persistentdatapath">Application.persistentDataPath</h3>
+<p>Application. persistentDataPath est un chemin d'accès sûr pour stocker les fichiers de sauvegarde, accessible sur toutes les plateformes supportées par Unity.</p>
+<h2 id="fichiers-binaires">Fichiers binaires</h2>
+<p>Pour des performances optimales et une sécurité accrue, vous pouvez utiliser la sérialisation binaire pour sauvegarder les données de jeu. Cette méthode est plus complexe à mettre en œuvre mais permet de stocker des données de manière plus compacte et moins lisible par l'utilisateur.</p>
+<p>Voici un exemple de comment sauvegarder et charger des données en utilisant la sérialisation binaire :</p>
+<pre><code class="language-csharp">using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+[System.Serializable]
+public class GameData
+{
+    public int level;
+    public float health;
+    public string playerName;
+}
+
+public void SaveGame(GameData data)
+{
+    BinaryFormatter formatter = new BinaryFormatter();
+    string path = $&quot;{Application.persistentDataPath}/monJeu_save.dat&quot;;
+    FileStream stream = new FileStream(path, FileMode.Create);
+    formatter.Serialize(stream, data);
+    stream.Close();
+}
+
+public GameData LoadGame()
+{
+    string path = $&quot;{Application.persistentDataPath}/monJeu_save.dat&quot;;
+    if (File.Exists(path))
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Open);
+        GameData data = formatter.Deserialize(stream) as GameData;
+        stream.Close();
+        return data;
+    }
+    return null;
+}
+</code></pre>
+<p><a href="https://docs.unity3d.com/ScriptReference/JsonUtility.html">Documentation Unity sur JsonUtility</a>
+<a href="https://docs.unity3d.com/ScriptReference/PlayerPrefs.html">Documentation Unity sur PlayerPrefs</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

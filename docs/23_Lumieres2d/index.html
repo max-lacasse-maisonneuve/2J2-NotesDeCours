@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 23_Lumieres2d</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">23_Lumieres2d</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/23_Lumieres2d.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="ajout-de-lumieres-2d">Ajout de lumières 2D</h1>
+<p>Les lumières peuvent ajouterz une dimension supplémentaire à vos scènes 2D en créant des effets d'éclairage réalistes. Unity offre plusieurs types de lumières 2D que vous pouvez utiliser pour améliorer l'apparence de vos jeux.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/23_Lumieres2d/Bt2JpQ6YHL-844.webp 844w"><img src="/2J2-NotesDeCours/23_Lumieres2d/Bt2JpQ6YHL-844.jpeg" alt="Sans lumières" width="844" height="471"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/23_Lumieres2d/Y5560Wld_F-839.webp 839w"><img src="/2J2-NotesDeCours/23_Lumieres2d/Y5560Wld_F-839.jpeg" alt="Avec lumières" width="839" height="471"></picture></p>
+<h2 id="ajouter-une-lumiere-2d">Ajouter une lumière 2D</h2>
+<p>Dans le menu principal, allez dans <strong>GameObject &gt; Light &gt; 2D</strong> et choisissez le type de lumière que vous souhaitez ajouter (Freeform Light 2D, Spot Light 2D, Global Light 2D, etc.). Une nouvelle lumière sera ajoutée à votre scène.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/23_Lumieres2d/h5A-VC-_S2-480.webp 480w"><img src="/2J2-NotesDeCours/23_Lumieres2d/h5A-VC-_S2-480.jpeg" alt="Types de lumières 2D" width="480" height="296"></picture></p>
+<h3 id="types-de-lumieres-2d">Types de lumières 2D</h3>
+<ul>
+<li><strong>Freeform Light 2D</strong> : Permet de créer des formes de lumière personnalisées en dessinant directement dans la scène. Vous pouvez contrôler la forme de la lumière en ajustant les points de contrôle.</li>
+<li><strong>Spot Light 2D</strong> : Émet de la lumière dans un cône à partir d'un point spécifique. Parfait pour simuler des projecteurs ou des lampes de poche. Vous pouvez ajuster l'angle et la portée du cône.</li>
+<li><strong>Global Light 2D</strong> : Émet une lumière uniforme sur toute la scène uniformément. Utile pour simuler la lumière ambiante ou la lumière du jour.</li>
+<li><strong>Sprite Light 2D</strong> : Utilise une texture de sprite pour définir la forme et l'apparence de la lumière. Idéal pour des effets de lumière stylisés ou spécifiques avec une forme particulière.</li>
+</ul>
+<h2 id="configurer-une-lumiere-2d">Configurer une lumière 2D</h2>
+<p>Sélectionnez la lumière 2D dans la hiérarchie pour afficher ses propriétés dans l'inspecteur. Vous pouvez ajuster les paramètres suivants :</p>
+<ul>
+<li><strong>Color</strong> : Changez la couleur de la lumière.</li>
+<li><strong>Intensity</strong> : Ajustez la luminosité de la lumière.</li>
+<li><strong>Falloff</strong> : Contrôlez la distance à laquelle la lumière affecte les objets.</li>
+<li><strong>Shadow Type</strong> : Choisissez le type d'ombre (None, Hard, Soft).</li>
+<li><strong>Sorting Layer</strong> : Définissez la couche de tri pour la lumière afin de contrôler son ordre de rendu par rapport aux autres objets. Vous pourriez ainsi appliquer des effets d'éclairage sur le personnage sans affecter l'arrière-plan.</li>
+</ul>
+<h2 id="trucs-et-astuces">Trucs et astuces</h2>
+<ul>
+<li>Utilisez des lumières Global Light 2D pour éclairer toute la scène de manière uniforme en premier et diminuer l'intensité pour créer une ambiance.</li>
+<li>Combinez plusieurs types de lumières 2D pour obtenir des effets d'éclairage plus complexes.</li>
+<li>Combinez les lumières 2D avec des effets de post-traitement (bloom et screen space lens flare) pour améliorer l'apparence visuelle de votre scène.</li>
+</ul>
+<p><a href="https://docs.unity3d.com/Manual/urp/LightTypes.html">Documents officiels Unity sur les lumières 2D</a></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

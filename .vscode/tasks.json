@@ -32,12 +32,9 @@
             "label": "(Enric) Exporter un PDF avec Pandoc",
             "type": "shell",
             "command": "bash",
-            "args": [
-                "./enric_export_single_pdf.sh",
-                "${fileBasename}"
-                ],
+            "args": ["./enric_export_single_pdf.sh", "${fileBasename}"],
             "group": {
-                "kind": "none",
+                "kind": "none"
             },
             "problemMatcher": [],
             "presentation": {
@@ -51,11 +48,9 @@
             "label": "(Enric) Exporter tous PDFs avec Pandoc",
             "type": "shell",
             "command": "bash",
-            "args": [
-                "./enric_export_pdf.sh",
-                ],
+            "args": ["./enric_export_pdf.sh"],
             "group": {
-                "kind": "build",
+                "kind": "build"
             },
             "problemMatcher": [],
             "presentation": {
@@ -69,11 +64,9 @@
             "label": "Exporter HTML avec Eleventy",
             "type": "shell",
             "command": "bash",
-            "args": [
-                "html_build.sh",
-            ],
+            "args": ["html_build.sh"],
             "group": {
-                "kind": "build",
+                "kind": "build"
             },
             "problemMatcher": [],
             "presentation": {

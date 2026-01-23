@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 06_ArchiverProjet</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">06_ArchiverProjet</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/06_ArchiverProjet.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="archiver-un-projet-de-jeu-ou-web-avec-github-desktop">Archiver un projet de jeu (ou Web) avec GitHub Desktop</h1>
+<p>Git est un système de contrôle de version très populaire parmi les développeurs. Cela permet d'archiver facilement les projets, de suivre les modifications et de collaborer avec d'autres personnes. Généralement, Git est utilisé via la ligne de commande, mais il existe des applications graphiques qui rendent son utilisation plus accessible. C'est ce que nous allons voir avec GitHub Desktop.</p>
+<p>GitHub Desktop est une application qui facilite l'utilisation de Git pour ceux qui préfèrent une interface graphique plutôt que la ligne de commande. C'est plus facile à prendre en main, surtout pour les débutants. Normalement, il faut également installer le logiciel Git sur votre ordinateur, mais GitHub Desktop l'inclut déjà, donc vous n'avez pas à vous en soucier.</p>
+<p>Vous aurez besoin d'un compte GitHub pour utiliser GitHub Desktop. Si vous n'en avez pas encore, vous pouvez en créer un gratuitement sur <a href="https://github.com/">https://github.com/</a>. C'est gratuit et rapide à faire.</p>
+<p><strong>Assurez-vous de créer votre projet Unity2D avant de commencer cette procédure.</strong></p>
+<h2 id="installation-de-github-desktop">Installation de GitHub Desktop</h2>
+<ol>
+<li>Rendez-vous sur le site officiel de GitHub Desktop : <a href="https://desktop.github.com/">https://desktop.github.com/</a></li>
+<li>Téléchargez l'application en fonction de votre système d'exploitation (Windows ou macOS).</li>
+<li>Installez l'application en suivant les instructions à l'écran.</li>
+<li>Une fois l'installation terminée, lancez GitHub Desktop.</li>
+</ol>
+<h2 id="configuration-initiale">Configuration initiale</h2>
+<ol>
+<li>Lors du premier lancement, connectez-vous avec votre compte GitHub.</li>
+<li>Configurez votre nom d'utilisateur et votre adresse e-mail, qui seront utilisés pour les commits (les enregistrements de modifications).</li>
+<li>Vous pouvez laisser les autres paramètres par défaut pour le moment.</li>
+</ol>
+<h2 id="archiver-un-projet-unity2d-avec-github-desktop">Archiver un projet Unity2D avec GitHub Desktop</h2>
+<ol>
+<li>Ouvrez GitHub Desktop.</li>
+<li>Cliquez sur &quot;File&quot; (Fichier) dans la barre de menu, puis sélectionnez &quot;New Repository&quot; (Nouveau dépôt).</li>
+<li>Remplissez les informations du dépôt :
+<ul>
+<li><strong>Name</strong> (Nom) : Donnez un nom à votre projet.</li>
+<li><strong>Description</strong> : Ajoutez une description si vous le souhaitez.</li>
+<li><strong>Local Path</strong> (Chemin local) : Choisissez l'emplacement où se trouve votre projet Unity2D sur votre ordinateur.</li>
+<li><strong>Initialize this repository with a README</strong> (Initialiser ce dépôt avec un README) : Cochez cette case si vous souhaitez ajouter un fichier README. Le README est utile pour décrire votre projet ou laisser des instructions avant une remise de projet.</li>
+<li><strong>.gitignore</strong> : Sélectionnez &quot;Unity&quot; dans le menu déroulant pour ignorer les fichiers spécifiques à Unity qui ne doivent pas être suivis par Git.</li>
+<li><strong>License</strong> (Licence) : Vous pouvez choisir une licence pour votre projet si vous le souhaitez. Mettez &quot;None&quot; si vous n'êtes pas sûr.</li>
+</ul>
+</li>
+<li>Cliquez sur &quot;Create Repository&quot; (Créer le dépôt).</li>
+<li>Une fois le dépôt créé, vous verrez une liste des fichiers dans votre projet. Publiez votre projet sur GitHub en cliquant sur &quot;Publish repository&quot; (Publier le dépôt) dans le coin supérieur droit. Cela rendra accessible en ligne.</li>
+</ol>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/Iz453YBT2A-504.webp 504w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/Iz453YBT2A-504.jpeg" alt="Boite de dialogue lors de la création d'un dépot" width="504" height="637"></picture>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/Rf_UNLpUqC-1109.webp 1109w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/Rf_UNLpUqC-1109.jpeg" alt="Publication du dépôt" width="1109" height="896"></picture></p>
+<h2 id="ajouter-des-changements-a-votre-projet">Ajouter des changements à votre projet</h2>
+<p>Lorsque vous apportez des modifications à votre projet Unity2D, GitHub Desktop détectera automatiquement les changements. Pour enregistrer ces modifications :</p>
+<ol>
+<li>Ouvrez GitHub Desktop.</li>
+<li>Vous verrez une liste des fichiers modifiés dans l'onglet &quot;Changes&quot; (Modifications).</li>
+<li>Ajoutez un message de commit décrivant les modifications apportées.</li>
+<li>Cliquez sur &quot;Commit to main&quot; (ou &quot;Commit to master&quot;) pour enregistrer les modifications localement.</li>
+<li>Pour synchroniser vos modifications avec GitHub en ligne, cliquez sur &quot;Push origin&quot;.</li>
+</ol>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/7NR2MEAavr-2544.webp 2544w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/7NR2MEAavr-2544.jpeg" alt="Synchroniser les modifications" width="2544" height="1373"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/JV6IXwOvIa-3948.webp 3948w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/JV6IXwOvIa-3948.jpeg" alt="Visualiser le dépôt sur GitHub" width="3948" height="1695"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/2VKzBpVNqq-942.webp 942w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/2VKzBpVNqq-942.jpeg" alt="Pousser les changements sur le dépôt en ligne" width="942" height="73"></picture></p>
+<h2 id="recuperer-un-projet-depuis-github-sur-un-autre-ordinateur">Récupérer un projet depuis GitHub sur un autre ordinateur</h2>
+<p>Si vous souhaitez travailler sur votre projet depuis un autre ordinateur, vous pouvez cloner le dépôt GitHub :</p>
+<ol>
+<li>Ouvrez GitHub Desktop sur l'autre ordinateur.</li>
+<li>Cliquez sur &quot;File&quot; (Fichier) dans la barre de menu, puis sélectionnez &quot;Clone repository&quot; (Cloner le dépôt).</li>
+<li>Sélectionnez le dépôt que vous souhaitez cloner depuis votre compte GitHub.</li>
+<li>Choisissez un emplacement local pour cloner le dépôt.</li>
+<li>Cliquez sur &quot;Clone&quot; (Cloner).</li>
+</ol>
+<p>Vous pouvez maintenant travailler sur votre projet depuis cet autre ordinateur. N'oubliez pas de faire des commits et de pousser vos modifications régulièrement pour garder votre dépôt à jour.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/aF9vaEgZ6M-868.webp 868w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/aF9vaEgZ6M-868.jpeg" alt="Cloner un dépôt existant" width="868" height="723"></picture></p>
+<h2 id="recuperer-les-modifications-d-un-projet">Récupérer les modifications d'un projet</h2>
+<p>Si vous travaillez à plusieurs sur un projet ou si vous avez apporté des modifications depuis un autre ordinateur, vous pouvez récupérer les dernières modifications en cliquant sur &quot;Fetch origin&quot; (Récupérer l'origine) dans GitHub Desktop. Cela mettra à jour votre copie locale avec les dernières modifications du dépôt en ligne.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/06_ArchiverProjet/UoB1hwK_9b-1034.webp 1034w"><img src="/2J2-NotesDeCours/06_ArchiverProjet/UoB1hwK_9b-1034.jpeg" alt="Récupérer les changements du dépôt en ligne" width="1034" height="82"></picture></p>
+<h2 id="methode-pour-eviter-les-conflits-lorsque-vous-travaillez-sur-plusieurs-ordinateurs">Méthode pour éviter les conflits lorsque vous travaillez sur plusieurs ordinateurs</h2>
+<p>Lorsque vous travaillez sur plusieurs ordinateurs, il est important de suivre une méthode pour éviter les conflits de modifications. Voici une méthode simple :</p>
+<ol>
+<li>Avant de commencer à travailler sur un ordinateur, ouvrez GitHub Desktop et cliquez sur &quot;Fetch origin&quot; pour récupérer les dernières modifications.</li>
+<li>Faites vos modifications et enregistrez-les avec un commit.</li>
+<li>Poussez vos modifications en ligne en cliquant sur &quot;Push origin&quot;.</li>
+<li>Sur l'autre ordinateur, avant de commencer à travailler, cliquez à nouveau sur &quot;Fetch origin&quot; pour récupérer les dernières modifications et répétez le processus.</li>
+</ol>
+<p>En suivant cette méthode, vous minimisez les risques de conflits et assurez-vous que toutes vos modifications sont synchronisées entre les ordinateurs.</p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>

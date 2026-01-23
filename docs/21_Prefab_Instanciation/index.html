@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 21_Prefab_Instanciation</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">21_Prefab_Instanciation</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/21_Prefab_Instanciation.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="instanciation-et-objets-prefabriques-prefabs">Instanciation et objets préfabriqués (Prefabs)</h1>
+<p>Les <strong>objets préfabriqués</strong> (ou <em>Prefabs</em>) sont des modèles d'objets que vous pouvez créer dans Unity pour réutiliser facilement des configurations d'objets complexes. Ils permettent de créer des clones (instances) d'objets avec les mêmes propriétés, composants et hiérarchies, facilitant ainsi la gestion et la modification de plusieurs objets similaires dans une scène.</p>
+<h2 id="creation-d-un-prefab">Création d'un Prefab</h2>
+<p>Pour créer un Prefab, vous n'avez qu'à créer un objet dans votre scène, le configurer comme vous le souhaitez (ajouter des composants, définir des propriétés, etc.), puis faire glisser cet objet depuis la hiérarchie vers le dossier &quot;Assets&quot; dans le panneau &quot;Project&quot;. Cela crée un fichier Prefab que vous pouvez réutiliser.</p>
+<p>Ce prefab peut être modifié ultérieurement, et toutes les instances de ce prefab dans la scène seront mises à jour automatiquement si vous appliquez les modifications au prefab.</p>
+<p>Ce prefab servira de modèle pour créer des copies (instances) dans la scène.</p>
+<p>Vous pouvez glisser-déposer le prefab depuis le dossier &quot;Assets&quot; vers la hiérarchie pour créer une instance de ce prefab dans la scène et effectuer des modifications spécifiques à cette instance si nécessaire. (Exemple les variables publiques dans un script attaché à un ennemi).</p>
+<p><strong>Les prefabs devraient être regroupés dans un dossier &quot;Prefabs&quot; dans le dossier &quot;Assets&quot; pour une meilleure organisation du projet.</strong></p>
+<h2 id="instanciation-clonage-duplication-d-un-prefab-via-le-script">Instanciation/clonage/duplication d'un Prefab via le script</h2>
+<p>En programmation, l'instanciation signifie simplement la copie d'un nouvel objet à partir d'un modèle (comme un prefab).</p>
+<p>Pour instancier un Prefab via un script, vous pouvez utiliser la méthode <code>Instantiate()</code>. Attention, au lieu de glisser-déposer l'objet de la hiérarchie, vous devez faire glisser le prefab depuis le dossier &quot;Assets&quot; vers une variable publique dans votre script.</p>
+<p>Lors de l'instanciation, vous devez préciser la position et la rotation de l'objet instancié. Il est fréquent d'utiliser la position et la rotation d'un autre objet dans la scène pour cela comme point de création (Spawn Point).</p>
+<p>Vous pouvez ensuite garder en mémoire la référence de l'objet instancié dans une variable si vous souhaitez le manipuler par la suite.</p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html">Documentation officielle de Instantiate</a></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/21_Prefab_Instanciation/WH_6FViMMn-319.webp 319w"><img src="/2J2-NotesDeCours/21_Prefab_Instanciation/WH_6FViMMn-319.jpeg" alt="Créer un prefab" width="319" height="882"></picture></p>
+<pre><code class="language-csharp">using UnityEngine;
+public class PrefabInstantiator : MonoBehaviour
+{
+    // Référence au prefab à instancier
+    public GameObject prefab;
+    public GameObject pointDeCreation;
+
+    void Start()
+    {
+        // Instanciation du prefab à la position du point de création avec la rotation du point de création
+        GameObject copie = Instantiate(prefab, pointDeCreation.transform.position, pointDeCreation.transform.rotation);
+        copie.name = &quot;ObjetInstancié&quot;; // Renommer l'objet instancié
+        copie.SetActive(true); // Activer l'objet instancié si nécessaire
+    }
+}
+</code></pre>
+<h2 id="ex-lancer-un-projectile">Ex: Lancer un projectile</h2>
+<p>Voici un exemple plus concret d'utilisation des Prefabs pour lancer un projectile (comme une balle) depuis un point de création (spawn point) lorsque l'utilisateur appuie sur une touche.</p>
+<pre><code class="language-csharp">// Script du joueur
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerController : MonoBehaviour
+{
+    public GameObject projectilePrefab; // Référence au prefab du projectile
+    public GameObject pointCreation; // Point de création du projectile
+    public float vitesse = 20f; // Vitesse du projectile
+
+    public InputAction tirJoueur;
+
+
+
+    private void OnEnable()
+    {
+        tirJoueur.Enable();
+    }
+
+    private void OnDisable()
+    {
+        tirJoueur.Disable();
+    }
+
+   void Update()
+    {
+        // Vérifier si la touche de tir est pressée
+        if (tirJoueur.WasPressedThisFrame())
+        {
+            LancerProjectile();
+        }
+    }
+
+    void LancerProjectile()
+    {
+        // Instancier le projectile à la position et rotation du point de création
+        GameObject projectile = Instantiate(projectilePrefab, pointCreation.transform.position, pointCreation.transform.rotation);
+
+        // Appliquer une force au projectile pour le faire avancer
+        // On récupère le composant Rigidbody du projectile, s'il en a un
+        Rigidbody rb = projectile.GetComponent&lt;Rigidbody&gt;();
+        if (rb != null)
+        {
+            // Donner une vitesse au projectile dans la direction avant du point de création
+            rb.linearVelocity = pointCreation.transform.forward * vitesse;
+        }
+
+    }
+}
+</code></pre>
+<pre><code class="language-csharp">// Script du projectile
+// Assurez-vous que le prefab du projectile a un composant Rigidbody2D et un Collider2D pour gérer les collisions.
+using UnityEngine;
+
+public class Projectile : MonoBehaviour
+{
+    public float dureeVie = 5f; // Durée de vie du projectile avant destruction
+
+    void Start()
+    {
+        // Détruire le projectile après une certaine durée
+        Destroy(gameObject, dureeVie);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Gérer la collision avec d'autres objets (par exemple, infliger des dégâts)
+
+        //Ex: On récupère le script Joueur et on diminue la vie de 10
+        // Assurez-vous que l'objet avec lequel le projectile entre en collision a un Script &quot;Joueur&quot;
+        // et une méthode publique DiminuerVie(int montant)
+        collision.gameObject.GetComponent&lt;Joueur&gt;().DiminuerVie(10);
+
+        // Détruire le projectile à l'impact
+        Destroy(gameObject);
+    }
+}
+</code></pre>
+<h2 id="modifier-un-prefab">Modifier un prefab</h2>
+<p>Pour modifier un prefab, vous pouvez double-cliquer sur le prefab dans le dossier &quot;Assets&quot; pour l'ouvrir dans le mode d'édition de prefab. Vous pouvez ensuite apporter des modifications à l'objet, ajouter ou supprimer des composants, et ajuster les propriétés.</p>
+<p>Une fois que vous avez terminé, cliquez sur le bouton &quot;Retour à la scène&quot; pour revenir à votre scène principale. Toutes les instances du prefab dans la scène seront mises à jour avec les modifications apportées.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/21_Prefab_Instanciation/SzHBzJ83cw-1914.webp 1914w"><img src="/2J2-NotesDeCours/21_Prefab_Instanciation/SzHBzJ83cw-1914.jpeg" alt="Modification d'un prefab" width="1914" height="941"></picture>{width=&quot;100%&quot;}</p>
+<p>Si vous avez fait des changements individuels à une version d'un prefab dans la scène et que vous souhaitez revenir à la version originale du prefab, vous pouvez sélectionner l'objet dans la hiérarchie, puis cliquer sur le bouton &quot;Override&quot; et ensuite &quot;Revert&quot; dans l'inspecteur pour annuler les modifications locales.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/21_Prefab_Instanciation/v6gO44I5Lw-453.webp 453w"><img src="/2J2-NotesDeCours/21_Prefab_Instanciation/v6gO44I5Lw-453.jpeg" alt="Effacer les changements d'un prefab sur la scène" width="453" height="835"></picture>{width=&quot;100%&quot;}</p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>
