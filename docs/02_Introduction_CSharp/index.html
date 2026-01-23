@@ -93,8 +93,27 @@ public class DeplacementFlappy : MonoBehaviour
 <p>Si vous testez avec un vieil appareil ou un appareil très puissant, la vitesse de déplacement restera la même en utilisant <code>Time.deltaTime</code>.</p>
 <p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_Introduction_CSharp/KW_tU3h1Pw-562.webp 562w"><img src="/2J2-NotesDeCours/02_Introduction_CSharp/KW_tU3h1Pw-562.jpeg" alt="Les propriétés publiques dans l'inspecteur Unity" width="562" height="600"></picture></p>
 <h2 id="methodes">Méthodes</h2>
-<h2 id="execution-du-script">Exécution du script</h2>
-<p>Pour voir le script en action, assurez-vous que le GameObject auquel il est attaché est actif dans la scène. Lorsque vous lancez le jeu en cliquant sur le bouton <code>Play</code>, les méthodes <code>Start()</code> et <code>Update()</code> seront appelées automatiquement par Unity.</p>
+<p>Les méthodes en C# ont une structure légèrement différente de celles en JavaScript. Il faut toujours informer quel est le type de valeur retourné par la méthode (ou <code>void</code> sinon). On peut aussi définir la portée pour chaque méthode, c.-à-d. si on peut les utiliser hors la classe où elles sont déclarées (<code>public</code>) ou non (<code>private</code>).</p>
+<h3 id="exemples-de-methodes">Exemples de méthodes</h3>
+<pre><code class="language-csharp">// Une routine, ou une méthode sans retour.
+public void DireBonjour() {
+    Debug.Log(&quot;allo!&quot;);
+}
+// Appel : DireBonjour();
+
+// Une routine, ou une méthode sans retour.
+private string PreparerMessageBonjour() {
+    return &quot;Bonjour!&quot;;
+}
+// Appel : string resultat = PreparerMessageBonjour();
+
+public string PersonnaliserBonjour(string personne) {
+   return &quot;Bonjour, &quot;+ personne +&quot;!&quot;;
+}
+// Appel : string resultat = PersonnaliserBonjour(&quot;Isabel&quot;);
+</code></pre>
+<h2 id="execution-du-script-avec-des-methodes-d-evenement">Exécution du script avec des méthodes d'événement</h2>
+<p>Pour voir le script en action, assurez-vous que le GameObject auquel il est attaché est actif dans la scène. Lorsque vous lancez le jeu en cliquant sur le bouton <code>Play</code>, les méthodes <code>Start()</code> et <code>Update()</code> seront appelées automatiquement par Unity à des moments spécifiques. Ce type de méthode est connu comme <strong>méthode d'événement</strong> (ou <a href="https://docs.unity3d.com/Manual/event-functions.html">event functions [EN]</a> en anglais) et ils sont fondamentaux pour l'intégration entre notre logique et l'<a href="https://docs.unity3d.com/Manual/execution-order.html">ordre d'exécution du moteur de jeu [EN]</a>.</p>
 <p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/02_Introduction_CSharp/6pi6HDbltr-1912.webp 1912w"><img src="/2J2-NotesDeCours/02_Introduction_CSharp/6pi6HDbltr-1912.jpeg" alt="L'exécution du script dans Unity" width="1912" height="1005"></picture></p>
 <h2 id="commenter-et-documenter-le-code">Commenter et documenter le code</h2>
 <p>Il est important de commenter et de documenter votre code pour le rendre plus compréhensible, surtout lorsque vous travaillez en équipe. Utilisez des commentaires pour expliquer la logique complexe ou les décisions de conception.</p>

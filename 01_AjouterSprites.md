@@ -4,7 +4,7 @@ Les sprites sont des images 2D utilisées dans les jeux vidéo pour représenter
 
 ## Importation des sprites
 
-Vous pouvez simplement glisser-déposer des fichiers image (comme PNG, JPEG, etc.) dans le dossier `Assets` de votre projet Unity. Unity reconnaît automatiquement ces fichiers comme des sprites. Les fichiers Psd (Photoshop) sont également pris en charge, mais il est recommandé de les convertir en PNG pour une meilleure compatibilité.
+Vous pouvez simplement glisser-déposer des fichiers image (comme PNG, JPEG, etc.) dans le dossier `Assets` de votre projet Unity. Unity reconnaît automatiquement ces fichiers comme des sprites. Les fichiers PSD (Photoshop) sont également pris en charge, mais il est recommandé de les convertir en PNG pour une meilleure compatibilité.
 
 Une fois importés, vous pouvez sélectionner les images dans le dossier `Assets` et, dans l'inspecteur, définir leur `Texture Type` sur `Sprite (2D and UI)` pour les utiliser comme sprites si ce n'est pas déjà fait.
 
@@ -41,6 +41,10 @@ Pour utiliser un sprite dans votre scène Unity, il suffit de le glisser-dépose
 ### Mon sprite n'apparaît pas correctement...
 
 Pour afficher un sprite devant un autre, vous pouvez ajuster la propriété `Order in Layer` du composant `Sprite Renderer`. Un nombre plus élevé signifie que le sprite sera rendu au-dessus des sprites avec des nombres plus bas.
+
+Les sprites peuvent être assignés à une **couche de tri (`SortingLayer`)**, qui permet de **gérer l'ordre de rendu des groupes de sprites**. Par exemple, les sprites de fond peuvent être placés dans une couche "Background", les personnages dans "Characters", et les objets d'interface dans "UI". L'ordre de rendu de ces groupes est configurée dans les paramètres du projet (`ProjectSettings > Tags and Layers > Sorting Layers`).  
+
+![SortingLayers](images/sorting_layers.png)
 
 Pour retourner un sprite horizontalement ou verticalement, vous pouvez cocher les cases `Flip X` ou `Flip Y` dans le composant `Sprite Renderer`.
 
