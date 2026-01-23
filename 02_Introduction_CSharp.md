@@ -74,11 +74,32 @@ Si vous testez avec un vieil appareil ou un appareil très puissant, la vitesse 
 
 ## Méthodes
 
+Les méthodes en C\# ont une structure légèrement différente de celles en JavaScript. Il faut toujours informer quel est le type de valeur retourné par la méthode (ou `void` sinon). On peut aussi définir la portée pour chaque méthode, c.-à-d. si on peut les utiliser hors la classe où elles sont déclarées (`public`) ou non (`private`).
 
+### Exemples de méthodes
 
-## Exécution du script
+```csharp
+// Une routine, ou une méthode sans retour.
+public void DireBonjour() {
+    Debug.Log("allo!");
+}
+// Appel : DireBonjour();
 
-Pour voir le script en action, assurez-vous que le GameObject auquel il est attaché est actif dans la scène. Lorsque vous lancez le jeu en cliquant sur le bouton `Play`, les méthodes `Start()` et `Update()` seront appelées automatiquement par Unity.
+// Une routine, ou une méthode sans retour.
+private string PreparerMessageBonjour() {
+    return "Bonjour!";
+}
+// Appel : string resultat = PreparerMessageBonjour();
+
+public string PersonnaliserBonjour(string personne) {
+   return "Bonjour, "+ personne +"!";
+}
+// Appel : string resultat = PersonnaliserBonjour("Isabel");
+```
+
+## Exécution du script avec des méthodes d'événement
+
+Pour voir le script en action, assurez-vous que le GameObject auquel il est attaché est actif dans la scène. Lorsque vous lancez le jeu en cliquant sur le bouton `Play`, les méthodes `Start()` et `Update()` seront appelées automatiquement par Unity à des moments spécifiques. Ce type de méthode est connu comme **méthode d'événement** (ou [event functions [EN]](https://docs.unity3d.com/Manual/event-functions.html) en anglais) et ils sont fondamentaux pour l'intégration entre notre logique et l'[ordre d'exécution du moteur de jeu [EN]](https://docs.unity3d.com/Manual/execution-order.html).
 
 ![L'exécution du script dans Unity](images/executionCode.png)
 
