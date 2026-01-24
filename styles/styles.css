@@ -315,3 +315,13 @@ a.button:hover {
     border-radius: 4px;
     font-size: 75%;
 }
+
+th, td {
+    padding: 4px;
+    border: 1px solid #444;
+    text-align: left;
+}
+
+th code, td code {
+    color : var(--code-color);
+}
