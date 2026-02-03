@@ -41,4 +41,5 @@ Pour choisir quelles scènes seront incluses dans le build, il faut se rendre da
 ![](images/build_windows.png)
 
 ![](images/build_settings_windows.png)
+
 ![](images/exemple_build_windows.png)
