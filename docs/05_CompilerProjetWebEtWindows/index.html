@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#121212">
+    <title>582-2J2 : 05_CompilerProjetWebEtWindows</title>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/normalize.css">
+    
+    <link rel="stylesheet" href="/2J2-NotesDeCours/styles/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/csharp.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+    
+    <!-- JS -->
+    
+  </head>
+  <body class="line-numbers">
+    <a id="top"></a>
+    <div class="section header">
+      <div class="container">
+          <div class="row">
+          <p class="title">585-2J2 Création de jeu 2D<br><span class="cours" style="font-style: italic;">05_CompilerProjetWebEtWindows</span></p>
+<br>
+        <a class="button" href="/2J2-NotesDeCours/index.html">🏠 Liste de notes</a>
+          <a class="button" href="/2J2-NotesDeCours/pdf/05_CompilerProjetWebEtWindows.pdf" download="">💾 Télécharger note en PDF</a>
+          </div>
+      </div>
+    </div>
+    <div class="section content">
+      <div class="container">
+          <div class="row">
+            <h1 id="compiler-un-projet-unity">Compiler un projet Unity</h1>
+<p>Une fois que vous avez terminé le développement de votre projet Unity, l'étape suivante consiste à le compiler et à le mettre en ligne pour que d'autres puissent y accéder. Voici un guide étape par étape pour compiler votre projet Unity et le publier en ligne avec GitHub Pages.</p>
+<h2 id="etape-1-preparer-votre-projet-unity-et-choisir-les-scenes">Étape 1 : Préparer votre projet Unity et choisir les scènes</h2>
+<p>Avant de compiler votre projet, assurez-vous que tout fonctionne correctement dans l'éditeur Unity. Testez votre jeu ou application pour vous assurer qu'il n'y a pas de bugs majeurs. Il ne devrait pas y avoir de problèmes de performance ou d'erreurs critiques qui empêcheraient le bon fonctionnement de votre projet. Poussez également toutes les modifications finales dans votre dépôt GitHub.</p>
+<p>Pour choisir quelles scènes seront incluses dans le build, il faut se rendre dans le menu <strong>File &gt; Build Profile &gt; Scene List</strong>. Là, vous verrez une liste des scènes dans le build. Pour choisir les scènes à inclure, cliquez sur le bouton<strong>Add Open Scene</strong> pour ajouter la scène actuelle à la liste ou glissez-déposez des fichiers de scène du panneau <strong>Project</strong>. Vous pouvez aussi modifier la séquence de scènes : <strong>la scène numéro 0 servira de point de départ du jeu</strong>.</p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/g3EaOT0PrX-739.webp 739w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/g3EaOT0PrX-739.jpeg" alt="" width="739" height="580"></picture></p>
+<h2 id="etape-2a-configurer-les-parametres-de-build-pour-web">Étape 2A : Configurer les paramètres de build pour <strong>web</strong></h2>
+<ol>
+<li>Ouvrez votre projet Unity.</li>
+<li>Allez dans le menu <strong>File</strong> &gt; <strong>Build Profiles</strong>.</li>
+<li>Sélectionnez <strong>Web</strong> comme plateforme de build. Si vous ne voyez pas cette option, vous devrez peut-être installer le module <strong>WebGL Build Support</strong> via le Unity Hub.</li>
+<li>Cliquez sur <strong>Switch Platform</strong> pour basculer vers la plateforme WebGL si ce n'est pas déjà fait.</li>
+<li>Configurez les paramètres de build selon vos besoins (résolution, qualité, etc.). Vous pouvez également ajuster les paramètres avancés dans <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong>.</li>
+<li>Réglez la résolution de votre application WebGL en fonction de vos besoins. Vous pouvez choisir une résolution fixe ou permettre à l'application de s'adapter à la taille de la fenêtre du navigateur.</li>
+<li>Dans le cas du WebGL, assurez-vous que l'option <strong>Compression Format</strong> est définie sur <strong>Disabled</strong> pour éviter les problèmes de chargement sur GitHub Pages et que le mode ce soit compatible avec Itch.io.</li>
+</ol>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/MLH4deQTmr-2536.webp 2536w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/MLH4deQTmr-2536.jpeg" alt="Compilation pour WebGL" width="2536" height="643"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/QHHQrzr6bD-1904.webp 1904w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/QHHQrzr6bD-1904.jpeg" alt="Réglages de la résolution" width="1904" height="931"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/Cq67QEUGhh-1908.webp 1908w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/Cq67QEUGhh-1908.jpeg" alt="Désactivez la compression pour déployer sur Github Pages et Itch.io" width="1908" height="1019"></picture></p>
+<h2 id="etape-2b-configurer-les-parametres-de-build-pour-windows">Étape 2B : Configurer les paramètres de build pour <strong>Windows</strong></h2>
+<ol>
+<li>Ouvrez votre projet Unity.</li>
+<li>Sélectionnez <strong>Windows</strong> comme plateforme de build. Si vous ne voyez pas cette option, vous devrez peut-être installer le module <strong>Windows Build Support (IL2CPP)</strong> via le Unity Hub.</li>
+<li>Cliquez sur <strong>Switch Platform</strong> pour basculer vers la plateforme Windows si ce n'est pas déjà fait.</li>
+<li>Configurer les paramètres du player dans <strong>Edit &gt; Project Settings &gt; Player</strong> ou en cliquant <strong>Build Profiles &gt; PlayerSettings</strong>.
+<ul>
+<li><strong>Company Name</strong> : Choisissez un nom de créateur / équipe.</li>
+<li><strong>Product Name</strong> : Nom du projet. Cette option change aussi le nom du fichier <code>.exe</code> (ex : <code>MonJeu.exe</code>).</li>
+<li><strong>Resolution and Presentation &gt; Fullscreen Mode</strong> pour configurer le comportement de l'écran du jeu. L'option <strong>Windowed</strong> permet de configurer une taille défaut, par exemple.</li>
+</ul>
+</li>
+<li><strong>Générer le build.</strong> Dans les Build Profiles, cliquez sur <strong>Build</strong> pour choisir un emplacement pour le dossier de sortie et générer le build. L'option <strong>Build and Run</strong> utilise l'emplacement antérieur.</li>
+<li><strong>Vérifier le build généré</strong>. Ouvrez le dossier de sortie (ex : 📂<code>Builds/Windows</code>) et vérifiez que le fichier <code>.exe</code>  et les sous-dossier nécessaires ont été créés (ex <code>Data</code>). Pour tester dans un autre PC ou emplacement, copiez le dossier de sortie entier et cliquez sur le fichier <code>.exe</code> pour exécuter le jeu.</li>
+</ol>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/Tdm-CuSGjD-736.webp 736w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/Tdm-CuSGjD-736.jpeg" alt="" width="736" height="685"></picture></p>
+<p><picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/i7hTLhEmDK-942.webp 942w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/i7hTLhEmDK-942.jpeg" alt="" width="942" height="827"></picture>
+<picture><source type="image/webp" srcset="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/qwwRnYtpSE-664.webp 664w"><img src="/2J2-NotesDeCours/05_CompilerProjetWebEtWindows/qwwRnYtpSE-664.jpeg" alt="" width="664" height="311"></picture></p>
+
+          </div>
+      </div>
+    </div>
+    <div class="section ">
+      <div class="container footer">
+        <div class="row">
+            <a class="button" href="#top" "="">🔝 Haut de page</a>
+        <div>
+      </div>
+    </div>
+  </div></div></body>
+</html>
