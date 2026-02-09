@@ -2,9 +2,11 @@
   "name": "2j2-notesdecours",
   "version": "1.0.0",
   "description": "Ce dossier contient toutes les notes de cours pour l'apprentissage d'Unity 2D.",
-  "main": "eleventy.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "npx vitepress dev",
+    "docs:build": "npx vitepress build",
+    "docs:preview": "npx vitepress preview"
   },
   "repository": {
     "type": "git",
@@ -13,7 +15,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/max-lacasse-maisonneuve/2J2-NotesDeCours/issues"
   },
@@ -24,6 +25,9 @@
   "devDependencies": {
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "eleventy-plugin-toc": "^1.1.5"
+    "eleventy-plugin-toc": "^1.1.5",
+    "vitepress": "^2.0.0-alpha.16",
+    "vitepress-i18n": "^1.3.5",
+    "vitepress-sidebar": "^1.33.1"
   }
 }
