@@ -26,4 +26,4 @@ Dans le scripting C# ou la manipulation de GameObjects dans la scène, on utilis
 ## Ressources complémentaires
 
 - [E-book (gratuit, EN) : Use a C# style guide for clean and scalable game code (Unity 6 edition)](https://unity.com/resources/c-sharp-style-guide-unity-6)
-- [C# Identifier Naming Conventions – Microsoft [EN]]([https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/naming-conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names))
+- [C# Identifier Naming Conventions – Microsoft [EN]](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/naming-conventions)

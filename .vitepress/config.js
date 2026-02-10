@@ -26,8 +26,9 @@ const vitepressOptions = {
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Examples', link: '/markdown-examples' }
+            { text: 'Index', link: '/' },
+            { text: '📄 Notes', link: '/#notes' },
+            { text: '📌 Ressources', link: '/#ressources' },
         ],
         sidebar: generateSidebar({
             // VitePress Sidebar's options here...
@@ -35,10 +36,6 @@ const vitepressOptions = {
             sortMenusOrderNumericallyFromLink: true,
             excludeByGlobPattern: ["brouillons/", "archives/", "synopsis/", "readme.md"]
         }),
-
-        socialLinks: [
-            { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-        ],
         search: {
             provider: 'local'
         }
