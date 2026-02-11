@@ -1,4 +1,4 @@
-## Activer et désactiver les GameObjects par script
+# Activer et désactiver les GameObjects par script
 
 Lorsqu'on désactive un GameObject, tous ses composants et ceux de ses enfants sont également désactivés. Cela signifie qu'ils ne seront plus mis à jour ni rendus dans la scène. Pour désactiver un GameObject, vous pouvez utiliser la méthode `SetActive(false)`. Pour le réactiver, utilisez `SetActive(true)`.
 

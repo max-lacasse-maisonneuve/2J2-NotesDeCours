@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "PS";
+  font-stretch: 10% 100%; /* Note that font-stretch is a % of normal width */
+  font-style: NORMAL; /* See note below */
+  font-weight: 100 900;
+  src: url(/fonts/PublicSans-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "PS";
+  font-stretch: 10% 100%; /* Note that font-stretch is a % of normal width */
+  font-style: ITALIC; /* See note below */
+  font-weight: 100 900;
+  src: url(/fonts/PublicSans-Italic-VariableFont_wght.ttf) format('truetype');
+}
+
+
+@font-face {
+  font-family: "Atkinson Code";
+  font-stretch: 10% 100%; /* Note that font-stretch is a % of normal width */
+  font-style: NORMAL; /* See note below */
+  font-weight: 100 900;
+  src: url(/fonts/AtkinsonHyperlegibleMono-Regular.ttf) format('truetype');
+}
+
+:root {
+  --vp-font-family-base: "PS", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* (Optional) apply the font to the whole document */
+html {
+  font-family: var(--vp-font-family-base);
+}

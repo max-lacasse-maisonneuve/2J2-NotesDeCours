@@ -20,7 +20,7 @@ echo "⚠️  File : $FILE"
 base_name="${FILE%.md}"
 
 # Output filename (e.g., file.html)
-output_file="${ROOT_DIR}/pdf/${base_name}.pdf"
+output_file="${ROOT_DIR}/public/pdf/${base_name}.pdf"
 
 # Run pandoc to convert .md to .html
 if pandoc -i "$FILE" --from="markdown" --to="pdf" --pdf-engine="xelatex" --metadata-file="${ROOT_DIR}/custom.latex.yaml" --syntax-highlighting="zenburn" --number-sections -o "$output_file"; then

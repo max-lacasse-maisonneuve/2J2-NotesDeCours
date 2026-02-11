@@ -61,10 +61,10 @@
             }
         },
         {
-            "label": "Exporter HTML avec Eleventy",
+            "label": "(Enric) Exporter HTML avec VitePress",
             "type": "shell",
             "command": "bash",
-            "args": ["html_build.sh"],
+            "args": ["enric_html_build.sh"],
             "group": {
                 "kind": "build"
             },
