@@ -14,7 +14,7 @@ Voici quelques autres méthodes utiles que vous pouvez utiliser avec les GameObj
 -   `name` : Permet d'obtenir ou de définir le nom du GameObject. C'est le nom que vous voyez dans le haut de l'Inspector.
 -   `tag` : Permet d'obtenir ou de définir le tag du GameObject. Les tags sont utilisés pour catégoriser les GameObjects et faciliter leur identification. Ex: le tag "Player" pour le personnage principal et "Enemy" pour tous les ennemis. C'est utile pour les collisions et les interactions.
 -   `transform` : Permet d'accéder au composant Transform du GameObject, qui gère sa position, rotation et échelle dans la scène.
--   `parent` : Permet d'obtenir ou de définir le parent du GameObject dans la hiérarchie des objets. Un GameObject peut être un enfant d'un autre GameObject, ce qui affecte sa position et son comportement.
+-   `transform.parent` : Permet d'obtenir ou de définir le parent du GameObject dans la hiérarchie des objets. Un GameObject peut être un enfant d'un autre GameObject, ce qui affecte sa position et son comportement.
 -   `SetActive(bool)` : Active ou désactive le GameObject. Lorsqu'un GameObject est désactivé, il n'est plus mis à jour ni rendu dans la scène.
 -   `GetComponent<T>()` : Permet d'obtenir une référence à un composant spécifique attaché au GameObject. Par exemple, `GetComponent<Rigidbody2D>()` retourne le composant Rigidbody2D du GameObject.
 -   `Find(string name)` : Méthode statique qui permet de trouver un GameObject dans la scène par son nom.
@@ -147,9 +147,7 @@ public class Test02 : MonoBehaviour
 }
 ```
 
-
-[Documentation officielle de Unity sur les GameObjects et les composants](https://docs.unity3d.com/Manual/GameObjects.html)
-[Documentation officielle de Unity sur les Components](https://docs.unity3d.com/ScriptReference/Component.html)
-[Documentation officielle de Unity sur GetComponent](https://docs.unity3d.com/ScriptReference/GameObject.GetComponent.html)
-[Documentation officielle de Unity sur les tags](https://docs.unity3d.com/Manual/Tags.html)
-
+- [Documentation officielle de Unity sur les GameObjects et les composants](https://docs.unity3d.com/Manual/GameObjects.html)
+- [Documentation officielle de Unity sur les Components](https://docs.unity3d.com/ScriptReference/Component.html)
+- [Documentation officielle de Unity sur GetComponent](https://docs.unity3d.com/ScriptReference/GameObject.GetComponent.html)
+- [Documentation officielle de Unity sur les tags](https://docs.unity3d.com/Manual/Tags.html)
