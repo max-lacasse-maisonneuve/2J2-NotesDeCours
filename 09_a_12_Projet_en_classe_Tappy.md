@@ -15,7 +15,7 @@ Dans les prochains cours (09 à 12), nous allons réaliser un jeu de type "endle
 
 - Dans la méthode `Update()`, ajouter le code déplacer le décor:
     - Utilise la fonction `Translate()` pour déplacer le décor horizontalement en fonction de la `vitesse` et de la `direction`.
-    - Gardez la position y du décor constante: ex: `transform.Translate(vitesse * direction * Time.deltaTime, transform.position.y, 0);`
+    - Gardez la position y du décor constante: ex: `transform.Translate(vitesse * direction * Time.deltaTime, 0, 0);`
     - Si la direction est négative et que la position x du décor est inférieure ou égale à `limiteGauche`, replacer le décor à la `limiteDroite`.
     - Si la direction est positive et que la position x du décor est supérieure ou égale à `limiteDroite`, replacer le décor à la `limiteGauche`.
 
