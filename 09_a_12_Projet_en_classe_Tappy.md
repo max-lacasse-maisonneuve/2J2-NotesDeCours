@@ -45,16 +45,16 @@ Dans les prochains cours (09 à 12), nous allons réaliser un jeu de type "endle
 
 #### Dans le script `DeplacementAvion`:
 
-- Ajouter une variable publique de type `Rigidbody2D` nommée `rb`.
-- Ajouter une variable publique de type `float` nommée `vitesse` et lui assigner une valeur de `25f`.
+- Ajouter une variable publique de type `Rigidbody2D` nommée `rigid`.
+- Ajouter une variable publique de type `float` nommée `vitesse` et lui assigner une valeur de `0.2f`.
 - Ajouter une variable de type `float` nommée `deplacementHorizontal`.
 - Ajouter une variable de type `float` nommée `deplacementVertical`.
 - Ajouter une variable de type `bool` nommée `estMort` et lui assigner une valeur de `false`.
 
-- Dans la méthode `Start()`, assigner le composant `Rigidbody2D` de l'avion à la variable `rb` en utilisant `GetComponent<Rigidbody2D>()`.
+- Dans la méthode `Start()`, assigner le composant `Rigidbody2D` de l'avion à la variable `rigid` en utilisant `GetComponent<Rigidbody2D>()`.
 
 - Dans la méthode `Update()`, modifier la vélocité linéaire du `Rigidbody2D` de l'avion:
-  `rb.linearVelocity = new Vector2(deplacementHorizontal * vitesse, deplacementVertical * vitesse);`
+  `rigid.linearVelocity += new Vector2(deplacementHorizontal * vitesse, deplacementVertical * vitesse);`
 
 ### 5. Gérer les collisions avec le décor
 
