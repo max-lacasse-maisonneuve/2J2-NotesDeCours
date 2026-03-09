@@ -1,4 +1,4 @@
-# Jouabilite
+# Jouabilité
 
 Qu'est-ce qui rend un jeu vidéo amusant et engageant ?
 

@@ -115,6 +115,6 @@ Pour utiliser des polices personnalisées avec TextMeshPro, vous devez d'abord i
 
 ![Menu Font asset Creator de TextMeshPro](images/fontAssetCreator.png)
 
-[Documentation officielle Unity sur TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@latest)
-[Documentation officielle Unity sur le système UI](https://docs.unity3d.com/Manual/UISystem.html)
-[Documentation officielle Unity sur le Canvas](https://docs.unity3d.com/Manual/class-Canvas.html)
+- [Documentation officielle Unity sur TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@latest)
+- [Documentation officielle Unity sur le système UI](https://docs.unity3d.com/Manual/UISystem.html)
+- [Documentation officielle Unity sur le Canvas](https://docs.unity3d.com/Manual/class-Canvas.html)
