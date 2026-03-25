@@ -1,4 +1,4 @@
-# Listes et gestion des ennemis simples
+# Gestion des ennemis simples
 
 Il y a plusieurs méthodes simples pour rendre la gestion des ennemis plus efficace dans un jeu vidéo avec Unity2d
 
