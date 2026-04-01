@@ -27,6 +27,8 @@ On veut avoir du mouvement de marche avec des accélerations pour donner un styl
 1. Pour ralentir la marche: 
   1. Si on n'as pas d'intensité de marche (`intensiteMarche <= 0.01f`), on ralentisse la vitesse X du `rb` avec une interpolation vers 0f (`Mathf.Lerp(rb.linearVelocityX, 0, ralentissementMarche * Time.fixedDeltaTime)`).
 2. On multiplie l'`axeMarche` par l'`accelerationMarche` et on somme au `rb.linearVelocityX`.
+3. On limite la valeur de `rb.linearVelocityX` avec un `Mathf.Clamp()` et la `vitesseXMax`.
+4. On garde la valeur de `rb.linearVelocityX` dans la variable `vitesseXActuelle` parce qu'elle sera outil pour gérer les animations et le visuel du personnage.
 
 
 ### Appliquer la logique du saut
@@ -44,16 +46,10 @@ Pour le saut, on veut qu'il soit activé seulement quand le personnage est au so
 3. Pour créer **la hauteur variable**, on va créer trois ifs pour traiter notre bouton:
    1. Si `actionSaut.WasPressedThisFrame() && estAuSol`, on va commencer le saut, donc le `tempsSaut = 0f`.
    2. Si `actionSaut.IsPressed()`, le bouton est actif dans ce cadre.
-      1. Si le `tempsSaut < dureeImpulsionSaut`, on somme l'`impulsionSaut` avec la vitesse Y du `rb`.
+      1. Si le `tempsSaut < dureeImpulsionSaut`, on applique l'impulsion vers le haut avec la méthode `rb.AddForce(Vector2.up * impulsionSaut, ForceMode2D.Impulse)`. Le `Vector2.up` défine la direction et l'`impulsionSaut` l'intensité de la force. L'argument `ForceMode2D.Impulse` applique cette accélération de façon immédiate.
          1. Pour éviter des déplacements extrêmes, on limite la valeur de `rb.linearVelocityY` avec un `Mathf.Clamp()` et la `vitesseYMax`.
       2. On augmente le `tempsSaut` pour montrer que plus de temps enfoncé c'est passé.
    3. Si `actionSaut.WasReleasedThisFrame()`, le bouton est relâché, donc on change le `tempsSaut` à l'infini pour éviter que l'impulsion soit appliquée.
-
-
-### Limiter la vitesse de mouvement
-
-1. On limite la valeur de `rb.linearVelocityX` avec un `Mathf.Clamp()` et la `vitesseXMax`.
-2. On garde la valeur de `rb.linearVelocityX` dans la variable `vitesseXActuelle` parce qu'elle sera outil pour gérer les animations et le visuel du personnage.
 
 ## Cours 18 - Contrôle de caméra avec Cinemachine
 
