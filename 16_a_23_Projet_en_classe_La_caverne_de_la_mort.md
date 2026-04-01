@@ -81,7 +81,29 @@ Pour le saut, on veut le modifier pour qu'il soit activé seulement quand le per
 
 ## Cours 18 - Contrôle de caméra avec Cinemachine
 
-À venir.
+### Configuration de base : 2D Camera
+
+1. Si le package **Cinemachine** n'est pas installé, aller sur *Window > PackageManager >Unity Registry* et l'installer.
+2. On ajoute un composant **Cinemachine Brain** à la **Main Camera** de la scène.
+3. On crée un nouvel objet dans la scène avec *GameObject >  Cinemachine > Targeted Cameras > 2D Camera*.
+4. Dans le nouvel objet CinemachineCamera, on change la propriété `Tracking Target` à notre objet de Personnage.
+5. On change la propriété `Lens` à 5 pour répliquer la taille de la caméra défaut.
+
+### Composition dynamique
+
+Le composant **Cinemachine Position Composer** permet d'encadrer l'objet cible (`Tracking Target`) dynamiquement, avec des **zones mortes** (où la caméra ne suive pas la cible), **anticipation** (Lookahead, quand la caméra suit une estimation de la position future de la cible) et des **limites de cadre**. 
+
+![Configuration du Position Composer](images/config-position-composer.png)
+
+### Limites de niveau pour la caméra
+
+On peut aussi définir des limites sur l'espace général de la scène. Les étapes pour configurer des limites sont :
+
+1. On clique sur le bouton *Add Extension* de notre **CinechineCamera** et on ajoute un composant **Cinemachine Confiner2D**.
+2. On ajoute un nouvel objet vide dans la scène nommé **LimitesCameraNiveau** avec un **BoxCollider2D**. Éditer la forme du collider pour délimiter l'espace de la caméra. Activer l'option `IsTrigger`.
+3. On connecte cet objet **LimitesCameraNiveau** à la propriété `Bounding Shape 2D` du **Confiner2D**.
+
+![Configuration du Confiner2D](images/config-limites-niveau.png)
 
 ## Cours 19 - Gestion d'animations multiples avec Animator pt.1
 
