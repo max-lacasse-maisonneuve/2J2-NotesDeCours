@@ -85,8 +85,8 @@ Pour le saut, on veut le modifier pour qu'il soit activé seulement quand le per
 
 1. Si le package **Cinemachine** n'est pas installé, aller sur *Window > PackageManager >Unity Registry* et l'installer.
 2. On ajoute un composant **Cinemachine Brain** à la **Main Camera** de la scène.
-3. On crée un nouvel objet dans la scène avec *GameObject >  Cinemachine > Targeted Cameras > 2D Camera*.
-4. Dans le nouvel objet CinemachineCamera, on change la propriété `Tracking Target` à notre objet de Personnage.
+3. On crée un nouvel objet dans la scène avec *GameObject >  Cinemachine > Targeted Cameras > 2D Camera*. Nommer cet objet **CinemachineCamera**.
+4. Dans le nouvel objet **CinemachineCamera**, on change la propriété `Tracking Target` à notre objet de Personnage.
 5. On change la propriété `Lens` à 5 pour répliquer la taille de la caméra défaut.
 
 ### Composition dynamique
