@@ -151,6 +151,30 @@ void Update(){
 }
 ```
 
+#### Tourner le personnage avec `flipX`
+
+1. Pour que le personnage tourne à la bonne direction, soit en repos ou en course, on va utiliser la propriété *flipX* de sont **SpriteRenderer**.
+2. Quand l'intensité de notre vitesse horizontale est plus grande que zéro, c.-à.-d. on a un mouvement n'importe la direction, on va vérifier quel le signe de notre vitesse avec `Mathf.Sign()`. Si négatif (-1f), on veut changer `flipX = true` pour refléter le sprite.
+
+```csharp
+// Dans le script Personnage.cs attaché au objet Personnage.
+SpriteRenderer sr;
+
+// Dans Start()
+sr = GetComponentInChildren<SpriteRenderer>();
+
+// Dans Update()
+// ... à la fin de la méthode.
+if (intensiteVitesseX > 0f){
+	if (Mathf.Sign(deplacement.vitesseX) < 0){
+		sr.flipX = true;
+	}
+	else {
+		sr.flipX = false;
+	}
+}
+```
+
 ## Cours 20 - Gestion d'animations multiples avec Animator pt.2
 
 À venir.
