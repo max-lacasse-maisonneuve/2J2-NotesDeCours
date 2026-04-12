@@ -107,7 +107,49 @@ On peut aussi définir des limites sur l'espace général de la scène. Les éta
 
 ## Cours 19 - Gestion d'animations multiples avec Animator pt.1
 
-À venir.
+### Préparation des animations : course, repos
+
+1. On utilise le **Sprite Editor** pour découper et définir les pivots des sprites `player-idle` et `player-run`
+2. Avec le panneau **Animation** et l'objet *Visuel* de notre *Personnage* sélectionné, on va créer deux [animations image par image](16_AnimationImageParImage), une pour le repos et une autre pour la course. Les deux doivent être en boucle (**Animation Clip > Loop Time actif**).
+3. La création de ces animations va aussi créer un composant **Animator** à l'objet *Visuel* et un fichier du type **Animator Controller**. On va double-cliquer le fichier du type Animator Controller pour explorer notre [machine d'état qui va gérer les animations multiples](19_GestionAnimationsMultiples1_Animator).
+
+### Configuration des états, paramètres et transitions
+
+1. On va définir l'animation de **repos** comme notre animation défaut (*Bouton droit sur l'etat > Set Default Layer State*).
+2. On créer une transition de **repos à course** (*Bouton droit > Make Transition*).	
+	![](images/animator-transition-caverne.png)
+3. On va aussi créer une transition de retour **course à repos**.
+4. Après sélectionner les flèches de chaque transition, on désactive l'option *HasExitTime* des transitions.
+5. On retourne au panneau Animator. Dans l'onglet Parameters, on va ajouter un nouveau paramètre du type float nommé `vitesse`.
+6. Dans les transitions, on va créer des **conditions** en utilisant ce paramètre:
+	1. Transition *Repos > Course* : vitesse `Greater` 0.1.
+	2. Transition *Course > Repos* : vitesse `Less` 0.1.
+	![](images/animator-config-transition-caverne.png)
+
+### Connexion avec notre logique de jeu (scripts)
+
+1. Pour envoyer les informations de nos scripts vers l'Animator, on utilise les fonctions `SetFloat()` , `SetBool()` et `SetTrigger()` de la composante **Animator**.
+2. Dans un nouveau script `Personnage.cs` ajouté à notre objet *Personnage*, on va prendre des références à l'**Animator** de l'objet *Visuel* et à notre composant **DeplacementPlatformer**:
+
+```csharp
+Animator anim;
+DeplacementPlatformer deplacement;
+
+void Start(){
+	anim = GetComponentInChildren<Animator>();
+	deplacement = GetComponent<DeplacementPlatformer>();
+}
+```
+
+3. On va récupérer la vitesse horizontal du personnage, calculer son intensité, c.à.d. la valeur absolue `Mathf.Abs()`, et garder dans une variable float `intensiteVitesseX`.
+4. Après, on va envoyer cette information au paramètre `vitesse` de notre Animator, en utilisant la méthode `SetFloat()`.
+```csharp
+void Update(){
+	float intensiteVitessseX = 0f;
+	intensiteVitesseX = Mathf.Abs(deplacement.vitesseX);
+	anim.SetFloat("vitesse", intensiteVitesseX);
+}
+```
 
 ## Cours 20 - Gestion d'animations multiples avec Animator pt.2
 
