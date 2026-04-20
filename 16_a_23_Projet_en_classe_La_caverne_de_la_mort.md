@@ -167,7 +167,46 @@ Pour bloquer des double-sauts, on veut le modifier pour qu'il soit activé seule
 
 ## Cours 21 - Instanciation de projectiles
 
-À venir.
+### Création du prefab
+
+1. On ajoute un nouveau **GameObject** nommé `Projectile`.
+2. On ajoute un **SpriteRenderer** avec un sprite de balle, un **Rigidbody2D** sans gravité et un **CircleCollider2D**.
+3. On va aussi créer un script `Projectile.cs` et l'ajouter à cet objet.
+4. Dans le script on ajoute la logique suivante :
+    ```csharp
+    public void Declencher(float vitesseX)
+    {
+        GetComponent<SpriteRenderer>().flipX = vitesseX < 0;
+        GetComponent<Rigidbody2D>().linearVelocityX = vitesseX;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+    ```
+5. On l'enregistre comme un prefab dans un dossier Prefabs dans le panneau _Project_.
+
+### Action et instanciation
+
+2. Dans notre script `Personnage.cs`, on ajoute un champ public `InputAction` nommée `actionTir` et on la configure dans `OnEnable()` et `OnDisable()`.
+3. On ajoute aussi un champ public du type `Projectile` nommé `prefabProjectile`, un  `Vector2` nommé `offsetDepartTir` avec la valeur `0.5f` et un `float` nommé `vitesseTir` avec `10f`.
+4. On utilise `sr.flipX` pour traiter la position de départ. Si il est vrai, le personnage regarde la droite, donc on somme la position de départ à la position du personnage. Si non , on la subtracte.
+    ```csharp
+    float signeDirection = (sr.flipX) ? 1 : -1;
+    Vector2 positionDepart = rb.position + (offsetDepartTir * signeDirection);
+    ```
+5. Dans notre` Update()`, on vérifie que `actionTir` a été pressée dans ce cadre. C'est dans cet `if` qu'on va instancier notre prefab.
+6. On ajoute `var nouveauTir = Instantiate(prefabProjectile, positionDepart, transform.rotation)`.
+7. On exécute la méthode `nouveauTir.Declencher(Vector2.right * signeDirection * vitesseTir);` pour lancer le projectile.
+
+### Intégration de l'animation et de l'état de tir
+
+1. Créer une animation avec les sprites de `player-shoot` nommée `Perso-Tir`. Décocher l'option de `Loop Time` dans l'**AnimationClip**.
+2. 
+3. Dans l'**AnimatorController** pour le Personnage, ajouter un nouveau paramètre du type Trigger nommé `tir`.
+4. Dans le code du personnage, juste après l'instanciation du projectile, on utilise `anim.SetTrigger("tir")` pour mettre à jour la machine d'états.
+5. On ajoute aussi des transitions dans l'**AnimatorController**: `Any State -> Pers-Tir` et `Perso-Tir -> Perso-Repos`. La première transition est déclenchée par le trigger `tir`. La seule condition de sortie est le `HasExitTime`.
 
 ## Cours 22 - Gestion d'ennemis et listes
 
